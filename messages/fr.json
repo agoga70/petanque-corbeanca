@@ -46,7 +46,12 @@
     "pillar3_text": "En doublettes ou en triplettes, la pétanque exige une communication ouverte et une prise de décision collective. Les coéquipiers doivent collaborer sur les stratégies — pointer (s'approcher du cochonnet) ou tirer (déloger la boule adverse). Cet objectif commun crée une confiance mutuelle et une célébration collective après un beau lancer.",
     "pillar4_title": "Culture du club et de la communauté",
     "pillar4_text": "Les groupes locaux de pétanque font souvent office de véritables centres communautaires. Les membres organisent régulièrement des tournois informels, des pique-niques et des repas d'après-match. Cet environnement vibrant entretient des amitiés durables, favorise les réseaux locaux et offre un moyen accessible de briser l'isolement du quotidien.",
-    "source_label": "Source"
+    "source_label": "Source",
+    "rules_label": "Règles & Guide",
+    "rules_title": "Les règles de base de la pétanque",
+    "rules_text": "Un guide complet pour les débutants : comment se joue la pétanque, quel équipement est nécessaire et quelles sont les règles principales.",
+    "rules_official": "Règles officielles (EN)",
+    "rules_guide": "Guide pour débutants (EN)"
   },
   "events": {
     "title": "Événements",

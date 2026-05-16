@@ -136,6 +136,41 @@ function AboutContent() {
         </div>
       </section>
 
+      {/* Rules section */}
+      <section style={{ background: "#f2f2f2", borderBottom: "2px solid #0a0a0a" }}>
+        <div className="max-w-7xl mx-auto px-6 py-12">
+          <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#F06000" }}>
+            {t("rules_label")}
+          </p>
+          <h2 className="font-black uppercase text-2xl md:text-3xl mb-3" style={{ letterSpacing: "-0.03em" }}>
+            {t("rules_title")}
+          </h2>
+          <p className="mb-8 max-w-2xl" style={{ color: "#555", lineHeight: 1.8 }}>
+            {t("rules_text")}
+          </p>
+          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+            <a href="https://www.obut.com/en/content/92-petanque-rules" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-between px-5 py-4 group"
+              style={{ background: "#fff", border: "2px solid #0a0a0a", minWidth: "260px" }}>
+              <span className="text-xs font-black uppercase tracking-widest">Obut — {t("rules_official")}</span>
+              <span className="font-black text-lg group-hover:translate-x-1 transition-transform ml-4" style={{ color: "#F06000" }}>→</span>
+            </a>
+            <a href="https://fipjp.org/images/2021/reglements/Official_Rules_Petanque-En.pdf" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-between px-5 py-4 group"
+              style={{ background: "#fff", border: "2px solid #0a0a0a", minWidth: "260px" }}>
+              <span className="text-xs font-black uppercase tracking-widest">FIPJP — {t("rules_official")} (PDF)</span>
+              <span className="font-black text-lg group-hover:translate-x-1 transition-transform ml-4" style={{ color: "#F06000" }}>→</span>
+            </a>
+            <a href="https://www.thesimplethings.com/blog/rules-petanque" target="_blank" rel="noopener noreferrer"
+              className="flex items-center justify-between px-5 py-4 group"
+              style={{ background: "#fff", border: "2px solid #0a0a0a", minWidth: "260px" }}>
+              <span className="text-xs font-black uppercase tracking-widest">The Simple Things — {t("rules_guide")}</span>
+              <span className="font-black text-lg group-hover:translate-x-1 transition-transform ml-4" style={{ color: "#F06000" }}>→</span>
+            </a>
+          </div>
+        </div>
+      </section>
+
     </>
   );
 }

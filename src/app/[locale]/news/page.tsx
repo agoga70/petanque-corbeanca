@@ -35,20 +35,6 @@ const articles = [
   {
     id: 4,
     num: "04",
-    title: "Regulile de bază ale pétanque-ului",
-    date: "2024-08-01",
-    excerpt: "Un ghid complet pentru începători: cum se joacă pétanque, ce echipament este necesar și care sunt regulile principale.",
-    tag: "Ghid",
-    href: null,
-    links: [
-      { label: "Obut — Regulile oficiale (EN)", url: "https://www.obut.com/en/content/92-petanque-rules" },
-      { label: "FIPJP — Regulament oficial (EN, PDF)", url: "https://fipjp.org/images/2021/reglements/Official_Rules_Petanque-En.pdf" },
-      { label: "The Simple Things — Ghid pentru începători (EN)", url: "https://www.thesimplethings.com/blog/rules-petanque" },
-    ],
-  },
-  {
-    id: 5,
-    num: "05",
     title: "Pétanque — sportul care unește generațiile",
     date: "2024-07-20",
     excerpt: "De la tineri la vârstnici, pétanque este unul dintre puținele sporturi care aduc laolaltă toate categoriile de vârstă.",

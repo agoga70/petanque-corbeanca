@@ -46,7 +46,12 @@
     "pillar3_text": "Când se joacă în perechi (dublete) sau tripluri, pétanque necesită comunicare deschisă și luare de decizii colective. Coechipieri trebuie să colaboreze la strategii — dacă să \"pointeze\" (să se apropie de cochonnet) sau să \"tireze\" (să lovească bila adversarului). Acest obiectiv comun construiește încredere mutuală și bucurie colectivă.",
     "pillar4_title": "Cultura clubului și a comunității",
     "pillar4_text": "Grupurile locale de pétanque acționează adesea ca hub-uri vitale ale comunității. Membrii organizează frecvent turnee informale, picnicuri și mese după joc. Acest mediu vibrant hrănește prietenii de lungă durată, favorizează rețelele locale și oferă o modalitate accesibilă de a rupe izolarea rutinei zilnice.",
-    "source_label": "Sursă"
+    "source_label": "Sursă",
+    "rules_label": "Reguli & Ghid",
+    "rules_title": "Regulile de bază ale pétanque-ului",
+    "rules_text": "Un ghid complet pentru începători: cum se joacă pétanque, ce echipament este necesar și care sunt regulile principale.",
+    "rules_official": "Regulile oficiale (EN)",
+    "rules_guide": "Ghid pentru începători (EN)"
   },
   "events": {
     "title": "Evenimente",
