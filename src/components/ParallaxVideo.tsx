@@ -14,7 +14,7 @@ function lerp(a: number, b: number, t: number) {
 export default function ParallaxVideo({ src, height = 500 }: Props) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const rafRef = useRef<number>();
+  const rafRef = useRef<number | undefined>(undefined);
   const currentTop = useRef(0);
   const currentBottom = useRef(0);
   const targetTop = useRef(0);

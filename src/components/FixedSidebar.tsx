@@ -14,7 +14,7 @@ interface Props {
 export default function FixedSidebar({ src, alt }: Props) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const imgRef = useRef<HTMLImageElement>(null);
-  const rafRef = useRef<number>();
+  const rafRef = useRef<number | undefined>(undefined);
   const curTop = useRef(9999);
   const curBot = useRef(9999);
   const tgtTop = useRef(9999);

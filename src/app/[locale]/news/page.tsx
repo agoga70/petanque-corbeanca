@@ -1,7 +1,18 @@
 import { useTranslations } from "next-intl";
 import FixedSidebar from "@/components/FixedSidebar";
 
-const articles = [
+type Article = {
+  id: number;
+  num: string;
+  title: string;
+  date: string;
+  excerpt: string;
+  tag: string;
+  href: string | null;
+  links: { label: string; url: string }[] | null;
+};
+
+const articles: Article[] = [
   {
     id: 1,
     num: "01",
