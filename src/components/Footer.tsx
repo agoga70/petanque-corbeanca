@@ -15,6 +15,9 @@ export default function Footer() {
           <p className="font-black uppercase text-xl tracking-tighter" style={{ letterSpacing: "-0.03em" }}>
             Pétanque<span style={{ color: "#F06000" }}>.</span>Corbeanca
           </p>
+          <p className="text-xs mt-1" style={{ color: "#555" }}>
+            Club Sportiv Pétanque Corbeanca
+          </p>
           <p className="text-xs mt-2" style={{ color: "#888" }}>
             © {new Date().getFullYear()} — {t("rights")}
           </p>

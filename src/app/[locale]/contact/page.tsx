@@ -21,7 +21,7 @@ function ContactContent() {
       <section style={{ background: "#0a0a0a", color: "#fff", borderBottom: "2px solid #F06000" }}>
         <div className="max-w-7xl mx-auto px-6 py-12">
           <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#F06000" }}>
-            05 — Contact
+            05 — Club Sportiv Pétanque Corbeanca
           </p>
           <h1
             className="font-black uppercase"
