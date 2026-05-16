@@ -10,22 +10,35 @@ interface Props {
 export default function ParallaxVideo({ src, height = 500 }: Props) {
   const sectionRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const rafRef = useRef<number>();
 
   useEffect(() => {
     const section = sectionRef.current;
     const video = videoRef.current;
     if (!section || !video) return;
 
-    function onScroll() {
+    function update() {
       const rect = section!.getBoundingClientRect();
-      // Move video at ~40% of scroll speed — creates the parallax gap effect
-      const offset = (rect.top / window.innerHeight) * -60;
-      video!.style.transform = `translateY(${offset}px)`;
+      // Clip the fixed video to only show within the section's current screen position
+      const top = Math.max(0, rect.top);
+      const bottom = Math.max(0, window.innerHeight - rect.bottom);
+      video!.style.clipPath = `inset(${top}px 0px ${bottom}px 0px)`;
+    }
+
+    function onScroll() {
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+      rafRef.current = requestAnimationFrame(update);
     }
 
     window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
-    return () => window.removeEventListener("scroll", onScroll);
+    window.addEventListener("resize", onScroll, { passive: true });
+    update();
+
+    return () => {
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (rafRef.current) cancelAnimationFrame(rafRef.current);
+    };
   }, []);
 
   return (
@@ -33,8 +46,7 @@ export default function ParallaxVideo({ src, height = 500 }: Props) {
       ref={sectionRef}
       style={{
         position: "relative",
-        height: `${height}px`,
-        overflow: "hidden",
+        height,
         borderTop: "2px solid #0a0a0a",
         borderBottom: "2px solid #F06000",
       }}
@@ -47,21 +59,16 @@ export default function ParallaxVideo({ src, height = 500 }: Props) {
         loop
         playsInline
         style={{
-          position: "absolute",
-          top: "-15%",
+          position: "fixed",
+          top: 0,
           left: 0,
           width: "100%",
-          height: "130%",
+          height: "100%",
           objectFit: "cover",
-          willChange: "transform",
+          zIndex: -1,
+          willChange: "clip-path",
         }}
       />
-      {/* subtle dark vignette so surrounding content reads cleanly */}
-      <div style={{
-        position: "absolute", inset: 0,
-        background: "linear-gradient(to bottom, rgba(0,0,0,0.25) 0%, transparent 40%, transparent 60%, rgba(0,0,0,0.25) 100%)",
-        pointerEvents: "none",
-      }} />
     </section>
   );
 }
