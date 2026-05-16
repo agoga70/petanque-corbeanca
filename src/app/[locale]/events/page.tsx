@@ -25,7 +25,7 @@ function EventsContent() {
         <div className="max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-[1fr_1fr_260px]" style={{ minHeight: "650px" }}>
 
           {/* Portrait video */}
-          <div style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", background: "#0a0a0a" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
+          <div style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", background: "#0a0a0a", position: "relative" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
             <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #F06000" }}>
               Video
             </p>
@@ -38,6 +38,19 @@ function EventsContent() {
               style={{ width: "100%", height: "clamp(320px, 60vw, 600px)", objectFit: "cover", display: "block" }}
               className="md:h-[calc(100%-45px)]"
             />
+            {/* Copyright overlay */}
+            <div style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              padding: "1rem",
+              background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)",
+            }}>
+              <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.65rem", fontWeight: 900, letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                © Pétanque Dracula Cup 2026 — All rights reserved
+              </p>
+            </div>
           </div>
 
           {/* Facebook embed */}
