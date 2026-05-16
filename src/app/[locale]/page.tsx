@@ -1,7 +1,7 @@
 import { useTranslations } from "next-intl";
 import { getLocale } from "next-intl/server";
 import Link from "next/link";
-import VideoStrip from "@/components/VideoStrip";
+import ParallaxVideo from "@/components/ParallaxVideo";
 
 export default async function HomePage() {
   const locale = await getLocale();
@@ -104,8 +104,8 @@ function HomeContent({ locale }: { locale: string }) {
         </div>
       </section>
 
-      {/* Video strip */}
-      <VideoStrip videos={["/videos/petanque-17658629.mp4", "/videos/10071085.mp4"]} />
+      {/* Parallax video */}
+      <ParallaxVideo src="/videos/petanque-17658629.mp4" height={480} />
 
       {/* CTA */}
       <section style={{ background: "#F06000", color: "#fff" }}>

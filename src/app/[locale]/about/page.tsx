@@ -1,12 +1,5 @@
 import { useTranslations } from "next-intl";
-import VideoStrip from "@/components/VideoStrip";
-
-const SOCIAL_VIDEOS = [
-  "/videos/10071091.mp4",
-  "/videos/10071086.mp4",
-  "/videos/10071088.mp4",
-  "/videos/10071090.mp4",
-];
+import ParallaxVideo from "@/components/ParallaxVideo";
 
 export default function AboutPage() {
   return <AboutContent />;
@@ -90,8 +83,8 @@ function AboutContent() {
         </div>
       </section>
 
-      {/* Social video strip */}
-      <VideoStrip videos={SOCIAL_VIDEOS} />
+      {/* Parallax video */}
+      <ParallaxVideo src="/videos/10071086.mp4" height={480} />
 
       {/* Social sport section */}
       <section style={{ borderBottom: "2px solid #0a0a0a" }}>
