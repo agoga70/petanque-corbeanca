@@ -137,77 +137,81 @@ function AboutContent() {
       </section>
 
       {/* Rules section */}
-      <section style={{ background: "#F06000", color: "#fff", borderBottom: "2px solid #0a0a0a" }}>
+      <section style={{ borderBottom: "2px solid #0a0a0a" }}>
 
-        {/* Motto */}
-        <div className="max-w-7xl mx-auto px-6 pt-14 pb-8">
-          <p className="text-xs font-black uppercase tracking-widest mb-6" style={{ color: "rgba(255,255,255,0.6)" }}>
-            {t("rules_label")} — FIPJP
-          </p>
-          <h2
-            className="font-black uppercase leading-none mb-6"
-            style={{ fontSize: "clamp(3rem, 10vw, 7rem)", letterSpacing: "-0.04em", lineHeight: 0.88 }}
-          >
-            {t("motto_line1")}<br />
-            <span style={{ color: "rgba(255,255,255,0.25)" }}>{t("motto_line2")}</span><br />
-            {t("motto_line3")}
-          </h2>
-          <p className="max-w-xl mb-0" style={{ color: "rgba(255,255,255,0.75)", lineHeight: 1.8, fontSize: "0.9rem" }}>
-            {t("rules_text")}
-          </p>
-        </div>
-
-        {/* Format cards */}
-        <div className="max-w-7xl mx-auto px-6 pb-10">
-          <div className="grid md:grid-cols-3 gap-0" style={{ border: "2px solid rgba(255,255,255,0.3)" }}>
-            {([
-              { num: "№ 01", key: "tete", descKey: "tete_desc" },
-              { num: "№ 02", key: "doublette", descKey: "doublette_desc" },
-              { num: "№ 03", key: "triplette", descKey: "triplette_desc" },
-            ] as const).map((f, i) => (
-              <div
-                key={f.key}
-                className="p-8"
-                style={{
-                  borderRight: i < 2 ? "2px solid rgba(255,255,255,0.3)" : "none",
-                  borderBottom: "2px solid rgba(255,255,255,0.3)",
-                }}
-              >
-                <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "rgba(255,255,255,0.5)" }}>
-                  {f.num}
-                </p>
-                <h3 className="font-black uppercase text-2xl md:text-3xl mb-3" style={{ letterSpacing: "-0.03em" }}>
-                  {t(f.key)}
-                </h3>
-                <p style={{ color: "rgba(255,255,255,0.75)", lineHeight: 1.7, fontSize: "0.875rem" }}>
-                  {t(f.descKey)}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* FIPJP measurements */}
-          <div className="grid grid-cols-3 gap-0" style={{ borderLeft: "2px solid rgba(255,255,255,0.3)", borderRight: "2px solid rgba(255,255,255,0.3)", borderBottom: "2px solid rgba(255,255,255,0.3)" }}>
-            {[
-              { value: "12m", label: t("measure_distance") },
-              { value: "800g", label: t("measure_weight") },
-              { value: "13pt", label: t("measure_points") },
-            ].map((m, i) => (
-              <div key={m.label} className="px-6 py-8 text-center" style={{ borderRight: i < 2 ? "2px solid rgba(255,255,255,0.3)" : "none" }}>
-                <p className="font-black" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.04em", lineHeight: 1 }}>
-                  {m.value}
-                </p>
-                <p className="text-xs font-black uppercase tracking-widest mt-2" style={{ color: "rgba(255,255,255,0.6)" }}>
-                  {m.label}
-                </p>
-              </div>
-            ))}
+        {/* Band 1 — Orange: motto */}
+        <div style={{ background: "#F06000", color: "#fff", borderBottom: "2px solid #0a0a0a" }}>
+          <div className="max-w-7xl mx-auto px-6 pt-14 pb-10">
+            <p className="text-xs font-black uppercase tracking-widest mb-6" style={{ color: "rgba(255,255,255,0.6)" }}>
+              {t("rules_label")} — FIPJP
+            </p>
+            <h2
+              className="font-black uppercase leading-none mb-6"
+              style={{ fontSize: "clamp(3rem, 10vw, 7rem)", letterSpacing: "-0.04em", lineHeight: 0.88 }}
+            >
+              {t("motto_line1")}<br />
+              <span style={{ color: "rgba(255,255,255,0.3)" }}>{t("motto_line2")}</span><br />
+              {t("motto_line3")}
+            </h2>
+            <p className="max-w-xl" style={{ color: "rgba(255,255,255,0.8)", lineHeight: 1.8, fontSize: "0.9rem" }}>
+              {t("rules_text")}
+            </p>
           </div>
         </div>
 
-        {/* Source links */}
-        <div className="max-w-7xl mx-auto px-6 pb-12">
-          <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "rgba(255,255,255,0.5)" }}>
+        {/* Band 2 — White: format cards + measurements */}
+        <div style={{ background: "#fff", borderBottom: "2px solid #0a0a0a" }}>
+          <div className="max-w-7xl mx-auto">
+
+            {/* Format cards */}
+            <div className="grid md:grid-cols-3 gap-0" style={{ borderBottom: "2px solid #0a0a0a" }}>
+              {([
+                { num: "№ 01", key: "tete", descKey: "tete_desc" },
+                { num: "№ 02", key: "doublette", descKey: "doublette_desc" },
+                { num: "№ 03", key: "triplette", descKey: "triplette_desc" },
+              ] as const).map((f, i) => (
+                <div
+                  key={f.key}
+                  className="p-8"
+                  style={{ borderBottom: i < 3 ? "2px solid #f2f2f2" : "none", borderRight: i < 2 ? "2px solid #0a0a0a" : "none" }}
+                >
+                  <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#bbb" }}>
+                    {f.num}
+                  </p>
+                  <h3 className="font-black uppercase text-2xl md:text-3xl mb-3" style={{ letterSpacing: "-0.03em", color: "#F06000" }}>
+                    {t(f.key)}
+                  </h3>
+                  <p style={{ color: "#555", lineHeight: 1.7, fontSize: "0.875rem" }}>
+                    {t(f.descKey)}
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            {/* FIPJP measurements */}
+            <div className="grid grid-cols-3 gap-0">
+              {[
+                { value: "12m", label: t("measure_distance") },
+                { value: "800g", label: t("measure_weight") },
+                { value: "13pt", label: t("measure_points") },
+              ].map((m, i) => (
+                <div key={m.label} className="px-6 py-10 text-center" style={{ borderRight: i < 2 ? "2px solid #0a0a0a" : "none" }}>
+                  <p className="font-black" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.04em", lineHeight: 1, color: "#0a0a0a" }}>
+                    {m.value}
+                  </p>
+                  <p className="text-xs font-black uppercase tracking-widest mt-2" style={{ color: "#F06000" }}>
+                    {m.label}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Band 3 — Orange: source links */}
+        <div style={{ background: "#F06000", color: "#fff" }}>
+          <div className="max-w-7xl mx-auto px-6 py-10">
+          <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "rgba(255,255,255,0.6)" }}>
             {t("rules_label")}
           </p>
           <div className="flex flex-col sm:flex-row flex-wrap gap-3">
@@ -229,6 +233,7 @@ function AboutContent() {
               <span className="text-xs font-black uppercase tracking-widest">The Simple Things — {t("rules_guide")}</span>
               <span className="font-black text-lg group-hover:translate-x-1 transition-transform ml-4">→</span>
             </a>
+          </div>
           </div>
         </div>
       </section>
