@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "events": "Events",
+    "news": "News",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero_title": "Pétanque Club Corbeanca",
+    "hero_subtitle": "Passion, friendship and steel balls under the open sky",
+    "hero_cta": "Discover the club",
+    "hero_cta2": "Events",
+    "about_title": "About us",
+    "about_text": "We are a pétanque club from Corbeanca, dedicated to promoting this elegant and accessible sport. We meet regularly on the court, regardless of age or experience level.",
+    "events_title": "Latest events",
+    "events_cta": "See all events",
+    "join_title": "Want to play with us?",
+    "join_text": "The club is open to everyone. Come to practice or write to us!",
+    "join_cta": "Contact us"
+  },
+  "about": {
+    "title": "About Pétanque Club Corbeanca",
+    "subtitle": "A community united by the passion for pétanque",
+    "history_title": "Club history",
+    "history_text": "Pétanque Club Corbeanca was founded with the goal of bringing together lovers of this French-origin sport. Over the years, we have grown as a family and participated in numerous local and national competitions.",
+    "petanque_title": "What is pétanque?",
+    "petanque_text": "Pétanque is a precision sport originating from the south of France, in which players throw metal balls as close as possible to a small wooden ball called the cochonnet (or jack). It is played on any flat surface, outdoors, and is accessible to anyone.",
+    "values_title": "Our values",
+    "value1_title": "Friendship",
+    "value1_text": "Team spirit and camaraderie are at the core of everything we do.",
+    "value2_title": "Inclusion",
+    "value2_text": "Everyone is welcome, regardless of age, experience or skill level.",
+    "value3_title": "Passion",
+    "value3_text": "We love this sport and want to make it known in our community."
+  },
+  "events": {
+    "title": "Events",
+    "subtitle": "Follow our club's activity",
+    "facebook_note": "All events are also published on our Facebook page."
+  },
+  "news": {
+    "title": "Pétanque News",
+    "subtitle": "News from the world of pétanque",
+    "read_more": "Read more",
+    "published": "Published on"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch with us",
+    "email_label": "Email",
+    "phone_label": "Phone / WhatsApp",
+    "social_label": "Social media",
+    "location_label": "Location",
+    "location_text": "Corbeanca, Ilfov, Romania",
+    "message_title": "Send us a message",
+    "message_text": "The fastest response is on WhatsApp or Facebook Messenger."
+  },
+  "footer": {
+    "rights": "All rights reserved",
+    "club": "Pétanque Club Corbeanca"
+  }
+}

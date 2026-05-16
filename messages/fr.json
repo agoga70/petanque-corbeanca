@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "about": "Le Club",
+    "events": "Événements",
+    "news": "Actualités",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero_title": "Club de Pétanque Corbeanca",
+    "hero_subtitle": "Passion, amitié et boules de métal sous le ciel ouvert",
+    "hero_cta": "Découvrir le club",
+    "hero_cta2": "Événements",
+    "about_title": "À propos",
+    "about_text": "Nous sommes un club de pétanque de Corbeanca, dédié à la promotion de ce sport élégant et accessible à tous. Nous nous retrouvons régulièrement sur le terrain, quel que soit l'âge ou le niveau.",
+    "events_title": "Derniers événements",
+    "events_cta": "Voir tous les événements",
+    "join_title": "Envie de jouer avec nous ?",
+    "join_text": "Le club est ouvert à tous. Venez vous entraîner ou écrivez-nous !",
+    "join_cta": "Nous contacter"
+  },
+  "about": {
+    "title": "À propos du Club de Pétanque Corbeanca",
+    "subtitle": "Une communauté unie par la passion de la pétanque",
+    "history_title": "Histoire du club",
+    "history_text": "Le Club de Pétanque Corbeanca a été fondé dans le but de rassembler les amateurs de ce sport d'origine française. Au fil des années, nous avons grandi comme une famille et participé à de nombreuses compétitions locales et nationales.",
+    "petanque_title": "Qu'est-ce que la pétanque ?",
+    "petanque_text": "La pétanque est un sport de précision originaire du sud de la France, dans lequel les joueurs lancent des boules métalliques le plus près possible d'une petite boule en bois appelée cochonnet (ou jack). Elle se joue sur toute surface plane, en plein air, et est accessible à tous.",
+    "values_title": "Nos valeurs",
+    "value1_title": "Amitié",
+    "value1_text": "L'esprit d'équipe et la camaraderie sont au cœur de tout ce que nous faisons.",
+    "value2_title": "Inclusion",
+    "value2_text": "Tout le monde est le bienvenu, quel que soit l'âge, l'expérience ou le niveau de jeu.",
+    "value3_title": "Passion",
+    "value3_text": "Nous aimons ce sport et souhaitons le faire connaître dans notre communauté."
+  },
+  "events": {
+    "title": "Événements",
+    "subtitle": "Suivez l'activité de notre club",
+    "facebook_note": "Tous les événements sont également publiés sur notre page Facebook."
+  },
+  "news": {
+    "title": "Actualités Pétanque",
+    "subtitle": "Les nouvelles du monde de la pétanque",
+    "read_more": "Lire la suite",
+    "published": "Publié le"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Prenez contact avec nous",
+    "email_label": "Email",
+    "phone_label": "Téléphone / WhatsApp",
+    "social_label": "Réseaux sociaux",
+    "location_label": "Localisation",
+    "location_text": "Corbeanca, Ilfov, Roumanie",
+    "message_title": "Envoyez-nous un message",
+    "message_text": "La réponse la plus rapide est sur WhatsApp ou Facebook Messenger."
+  },
+  "footer": {
+    "rights": "Tous droits réservés",
+    "club": "Club de Pétanque Corbeanca"
+  }
+}

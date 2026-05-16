@@ -1,0 +1,63 @@
+{
+  "nav": {
+    "home": "Acasă",
+    "about": "Despre Club",
+    "events": "Evenimente",
+    "news": "Știri",
+    "contact": "Contact"
+  },
+  "home": {
+    "hero_title": "Clubul de Pétanque Corbeanca",
+    "hero_subtitle": "Pasiune, prietenie și bile de metal sub cerul liber",
+    "hero_cta": "Descoperă clubul",
+    "hero_cta2": "Evenimente",
+    "about_title": "Despre noi",
+    "about_text": "Suntem un club de pétanque din Corbeanca, dedicat promovării acestui sport elegant și accesibil tuturor. Ne întâlnim regulat pe teren, indiferent de vârstă sau nivel de experiență.",
+    "events_title": "Ultimele evenimente",
+    "events_cta": "Vezi toate evenimentele",
+    "join_title": "Vrei să joci cu noi?",
+    "join_text": "Clubul este deschis tuturor. Vino la antrenament sau scrie-ne!",
+    "join_cta": "Contactează-ne"
+  },
+  "about": {
+    "title": "Despre Clubul de Pétanque Corbeanca",
+    "subtitle": "O comunitate unită de pasiunea pentru pétanque",
+    "history_title": "Istoria clubului",
+    "history_text": "Clubul de Pétanque Corbeanca a fost fondat cu scopul de a aduce împreună iubitorii acestui sport de origine franceză. De-a lungul anilor, am crescut ca familie și am participat la numeroase competiții locale și naționale.",
+    "petanque_title": "Ce este pétanque?",
+    "petanque_text": "Pétanque este un sport de precizie originar din sudul Franței, în care jucătorii aruncă bile metalice cât mai aproape de o bilă mică de lemn numită cochonnet (sau jack). Se joacă pe orice suprafață plată, în aer liber, și este accesibil oricui.",
+    "values_title": "Valorile noastre",
+    "value1_title": "Prietenie",
+    "value1_text": "Spiritul de echipă și colegialitatea sunt la baza a tot ceea ce facem.",
+    "value2_title": "Incluziune",
+    "value2_text": "Bine veniți toți, indiferent de vârstă, experiență sau nivel de joc.",
+    "value3_title": "Pasiune",
+    "value3_text": "Iubim acest sport și vrem să îl facem cunoscut în comunitatea noastră."
+  },
+  "events": {
+    "title": "Evenimente",
+    "subtitle": "Urmărește activitatea clubului nostru",
+    "facebook_note": "Toate evenimentele sunt publicate și pe pagina noastră de Facebook."
+  },
+  "news": {
+    "title": "Știri despre Pétanque",
+    "subtitle": "Noutăți din lumea pétanque-ului",
+    "read_more": "Citește mai mult",
+    "published": "Publicat pe"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Ia legătura cu noi",
+    "email_label": "Email",
+    "phone_label": "Telefon / WhatsApp",
+    "social_label": "Rețele sociale",
+    "location_label": "Locație",
+    "location_text": "Corbeanca, Ilfov, România",
+    "message_title": "Trimite-ne un mesaj",
+    "message_text": "Cel mai rapid răspuns îl primești pe WhatsApp sau Facebook Messenger."
+  },
+  "footer": {
+    "rights": "Toate drepturile rezervate",
+    "club": "Clubul de Pétanque Corbeanca"
+  }
+}
