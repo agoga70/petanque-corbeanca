@@ -45,16 +45,22 @@ export default function Navbar() {
 
         {/* Desktop nav */}
         <div className="hidden md:flex items-center gap-0">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={`/${locale}${link.href}`}
-              className="text-xs font-bold uppercase tracking-widest px-5 py-4 transition-colors hover:text-red-600"
-              style={{ color: "#0a0a0a" }}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {links.map((link) => {
+            const active = pathWithoutLocale === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={`/${locale}${link.href}`}
+                className="text-xs font-bold uppercase tracking-widest px-5 py-4 transition-colors hover:text-red-600"
+                style={{
+                  color: active ? "#F06000" : "#0a0a0a",
+                  borderBottom: active ? "2px solid #F06000" : "2px solid transparent",
+                }}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           {/* Language switcher */}
           <div className="flex ml-6" style={{ borderLeft: "2px solid #0a0a0a" }}>
             {(["ro", "en", "fr"] as const).map((l) => (
@@ -86,17 +92,20 @@ export default function Navbar() {
       {/* Mobile menu */}
       {menuOpen && (
         <div style={{ borderTop: "2px solid #0a0a0a" }} className="md:hidden bg-white">
-          {links.map((link) => (
-            <Link
-              key={link.href}
-              href={`/${locale}${link.href}`}
-              className="block px-6 py-4 text-sm font-black uppercase tracking-widest"
-              style={{ borderBottom: "1px solid #f2f2f2", color: "#0a0a0a" }}
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {links.map((link) => {
+            const active = pathWithoutLocale === link.href;
+            return (
+              <Link
+                key={link.href}
+                href={`/${locale}${link.href}`}
+                className="block px-6 py-4 text-sm font-black uppercase tracking-widest"
+                style={{ borderBottom: "1px solid #f2f2f2", color: active ? "#F06000" : "#0a0a0a" }}
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            );
+          })}
           <div className="flex px-6 py-4 gap-4">
             {(["ro", "en", "fr"] as const).map((l) => (
               <button
