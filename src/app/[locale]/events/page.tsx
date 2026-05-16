@@ -77,6 +77,18 @@ function EventsContent() {
               style={{ width: "100%", height: "clamp(320px, 60vw, 600px)", objectFit: "cover", display: "block" }}
               className="md:h-[calc(100%-45px)]"
             />
+            <div style={{
+              position: "absolute",
+              bottom: 0,
+              left: 0,
+              right: 0,
+              padding: "1rem",
+              background: "linear-gradient(to top, rgba(0,0,0,0.75) 0%, transparent 100%)",
+            }}>
+              <p style={{ color: "rgba(255,255,255,0.6)", fontSize: "0.65rem", fontWeight: 900, letterSpacing: "0.08em", textTransform: "uppercase" }}>
+                © Pétanque Dracula Cup 2026 — All rights reserved
+              </p>
+            </div>
           </div>
 
         </div>
