@@ -1,5 +1,4 @@
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 
 const articles = [
   {
@@ -133,14 +132,16 @@ function NewsContent() {
           </div>
 
           {/* Boules image sidebar — hidden on mobile */}
-          <div className="hidden md:block" style={{ position: "sticky", top: "3.5rem", height: "calc(100vh - 3.5rem)", overflow: "hidden" }}>
-            <Image
-              src="/cspc-boules.jpg"
-              alt="Boules de pétanque"
-              fill
-              style={{ objectFit: "cover", objectPosition: "center" }}
-            />
-          </div>
+          <div
+            className="hidden md:block"
+            style={{
+              backgroundImage: "url('/cspc-boules.jpg')",
+              backgroundAttachment: "fixed",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              minHeight: "100%",
+            }}
+          />
         </div>
       </section>
     </>

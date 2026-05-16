@@ -1,5 +1,4 @@
 import { useTranslations } from "next-intl";
-import Image from "next/image";
 
 export default function ContactPage() {
   return <ContactContent />;
@@ -68,14 +67,16 @@ function ContactContent() {
           </div>
 
           {/* Image sidebar — hidden on mobile */}
-          <div className="hidden md:block" style={{ position: "sticky", top: "3.5rem", height: "calc(100vh - 3.5rem)", overflow: "hidden" }}>
-            <Image
-              src="/petanque-vert.jpg"
-              alt="Club Sportiv Pétanque Corbeanca"
-              fill
-              style={{ objectFit: "cover", objectPosition: "center" }}
-            />
-          </div>
+          <div
+            className="hidden md:block"
+            style={{
+              backgroundImage: "url('/petanque-vert.jpg')",
+              backgroundAttachment: "fixed",
+              backgroundSize: "cover",
+              backgroundPosition: "center",
+              minHeight: "100%",
+            }}
+          />
         </div>
       </section>
 
