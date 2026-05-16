@@ -22,10 +22,10 @@ function EventsContent() {
       </section>
 
       <section style={{ borderBottom: "2px solid #0a0a0a" }}>
-        <div className="max-w-7xl mx-auto" style={{ display: "grid", gridTemplateColumns: "1fr 1fr 260px", minHeight: "650px" }}>
+        <div className="max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-[1fr_1fr_260px]" style={{ minHeight: "650px" }}>
 
           {/* Portrait video */}
-          <div style={{ borderRight: "2px solid #0a0a0a", overflow: "hidden", background: "#0a0a0a" }}>
+          <div style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", background: "#0a0a0a" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
             <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #F06000" }}>
               Video
             </p>
@@ -35,12 +35,13 @@ function EventsContent() {
               muted
               loop
               playsInline
-              style={{ width: "100%", height: "calc(100% - 45px)", objectFit: "cover", display: "block" }}
+              style={{ width: "100%", height: "clamp(320px, 60vw, 600px)", objectFit: "cover", display: "block" }}
+              className="md:h-[calc(100%-45px)]"
             />
           </div>
 
           {/* Facebook embed */}
-          <div style={{ borderRight: "2px solid #0a0a0a" }}>
+          <div style={{ borderBottom: "2px solid #0a0a0a" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
             <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #0a0a0a" }}>
               Facebook — Timeline & Evenimente
             </p>
