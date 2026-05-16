@@ -7,6 +7,7 @@ export default function FacebookEmbed() {
 
   useEffect(() => {
     if (!containerRef.current) return;
+    containerRef.current.innerHTML = "";
     const width = containerRef.current.offsetWidth;
 
     const iframe = document.createElement("iframe");

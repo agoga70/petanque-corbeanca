@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export default function ContactPage() {
   return <ContactContent />;
@@ -34,36 +35,47 @@ function ContactContent() {
 
       {/* Contact grid */}
       <section>
-        <div
-          className="max-w-7xl mx-auto"
-          style={{ borderBottom: "2px solid #0a0a0a" }}
-        >
-          {contacts.map((c, i) => (
-            <div
-              key={c.label}
-              className="px-6 py-8 grid md:grid-cols-3 items-center"
-              style={{ borderBottom: i < contacts.length - 1 ? "2px solid #f2f2f2" : "none" }}
-            >
-              <p className="text-xs font-black uppercase tracking-widest mb-2 md:mb-0" style={{ color: "#888" }}>
-                {c.label}
-              </p>
-              {c.href ? (
-                <a
-                  href={c.href}
-                  target={c.href.startsWith("http") ? "_blank" : undefined}
-                  rel="noopener noreferrer"
-                  className="font-black text-xl md:text-2xl md:col-span-2 transition-colors hover:text-red-600"
-                  style={{ letterSpacing: "-0.02em", color: "#0a0a0a" }}
-                >
-                  {c.value} →
-                </a>
-              ) : (
-                <p className="font-black text-xl md:text-2xl md:col-span-2" style={{ letterSpacing: "-0.02em" }}>
-                  {c.value}
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_280px]" style={{ borderBottom: "2px solid #0a0a0a" }}>
+
+          {/* Contact rows */}
+          <div className="md:border-r-2 md:border-r-[#0a0a0a]">
+            {contacts.map((c, i) => (
+              <div
+                key={c.label}
+                className="px-6 py-8 grid md:grid-cols-3 items-center"
+                style={{ borderBottom: i < contacts.length - 1 ? "2px solid #f2f2f2" : "none" }}
+              >
+                <p className="text-xs font-black uppercase tracking-widest mb-2 md:mb-0" style={{ color: "#888" }}>
+                  {c.label}
                 </p>
-              )}
-            </div>
-          ))}
+                {c.href ? (
+                  <a
+                    href={c.href}
+                    target={c.href.startsWith("http") ? "_blank" : undefined}
+                    rel="noopener noreferrer"
+                    className="font-black text-xl md:text-2xl md:col-span-2 transition-colors hover:text-red-600"
+                    style={{ letterSpacing: "-0.02em", color: "#0a0a0a" }}
+                  >
+                    {c.value} →
+                  </a>
+                ) : (
+                  <p className="font-black text-xl md:text-2xl md:col-span-2" style={{ letterSpacing: "-0.02em" }}>
+                    {c.value}
+                  </p>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {/* Image sidebar — hidden on mobile */}
+          <div className="hidden md:block" style={{ position: "sticky", top: "3.5rem", height: "calc(100vh - 3.5rem)", overflow: "hidden" }}>
+            <Image
+              src="/cspc-boules.jpg"
+              alt="Club Sportiv Pétanque Corbeanca"
+              fill
+              style={{ objectFit: "cover", objectPosition: "center" }}
+            />
+          </div>
         </div>
       </section>
 
