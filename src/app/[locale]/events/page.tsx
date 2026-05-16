@@ -21,10 +21,11 @@ function EventsContent() {
         </div>
       </section>
 
+      {/* Three vertical columns */}
       <section style={{ borderBottom: "2px solid #0a0a0a" }}>
-        <div className="max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-[1fr_1fr_260px]" style={{ minHeight: "650px" }}>
+        <div className="max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-3" style={{ minHeight: "650px" }}>
 
-          {/* Portrait video */}
+          {/* Left — portrait video */}
           <div style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", background: "#0a0a0a", position: "relative" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
             <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #F06000" }}>
               Video
@@ -38,7 +39,6 @@ function EventsContent() {
               style={{ width: "100%", height: "clamp(320px, 60vw, 600px)", objectFit: "cover", display: "block" }}
               className="md:h-[calc(100%-45px)]"
             />
-            {/* Copyright overlay */}
             <div style={{
               position: "absolute",
               bottom: 0,
@@ -53,7 +53,7 @@ function EventsContent() {
             </div>
           </div>
 
-          {/* Facebook embed */}
+          {/* Middle — Facebook embed */}
           <div style={{ borderBottom: "2px solid #0a0a0a" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
             <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #0a0a0a" }}>
               Facebook — Timeline & Evenimente
@@ -63,11 +63,32 @@ function EventsContent() {
             </div>
           </div>
 
-          {/* Follow us sidebar */}
-          <div className="flex flex-col gap-4 p-5">
-            <p className="text-xs font-black uppercase tracking-widest" style={{ color: "#F06000" }}>
-              Urmărește-ne
+          {/* Right — Dracula Cup video */}
+          <div style={{ overflow: "hidden", background: "#0a0a0a", position: "relative" }}>
+            <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #F06000" }}>
+              Dracula Cup 2026
             </p>
+            <video
+              src="/videos/draculacup-2026-vert.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              style={{ width: "100%", height: "clamp(320px, 60vw, 600px)", objectFit: "cover", display: "block" }}
+              className="md:h-[calc(100%-45px)]"
+            />
+          </div>
+
+        </div>
+      </section>
+
+      {/* Follow us — horizontal tiles */}
+      <section style={{ borderBottom: "2px solid #0a0a0a" }}>
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <p className="text-xs font-black uppercase tracking-widest mb-5" style={{ color: "#F06000" }}>
+            Urmărește-ne
+          </p>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <a
               href="https://www.facebook.com/PetanqueCorbeanca"
               target="_blank"
@@ -107,12 +128,10 @@ function EventsContent() {
               </div>
               <span className="font-black text-xl group-hover:translate-x-1 transition-transform" style={{ color: "#F06000" }}>→</span>
             </a>
-            <div style={{ borderTop: "2px solid #f2f2f2", paddingTop: "1rem", marginTop: "auto" }}>
-              <p className="text-xs" style={{ color: "#555", lineHeight: 1.7 }}>
-                {t("facebook_note")}
-              </p>
-            </div>
           </div>
+          <p className="text-xs mt-5" style={{ color: "#555", lineHeight: 1.7, maxWidth: "40rem" }}>
+            {t("facebook_note")}
+          </p>
         </div>
       </section>
     </>
