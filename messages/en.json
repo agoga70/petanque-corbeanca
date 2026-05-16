@@ -15,8 +15,11 @@
     "about_text": "We are a pétanque club from Corbeanca, dedicated to promoting this elegant and accessible sport. We meet regularly on the court, regardless of age or experience level.",
     "events_title": "Latest events",
     "events_cta": "See all events",
+    "about_tagline": "Sport. Friendship. Community.",
+    "events_tagline": "What's happening.",
     "join_title": "Want to play with us?",
     "join_text": "The club is open to everyone. Come to practice or write to us!",
+    "read_more": "Read more",
     "join_cta": "Contact us"
   },
   "about": {
@@ -32,7 +35,18 @@
     "value2_title": "Inclusion",
     "value2_text": "Everyone is welcome, regardless of age, experience or skill level.",
     "value3_title": "Passion",
-    "value3_text": "We love this sport and want to make it known in our community."
+    "value3_text": "We love this sport and want to make it known in our community.",
+    "society_label": "Pétanque & Society",
+    "society_intro": "Pétanque is fundamentally a social sport that thrives on camaraderie, relaxed conversation, and community building. The unhurried pace allows friends and strangers alike to chat, share banter, and bond between turns. It bridges generational and physical divides, making it an ideal activity for both casual backyard gatherings and dedicated club outings.",
+    "pillar1_title": "Fosters Interpersonal Connection",
+    "pillar1_text": "The rhythm of the game naturally encourages face-to-face interaction. Because players spend most of their time waiting for opponents to throw or discussing team tactics, there is ample opportunity to catch up on news, share jokes, and engage in meaningful conversations. The social ritual is deeply entrenched in the culture, often accompanied by sharing drinks or food.",
+    "pillar2_title": "Accessibility and Inclusivity",
+    "pillar2_text": "Unlike highly strenuous physical sports, pétanque can be played and enjoyed equally by all ages, genders, and fitness levels. It requires no running, making it inclusive for older generations or players with limited mobility. Because it is easy to learn, newcomers can easily integrate into a group or local club.",
+    "pillar3_title": "Encourages Teamwork and Strategy",
+    "pillar3_text": "When played in pairs (doubles) or triples, pétanque demands open communication and collective decision-making. Teammates must collaborate on strategies — whether to \"point\" (get close to the jack) or \"shoot\" (knock the opponent's ball away). This shared objective builds mutual trust and collective celebration after a well-executed throw.",
+    "pillar4_title": "Community and Club Culture",
+    "pillar4_text": "Local pétanque groups often act as vital community hubs. Members frequently organize informal tournaments, picnics, and post-game meals. This vibrant club environment nurtures long-lasting friendships, fosters local networking, and provides an accessible way to break the isolation of daily routines.",
+    "source_label": "Source"
   },
   "events": {
     "title": "Events",
@@ -51,7 +65,7 @@
     "email_label": "Email",
     "phone_label": "Phone / WhatsApp",
     "social_label": "Social media",
-    "location_label": "Location",
+    "location_label": "Location (Tracks)",
     "location_text": "Corbeanca, Ilfov, Romania",
     "message_title": "Send us a message",
     "message_text": "The fastest response is on WhatsApp or Facebook Messenger."

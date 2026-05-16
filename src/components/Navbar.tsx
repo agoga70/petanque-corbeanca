@@ -1,11 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
 import { useState } from "react";
-
-const localeLabels: Record<string, string> = { ro: "RO", en: "EN", fr: "FR" };
 
 export default function Navbar() {
   const t = useTranslations("nav");
@@ -14,11 +13,10 @@ export default function Navbar() {
   const router = useRouter();
   const [menuOpen, setMenuOpen] = useState(false);
 
-  const localePrefix = `/${locale}`;
   const pathWithoutLocale = pathname.replace(/^\/(ro|en|fr)/, "") || "/";
 
-  function switchLocale(newLocale: string) {
-    router.push(`/${newLocale}${pathWithoutLocale}`);
+  function switchLocale(l: string) {
+    router.push(`/${l}${pathWithoutLocale}`);
   }
 
   const links = [
@@ -30,35 +28,46 @@ export default function Navbar() {
   ];
 
   return (
-    <nav className="bg-white border-b border-gray-200 sticky top-0 z-50">
-      <div className="max-w-6xl mx-auto px-4 flex items-center justify-between h-16">
-        <Link href={`${localePrefix}/`} className="flex items-center gap-2 font-bold text-green-700 text-lg">
-          <span className="text-2xl">🎯</span>
-          <span>Pétanque Corbeanca</span>
+    <nav style={{ borderBottom: "2px solid #0a0a0a" }} className="bg-white sticky top-0 z-50">
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between h-14">
+        {/* Logo */}
+        <Link href={`/${locale}/`} className="flex items-center gap-2">
+          <Image
+            src="/logo-transparent.png"
+            alt="Pétanque Corbeanca"
+            width={48}
+            height={48}
+          />
+          <span className="font-black uppercase tracking-tighter text-base hidden sm:block" style={{ color: "#0a0a0a", letterSpacing: "-0.03em" }}>
+            Pétanque<span style={{ color: "#F06000" }}>.</span>Corbeanca
+          </span>
         </Link>
 
-        {/* Desktop links */}
-        <div className="hidden md:flex items-center gap-6">
+        {/* Desktop nav */}
+        <div className="hidden md:flex items-center gap-0">
           {links.map((link) => (
             <Link
               key={link.href}
-              href={`${localePrefix}${link.href}`}
-              className="text-gray-600 hover:text-green-700 font-medium transition-colors text-sm"
+              href={`/${locale}${link.href}`}
+              className="text-xs font-bold uppercase tracking-widest px-5 py-4 transition-colors hover:text-red-600"
+              style={{ color: "#0a0a0a" }}
             >
               {link.label}
             </Link>
           ))}
           {/* Language switcher */}
-          <div className="flex gap-1 ml-4 border border-gray-200 rounded-full px-2 py-1">
+          <div className="flex ml-6" style={{ borderLeft: "2px solid #0a0a0a" }}>
             {(["ro", "en", "fr"] as const).map((l) => (
               <button
                 key={l}
                 onClick={() => switchLocale(l)}
-                className={`text-xs px-2 py-0.5 rounded-full font-semibold transition-colors ${
-                  locale === l ? "bg-green-700 text-white" : "text-gray-500 hover:text-green-700"
-                }`}
+                className="text-xs font-black uppercase px-3 py-4 transition-colors"
+                style={{
+                  color: locale === l ? "#F06000" : "#888",
+                  borderBottom: locale === l ? "2px solid #F06000" : "2px solid transparent",
+                }}
               >
-                {localeLabels[l]}
+                {l}
               </button>
             ))}
           </div>
@@ -66,43 +75,37 @@ export default function Navbar() {
 
         {/* Mobile hamburger */}
         <button
-          className="md:hidden text-gray-600"
+          className="md:hidden font-black text-xs uppercase tracking-widest"
           onClick={() => setMenuOpen(!menuOpen)}
-          aria-label="Toggle menu"
+          style={{ color: "#0a0a0a" }}
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            {menuOpen ? (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
-            ) : (
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            )}
-          </svg>
+          {menuOpen ? "✕ Close" : "☰ Menu"}
         </button>
       </div>
 
       {/* Mobile menu */}
       {menuOpen && (
-        <div className="md:hidden border-t border-gray-100 bg-white px-4 py-3 flex flex-col gap-3">
+        <div style={{ borderTop: "2px solid #0a0a0a" }} className="md:hidden bg-white">
           {links.map((link) => (
             <Link
               key={link.href}
-              href={`${localePrefix}${link.href}`}
-              className="text-gray-700 hover:text-green-700 font-medium py-1"
+              href={`/${locale}${link.href}`}
+              className="block px-6 py-4 text-sm font-black uppercase tracking-widest"
+              style={{ borderBottom: "1px solid #f2f2f2", color: "#0a0a0a" }}
               onClick={() => setMenuOpen(false)}
             >
               {link.label}
             </Link>
           ))}
-          <div className="flex gap-2 pt-2 border-t border-gray-100">
+          <div className="flex px-6 py-4 gap-4">
             {(["ro", "en", "fr"] as const).map((l) => (
               <button
                 key={l}
                 onClick={() => { switchLocale(l); setMenuOpen(false); }}
-                className={`text-sm px-3 py-1 rounded-full font-semibold ${
-                  locale === l ? "bg-green-700 text-white" : "border border-gray-300 text-gray-600"
-                }`}
+                className="text-xs font-black uppercase"
+                style={{ color: locale === l ? "#F06000" : "#888" }}
               >
-                {localeLabels[l]}
+                {l}
               </button>
             ))}
           </div>

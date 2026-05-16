@@ -15,8 +15,11 @@
     "about_text": "Nous sommes un club de pétanque de Corbeanca, dédié à la promotion de ce sport élégant et accessible à tous. Nous nous retrouvons régulièrement sur le terrain, quel que soit l'âge ou le niveau.",
     "events_title": "Derniers événements",
     "events_cta": "Voir tous les événements",
+    "about_tagline": "Sport. Amitié. Communauté.",
+    "events_tagline": "Ce qui se passe.",
     "join_title": "Envie de jouer avec nous ?",
     "join_text": "Le club est ouvert à tous. Venez vous entraîner ou écrivez-nous !",
+    "read_more": "En savoir plus",
     "join_cta": "Nous contacter"
   },
   "about": {
@@ -32,7 +35,18 @@
     "value2_title": "Inclusion",
     "value2_text": "Tout le monde est le bienvenu, quel que soit l'âge, l'expérience ou le niveau de jeu.",
     "value3_title": "Passion",
-    "value3_text": "Nous aimons ce sport et souhaitons le faire connaître dans notre communauté."
+    "value3_text": "Nous aimons ce sport et souhaitons le faire connaître dans notre communauté.",
+    "society_label": "Pétanque & Société",
+    "society_intro": "La pétanque est fondamentalement un sport social qui se nourrit de camaraderie, de conversation détendue et de convivialité. Le rythme paisible permet aux amis comme aux inconnus de discuter, plaisanter et tisser des liens entre les lancers. Elle transcende les barrières générationnelles et physiques, en faisant une activité idéale aussi bien pour les rassemblements informels que pour les sorties de club.",
+    "pillar1_title": "Favorise les liens interpersonnels",
+    "pillar1_text": "Le rythme du jeu encourage naturellement les interactions en face à face. Les joueurs passant la plupart du temps à attendre ou à discuter de tactiques, il y a de nombreuses occasions d'échanger des nouvelles, des blagues et des conversations profondes. Le rituel social est ancré dans la culture, souvent accompagné de partage de boissons ou de nourriture.",
+    "pillar2_title": "Accessibilité et inclusion",
+    "pillar2_text": "Contrairement aux sports physiquement exigeants, la pétanque peut être pratiquée et appréciée par tous les âges, genres et niveaux de forme physique. Elle ne nécessite pas de course, la rendant inclusive pour les générations plus âgées ou les personnes à mobilité réduite. Facile à apprendre, les nouveaux venus s'intègrent facilement à un groupe ou club local.",
+    "pillar3_title": "Encourage le travail d'équipe et la stratégie",
+    "pillar3_text": "En doublettes ou en triplettes, la pétanque exige une communication ouverte et une prise de décision collective. Les coéquipiers doivent collaborer sur les stratégies — pointer (s'approcher du cochonnet) ou tirer (déloger la boule adverse). Cet objectif commun crée une confiance mutuelle et une célébration collective après un beau lancer.",
+    "pillar4_title": "Culture du club et de la communauté",
+    "pillar4_text": "Les groupes locaux de pétanque font souvent office de véritables centres communautaires. Les membres organisent régulièrement des tournois informels, des pique-niques et des repas d'après-match. Cet environnement vibrant entretient des amitiés durables, favorise les réseaux locaux et offre un moyen accessible de briser l'isolement du quotidien.",
+    "source_label": "Source"
   },
   "events": {
     "title": "Événements",
@@ -51,7 +65,7 @@
     "email_label": "Email",
     "phone_label": "Téléphone / WhatsApp",
     "social_label": "Réseaux sociaux",
-    "location_label": "Localisation",
+    "location_label": "Localisation (Terrains)",
     "location_text": "Corbeanca, Ilfov, Roumanie",
     "message_title": "Envoyez-nous un message",
     "message_text": "La réponse la plus rapide est sur WhatsApp ou Facebook Messenger."

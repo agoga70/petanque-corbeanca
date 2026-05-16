@@ -15,8 +15,11 @@
     "about_text": "Suntem un club de pétanque din Corbeanca, dedicat promovării acestui sport elegant și accesibil tuturor. Ne întâlnim regulat pe teren, indiferent de vârstă sau nivel de experiență.",
     "events_title": "Ultimele evenimente",
     "events_cta": "Vezi toate evenimentele",
+    "about_tagline": "Sport. Prietenie. Comunitate.",
+    "events_tagline": "Ce se întâmplă.",
     "join_title": "Vrei să joci cu noi?",
     "join_text": "Clubul este deschis tuturor. Vino la antrenament sau scrie-ne!",
+    "read_more": "Citește mai mult",
     "join_cta": "Contactează-ne"
   },
   "about": {
@@ -32,7 +35,18 @@
     "value2_title": "Incluziune",
     "value2_text": "Bine veniți toți, indiferent de vârstă, experiență sau nivel de joc.",
     "value3_title": "Pasiune",
-    "value3_text": "Iubim acest sport și vrem să îl facem cunoscut în comunitatea noastră."
+    "value3_text": "Iubim acest sport și vrem să îl facem cunoscut în comunitatea noastră.",
+    "society_label": "Pétanque & Societate",
+    "society_intro": "Pétanque este în esență un sport social, bazat pe camaraderie, conversații relaxate și construirea comunității. Ritmul lent le permite prietenilor și străinilor să discute, să glumească și să lege prietenii între aruncări. Traversează barierele generaționale și fizice, fiind o activitate ideală atât pentru întâlniri informale, cât și pentru ieșiri de club.",
+    "pillar1_title": "Favorizează conexiunile interpersonale",
+    "pillar1_text": "Ritmul jocului încurajează natural interacțiunea față în față. Deoarece jucătorii petrec cea mai mare parte a timpului așteptând sau discutând tactici, există ample oportunități de a împărtăși știri, glume și conversații semnificative. Ritualul social este profund înrădăcinat în cultură, adesea însoțit de băuturi sau mâncare.",
+    "pillar2_title": "Accesibilitate și incluziune",
+    "pillar2_text": "Spre deosebire de sporturile solicitante fizic, pétanque poate fi jucat și bucurat în mod egal de toate vârstele, genurile și nivelurile de fitness. Nu necesită alergare, fiind incluziv pentru generațiile mai în vârstă sau persoanele cu mobilitate limitată. Deoarece este ușor de învățat, noii veniți se pot integra rapid într-un grup sau club local.",
+    "pillar3_title": "Încurajează munca în echipă și strategia",
+    "pillar3_text": "Când se joacă în perechi (dublete) sau tripluri, pétanque necesită comunicare deschisă și luare de decizii colective. Coechipieri trebuie să colaboreze la strategii — dacă să \"pointeze\" (să se apropie de cochonnet) sau să \"tireze\" (să lovească bila adversarului). Acest obiectiv comun construiește încredere mutuală și bucurie colectivă.",
+    "pillar4_title": "Cultura clubului și a comunității",
+    "pillar4_text": "Grupurile locale de pétanque acționează adesea ca hub-uri vitale ale comunității. Membrii organizează frecvent turnee informale, picnicuri și mese după joc. Acest mediu vibrant hrănește prietenii de lungă durată, favorizează rețelele locale și oferă o modalitate accesibilă de a rupe izolarea rutinei zilnice.",
+    "source_label": "Sursă"
   },
   "events": {
     "title": "Evenimente",
@@ -51,7 +65,7 @@
     "email_label": "Email",
     "phone_label": "Telefon / WhatsApp",
     "social_label": "Rețele sociale",
-    "location_label": "Locație",
+    "location_label": "Locație (Terenuri)",
     "location_text": "Corbeanca, Ilfov, România",
     "message_title": "Trimite-ne un mesaj",
     "message_text": "Cel mai rapid răspuns îl primești pe WhatsApp sau Facebook Messenger."
