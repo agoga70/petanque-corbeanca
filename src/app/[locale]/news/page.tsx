@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import FixedSidebar from "@/components/FixedSidebar";
 
 const articles = [
   {
@@ -131,17 +132,7 @@ function NewsContent() {
           })}
           </div>
 
-          {/* Boules image sidebar — hidden on mobile */}
-          <div
-            className="hidden md:block"
-            style={{
-              backgroundImage: "url('/cspc-boules.jpg')",
-              backgroundAttachment: "fixed",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              minHeight: "100%",
-            }}
-          />
+          <FixedSidebar src="/cspc-boules.jpg" alt="Boules de pétanque" />
         </div>
       </section>
     </>

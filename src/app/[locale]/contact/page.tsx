@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import FixedSidebar from "@/components/FixedSidebar";
 
 export default function ContactPage() {
   return <ContactContent />;
@@ -66,17 +67,7 @@ function ContactContent() {
             ))}
           </div>
 
-          {/* Image sidebar — hidden on mobile */}
-          <div
-            className="hidden md:block"
-            style={{
-              backgroundImage: "url('/petanque-vert.jpg')",
-              backgroundAttachment: "fixed",
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              minHeight: "100%",
-            }}
-          />
+          <FixedSidebar src="/petanque-vert.jpg" alt="Club Sportiv Pétanque Corbeanca" />
         </div>
       </section>
 
