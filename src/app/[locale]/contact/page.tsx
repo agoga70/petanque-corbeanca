@@ -1,5 +1,4 @@
 import { useTranslations } from "next-intl";
-import FixedSidebar from "@/components/FixedSidebar";
 
 export default function ContactPage() {
   return <ContactContent />;
@@ -34,11 +33,14 @@ function ContactContent() {
       </section>
 
       {/* Contact grid */}
-      <section>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_380px] items-start" style={{ borderBottom: "2px solid #0a0a0a" }}>
-
-          {/* Contact rows */}
-          <div className="md:border-r-2 md:border-r-[#0a0a0a]">
+      <section style={{
+          backgroundImage: "url('/petanque-horiz-2.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        }}>
+        <div style={{ background: "rgba(255,255,255,0.88)", borderBottom: "2px solid #0a0a0a" }}>
+        <div className="max-w-7xl mx-auto">
             {contacts.map((c, i) => (
               <div
                 key={c.label}
@@ -65,9 +67,7 @@ function ContactContent() {
                 )}
               </div>
             ))}
-          </div>
-
-          <FixedSidebar src="/petanque-vert.jpg" alt="Club Sportiv Pétanque Corbeanca" />
+        </div>
         </div>
       </section>
 

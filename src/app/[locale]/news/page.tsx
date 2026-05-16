@@ -1,5 +1,4 @@
 import { useTranslations } from "next-intl";
-import FixedSidebar from "@/components/FixedSidebar";
 
 type Article = {
   id: number;
@@ -75,11 +74,15 @@ function NewsContent() {
         </div>
       </section>
 
-      <section>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_380px] items-start" style={{ borderBottom: "2px solid #0a0a0a" }}>
-
-          {/* Articles */}
-          <div className="md:border-r-2 md:border-r-[#0a0a0a]">
+      <section style={{
+          backgroundImage: "url('/petanque-horiz-1.jpg')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          backgroundAttachment: "fixed",
+        }}>
+        {/* faded white overlay so text stays readable */}
+        <div style={{ background: "rgba(255,255,255,0.88)", borderBottom: "2px solid #0a0a0a" }}>
+        <div className="max-w-7xl mx-auto">
           {articles.map((article, i) => {
             const inner = (
               <div
@@ -141,9 +144,7 @@ function NewsContent() {
               <div key={article.id}>{inner}</div>
             );
           })}
-          </div>
-
-          <FixedSidebar src="/cspc-boules.jpg" alt="Boules de pétanque" />
+        </div>
         </div>
       </section>
     </>

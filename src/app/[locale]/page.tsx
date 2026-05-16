@@ -105,7 +105,7 @@ function HomeContent({ locale }: { locale: string }) {
       </section>
 
       {/* Parallax video */}
-      <ParallaxVideo src="/videos/petanque-17658629.mp4" height={480} />
+      <ParallaxVideo src="/videos/petanque-17658629.mp4" height={600} />
 
       {/* CTA */}
       <section style={{ background: "#F06000", color: "#fff" }}>
