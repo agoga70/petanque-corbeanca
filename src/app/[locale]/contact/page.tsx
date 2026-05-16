@@ -70,7 +70,7 @@ function ContactContent() {
           {/* Image sidebar — hidden on mobile */}
           <div className="hidden md:block" style={{ position: "sticky", top: "3.5rem", height: "calc(100vh - 3.5rem)", overflow: "hidden" }}>
             <Image
-              src="/cspc-boules.jpg"
+              src="/petanque-vert.jpg"
               alt="Club Sportiv Pétanque Corbeanca"
               fill
               style={{ objectFit: "cover", objectPosition: "center" }}

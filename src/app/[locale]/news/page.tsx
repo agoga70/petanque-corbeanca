@@ -135,7 +135,7 @@ function NewsContent() {
           {/* Boules image sidebar — hidden on mobile */}
           <div className="hidden md:block" style={{ position: "sticky", top: "3.5rem", height: "calc(100vh - 3.5rem)", overflow: "hidden" }}>
             <Image
-              src="/boules.jpg"
+              src="/cspc-boules.jpg"
               alt="Boules de pétanque"
               fill
               style={{ objectFit: "cover", objectPosition: "center" }}
