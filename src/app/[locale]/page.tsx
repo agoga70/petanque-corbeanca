@@ -105,7 +105,7 @@ function HomeContent({ locale }: { locale: string }) {
       </section>
 
       {/* Video strip */}
-      <VideoStrip />
+      <VideoStrip videos={["/videos/petanque-17658629.mp4", "/videos/10071085.mp4"]} />
 
       {/* CTA */}
       <section style={{ background: "#F06000", color: "#fff" }}>

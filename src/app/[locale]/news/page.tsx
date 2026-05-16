@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 const articles = [
   {
@@ -78,7 +79,10 @@ function NewsContent() {
       </section>
 
       <section>
-        <div className="max-w-7xl mx-auto" style={{ borderBottom: "2px solid #0a0a0a" }}>
+        <div className="max-w-7xl mx-auto" style={{ borderBottom: "2px solid #0a0a0a", display: "grid", gridTemplateColumns: "1fr 280px" }}>
+
+          {/* Articles */}
+          <div style={{ borderRight: "2px solid #0a0a0a" }}>
           {articles.map((article, i) => {
             const inner = (
               <div
@@ -140,6 +144,17 @@ function NewsContent() {
               <div key={article.id}>{inner}</div>
             );
           })}
+          </div>
+
+          {/* Boules image sidebar */}
+          <div style={{ position: "sticky", top: "3.5rem", height: "calc(100vh - 3.5rem)", overflow: "hidden" }}>
+            <Image
+              src="/boules.jpg"
+              alt="Boules de pétanque"
+              fill
+              style={{ objectFit: "cover", objectPosition: "center" }}
+            />
+          </div>
         </div>
       </section>
     </>

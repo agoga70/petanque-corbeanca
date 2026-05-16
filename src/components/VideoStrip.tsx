@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const VIDEOS = [
+const DEFAULT_VIDEOS = [
   "/videos/petanque-17658629.mp4",
   "/videos/10071091.mp4",
   "/videos/10071086.mp4",
@@ -11,7 +11,7 @@ const VIDEOS = [
   "/videos/10071085.mp4",
 ];
 
-export default function VideoStrip() {
+export default function VideoStrip({ videos = DEFAULT_VIDEOS }: { videos?: string[] }) {
   const [current, setCurrent] = useState(0);
   const videoRef = useRef<HTMLVideoElement>(null);
 
@@ -23,7 +23,7 @@ export default function VideoStrip() {
   }, [current]);
 
   function handleEnded() {
-    setCurrent((c) => (c + 1) % VIDEOS.length);
+    setCurrent((c) => (c + 1) % videos.length);
   }
 
   return (
@@ -31,7 +31,7 @@ export default function VideoStrip() {
       <video
         ref={videoRef}
         key={current}
-        src={VIDEOS[current]}
+        src={videos[current]}
         muted
         autoPlay
         playsInline
@@ -41,7 +41,7 @@ export default function VideoStrip() {
 
       {/* Dot indicators */}
       <div style={{ position: "absolute", bottom: "1.25rem", left: "50%", transform: "translateX(-50%)", display: "flex", gap: "0.5rem" }}>
-        {VIDEOS.map((_, i) => (
+        {videos.map((_, i) => (
           <button
             key={i}
             onClick={() => setCurrent(i)}
