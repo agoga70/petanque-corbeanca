@@ -40,7 +40,7 @@ function ContactContent() {
           backgroundAttachment: "fixed",
         }}>
         <div style={{ background: "rgba(255,255,255,0.88)", borderBottom: "2px solid #0a0a0a" }}>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_320px] items-start">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_400px]">
           <div>
             {contacts.map((c, i) => (
               <div
@@ -71,7 +71,7 @@ function ContactContent() {
           </div>
 
           {/* Right image — hidden on mobile */}
-          <div className="hidden md:block" style={{ position: "sticky", top: "3.5rem", height: "calc(100vh - 3.5rem)", overflow: "hidden", borderLeft: "2px solid #0a0a0a" }}>
+          <div className="hidden md:block" style={{ overflow: "hidden", borderLeft: "2px solid #0a0a0a" }}>
             <img src="/petanque-corbeanca-vert.jpg" alt="Club Sportiv Pétanque Corbeanca" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
           </div>
 
