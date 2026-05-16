@@ -51,7 +51,19 @@
     "rules_title": "The basic rules of pétanque",
     "rules_text": "A complete beginner's guide: how pétanque is played, what equipment is needed, and what the main rules are.",
     "rules_official": "Official rules (EN)",
-    "rules_guide": "Beginner's guide (EN)"
+    "rules_guide": "Beginner's guide (EN)",
+    "motto_line1": "Shoot.",
+    "motto_line2": "Point.",
+    "motto_line3": "Win.",
+    "tete": "Tête-à-tête",
+    "tete_desc": "One player, three balls. The purest format. Absolute concentration.",
+    "doublette": "Doublette",
+    "doublette_desc": "Two against two, six balls per team. The perfect balance between pointer and shooter.",
+    "triplette": "Triplette",
+    "triplette_desc": "Three against three, two balls each. Collective strategy and controlled chaos.",
+    "measure_distance": "Max. cochonnet distance",
+    "measure_weight": "Max. ball weight",
+    "measure_points": "Points to win"
   },
   "events": {
     "title": "Events",

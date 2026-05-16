@@ -51,7 +51,19 @@
     "rules_title": "Les règles de base de la pétanque",
     "rules_text": "Un guide complet pour les débutants : comment se joue la pétanque, quel équipement est nécessaire et quelles sont les règles principales.",
     "rules_official": "Règles officielles (EN)",
-    "rules_guide": "Guide pour débutants (EN)"
+    "rules_guide": "Guide pour débutants (EN)",
+    "motto_line1": "Tirez.",
+    "motto_line2": "Pointez.",
+    "motto_line3": "Gagnez.",
+    "tete": "Tête-à-tête",
+    "tete_desc": "Un joueur, trois boules. Le format le plus pur. Concentration absolue.",
+    "doublette": "Doublette",
+    "doublette_desc": "Deux contre deux, six boules par équipe. L'équilibre parfait entre pointeur et tireur.",
+    "triplette": "Triplette",
+    "triplette_desc": "Trois contre trois, deux boules chacun. Stratégie collective et chaos contrôlé.",
+    "measure_distance": "Distance max. cochonnet",
+    "measure_weight": "Poids max. boule",
+    "measure_points": "Points pour gagner"
   },
   "events": {
     "title": "Événements",

@@ -51,7 +51,19 @@
     "rules_title": "Regulile de bază ale pétanque-ului",
     "rules_text": "Un ghid complet pentru începători: cum se joacă pétanque, ce echipament este necesar și care sunt regulile principale.",
     "rules_official": "Regulile oficiale (EN)",
-    "rules_guide": "Ghid pentru începători (EN)"
+    "rules_guide": "Ghid pentru începători (EN)",
+    "motto_line1": "Trage.",
+    "motto_line2": "Pointează.",
+    "motto_line3": "Câștigă.",
+    "tete": "Tête-à-tête",
+    "tete_desc": "Un jucător, trei bile. Formatul cel mai pur. Concentrare absolută.",
+    "doublette": "Doublette",
+    "doublette_desc": "Doi contra doi, șase bile pe echipă. Echilibrul perfect între pointer și trăgător.",
+    "triplette": "Triplette",
+    "triplette_desc": "Trei contra trei, două bile fiecare. Strategie colectivă și haos controlat.",
+    "measure_distance": "Distanță max. cochonnet",
+    "measure_weight": "Greutate max. bilă",
+    "measure_points": "Puncte pentru victorie"
   },
   "events": {
     "title": "Evenimente",

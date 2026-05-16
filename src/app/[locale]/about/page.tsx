@@ -137,35 +137,97 @@ function AboutContent() {
       </section>
 
       {/* Rules section */}
-      <section style={{ background: "#f2f2f2", borderBottom: "2px solid #0a0a0a" }}>
-        <div className="max-w-7xl mx-auto px-6 py-12">
-          <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#F06000" }}>
-            {t("rules_label")}
+      <section style={{ background: "#F06000", color: "#fff", borderBottom: "2px solid #0a0a0a" }}>
+
+        {/* Motto */}
+        <div className="max-w-7xl mx-auto px-6 pt-14 pb-8">
+          <p className="text-xs font-black uppercase tracking-widest mb-6" style={{ color: "rgba(255,255,255,0.6)" }}>
+            {t("rules_label")} — FIPJP
           </p>
-          <h2 className="font-black uppercase text-2xl md:text-3xl mb-3" style={{ letterSpacing: "-0.03em" }}>
-            {t("rules_title")}
+          <h2
+            className="font-black uppercase leading-none mb-6"
+            style={{ fontSize: "clamp(3rem, 10vw, 7rem)", letterSpacing: "-0.04em", lineHeight: 0.88 }}
+          >
+            {t("motto_line1")}<br />
+            <span style={{ color: "rgba(255,255,255,0.25)" }}>{t("motto_line2")}</span><br />
+            {t("motto_line3")}
           </h2>
-          <p className="mb-8 max-w-2xl" style={{ color: "#555", lineHeight: 1.8 }}>
+          <p className="max-w-xl mb-0" style={{ color: "rgba(255,255,255,0.75)", lineHeight: 1.8, fontSize: "0.9rem" }}>
             {t("rules_text")}
           </p>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-4">
+        </div>
+
+        {/* Format cards */}
+        <div className="max-w-7xl mx-auto px-6 pb-10">
+          <div className="grid md:grid-cols-3 gap-0" style={{ border: "2px solid rgba(255,255,255,0.3)" }}>
+            {([
+              { num: "№ 01", key: "tete", descKey: "tete_desc" },
+              { num: "№ 02", key: "doublette", descKey: "doublette_desc" },
+              { num: "№ 03", key: "triplette", descKey: "triplette_desc" },
+            ] as const).map((f, i) => (
+              <div
+                key={f.key}
+                className="p-8"
+                style={{
+                  borderRight: i < 2 ? "2px solid rgba(255,255,255,0.3)" : "none",
+                  borderBottom: "2px solid rgba(255,255,255,0.3)",
+                }}
+              >
+                <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "rgba(255,255,255,0.5)" }}>
+                  {f.num}
+                </p>
+                <h3 className="font-black uppercase text-2xl md:text-3xl mb-3" style={{ letterSpacing: "-0.03em" }}>
+                  {t(f.key)}
+                </h3>
+                <p style={{ color: "rgba(255,255,255,0.75)", lineHeight: 1.7, fontSize: "0.875rem" }}>
+                  {t(f.descKey)}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* FIPJP measurements */}
+          <div className="grid grid-cols-3 gap-0" style={{ borderLeft: "2px solid rgba(255,255,255,0.3)", borderRight: "2px solid rgba(255,255,255,0.3)", borderBottom: "2px solid rgba(255,255,255,0.3)" }}>
+            {[
+              { value: "12m", label: t("measure_distance") },
+              { value: "800g", label: t("measure_weight") },
+              { value: "13pt", label: t("measure_points") },
+            ].map((m, i) => (
+              <div key={m.label} className="px-6 py-8 text-center" style={{ borderRight: i < 2 ? "2px solid rgba(255,255,255,0.3)" : "none" }}>
+                <p className="font-black" style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)", letterSpacing: "-0.04em", lineHeight: 1 }}>
+                  {m.value}
+                </p>
+                <p className="text-xs font-black uppercase tracking-widest mt-2" style={{ color: "rgba(255,255,255,0.6)" }}>
+                  {m.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* Source links */}
+        <div className="max-w-7xl mx-auto px-6 pb-12">
+          <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "rgba(255,255,255,0.5)" }}>
+            {t("rules_label")}
+          </p>
+          <div className="flex flex-col sm:flex-row flex-wrap gap-3">
             <a href="https://www.obut.com/en/content/92-petanque-rules" target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-between px-5 py-4 group"
-              style={{ background: "#fff", border: "2px solid #0a0a0a", minWidth: "260px" }}>
+              className="flex items-center justify-between px-5 py-3 group"
+              style={{ background: "rgba(0,0,0,0.2)", border: "2px solid rgba(255,255,255,0.3)", minWidth: "240px" }}>
               <span className="text-xs font-black uppercase tracking-widest">Obut — {t("rules_official")}</span>
-              <span className="font-black text-lg group-hover:translate-x-1 transition-transform ml-4" style={{ color: "#F06000" }}>→</span>
+              <span className="font-black text-lg group-hover:translate-x-1 transition-transform ml-4">→</span>
             </a>
             <a href="https://fipjp.org/images/2021/reglements/Official_Rules_Petanque-En.pdf" target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-between px-5 py-4 group"
-              style={{ background: "#fff", border: "2px solid #0a0a0a", minWidth: "260px" }}>
+              className="flex items-center justify-between px-5 py-3 group"
+              style={{ background: "rgba(0,0,0,0.2)", border: "2px solid rgba(255,255,255,0.3)", minWidth: "240px" }}>
               <span className="text-xs font-black uppercase tracking-widest">FIPJP — {t("rules_official")} (PDF)</span>
-              <span className="font-black text-lg group-hover:translate-x-1 transition-transform ml-4" style={{ color: "#F06000" }}>→</span>
+              <span className="font-black text-lg group-hover:translate-x-1 transition-transform ml-4">→</span>
             </a>
             <a href="https://www.thesimplethings.com/blog/rules-petanque" target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-between px-5 py-4 group"
-              style={{ background: "#fff", border: "2px solid #0a0a0a", minWidth: "260px" }}>
+              className="flex items-center justify-between px-5 py-3 group"
+              style={{ background: "rgba(0,0,0,0.2)", border: "2px solid rgba(255,255,255,0.3)", minWidth: "240px" }}>
               <span className="text-xs font-black uppercase tracking-widest">The Simple Things — {t("rules_guide")}</span>
-              <span className="font-black text-lg group-hover:translate-x-1 transition-transform ml-4" style={{ color: "#F06000" }}>→</span>
+              <span className="font-black text-lg group-hover:translate-x-1 transition-transform ml-4">→</span>
             </a>
           </div>
         </div>
