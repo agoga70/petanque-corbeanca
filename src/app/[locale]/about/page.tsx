@@ -84,7 +84,7 @@ function AboutContent() {
       </section>
 
       {/* Parallax video */}
-      <ParallaxVideo src="/videos/10071086.mp4" height={600} />
+      <ParallaxVideo src="/videos/10071086.mp4" height={750} />
 
       {/* Social sport section */}
       <section style={{ borderBottom: "2px solid #0a0a0a" }}>
