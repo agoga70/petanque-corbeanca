@@ -12,7 +12,8 @@ export default function FacebookEmbed() {
     const iframe = document.createElement("iframe");
     iframe.src = `https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FPetanqueCorbeanca&tabs=timeline&width=${width}&height=650&small_header=false&adapt_container_width=true&hide_cover=true&show_facepile=false`;
     iframe.width = String(width);
-    iframe.height = "650";
+    const height = window.innerWidth < 768 ? "480" : "650";
+    iframe.height = height;
     iframe.style.border = "none";
     iframe.style.display = "block";
     iframe.style.width = "100%";
@@ -25,7 +26,7 @@ export default function FacebookEmbed() {
   return (
     <div
       ref={containerRef}
-      style={{ border: "2px solid #0a0a0a", overflow: "hidden", minHeight: "650px", background: "#f9f9f9" }}
+      style={{ border: "2px solid #0a0a0a", overflow: "hidden", minHeight: "clamp(480px, 60vh, 650px)", background: "#f9f9f9" }}
     />
   );
 }

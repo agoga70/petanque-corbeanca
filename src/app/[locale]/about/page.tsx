@@ -54,7 +54,7 @@ function AboutContent() {
           <p className="text-xs font-black uppercase tracking-widest mb-12" style={{ color: "#F06000" }}>
             {t("values_title")}
           </p>
-          <div className="grid md:grid-cols-3 gap-0" style={{ border: "2px solid #0a0a0a" }}>
+          <div className="grid md:grid-cols-3" style={{ border: "2px solid #0a0a0a" }}>
             {([
               { n: "1", emoji: "01" },
               { n: "2", emoji: "02" },
@@ -62,8 +62,10 @@ function AboutContent() {
             ] as const).map((item, i) => (
               <div
                 key={item.n}
-                className="p-10"
-                style={{ borderRight: i < 2 ? "2px solid #0a0a0a" : "none" }}
+                className="p-8 md:p-10"
+                style={{
+                  borderBottom: i < 2 ? "2px solid #0a0a0a" : "none",
+                }}
               >
                 <p className="font-black text-5xl mb-6" style={{ color: "#f2f2f2", WebkitTextStroke: "2px #0a0a0a" }}>
                   {item.emoji}
@@ -91,7 +93,7 @@ function AboutContent() {
             <a href="https://www.bbc.com/sport/get-inspired/27911295" target="_blank" rel="noopener noreferrer" className="font-bold hover:underline" style={{ color: "#F06000" }}>BBC Sport ↗</a>
           </p>
 
-          <div className="grid md:grid-cols-2 gap-0" style={{ border: "2px solid #0a0a0a" }}>
+          <div className="grid md:grid-cols-2" style={{ border: "2px solid #0a0a0a" }}>
             {([
               { num: "01", titleKey: "pillar1_title", textKey: "pillar1_text", source: "France Today", href: "https://francetoday.com/culture/petanque-life-in-the-slow-lane/" },
               { num: "02", titleKey: "pillar2_title", textKey: "pillar2_text", source: "BBC Sport", href: "https://www.bbc.com/sport/get-inspired/27911295" },
@@ -102,8 +104,7 @@ function AboutContent() {
                 key={item.num}
                 className="p-8"
                 style={{
-                  borderRight: i % 2 === 0 ? "2px solid #0a0a0a" : "none",
-                  borderBottom: i < 2 ? "2px solid #0a0a0a" : "none",
+                  borderBottom: i < 3 ? "2px solid #0a0a0a" : "none",
                 }}
               >
                 <p className="font-black text-4xl mb-4 select-none" style={{ color: "#f2f2f2", WebkitTextStroke: "1.5px #ddd", letterSpacing: "-0.04em", lineHeight: 1 }}>

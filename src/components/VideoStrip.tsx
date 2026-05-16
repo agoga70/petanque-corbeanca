@@ -36,7 +36,7 @@ export default function VideoStrip() {
         autoPlay
         playsInline
         onEnded={handleEnded}
-        style={{ width: "100%", height: "520px", objectFit: "cover", display: "block", opacity: 0.85 }}
+        style={{ width: "100%", height: "clamp(260px, 50vw, 520px)", objectFit: "cover", display: "block", opacity: 0.85 }}
       />
 
       {/* Dot indicators */}
