@@ -79,7 +79,7 @@ function NewsContent() {
       </section>
 
       <section>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_280px]" style={{ borderBottom: "2px solid #0a0a0a" }}>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_280px] items-start" style={{ borderBottom: "2px solid #0a0a0a" }}>
 
           {/* Articles */}
           <div className="md:border-r-2 md:border-r-[#0a0a0a]">

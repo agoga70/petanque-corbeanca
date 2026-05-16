@@ -35,7 +35,7 @@ function ContactContent() {
 
       {/* Contact grid */}
       <section>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_280px]" style={{ borderBottom: "2px solid #0a0a0a" }}>
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_280px] items-start" style={{ borderBottom: "2px solid #0a0a0a" }}>
 
           {/* Contact rows */}
           <div className="md:border-r-2 md:border-r-[#0a0a0a]">
@@ -53,13 +53,13 @@ function ContactContent() {
                     href={c.href}
                     target={c.href.startsWith("http") ? "_blank" : undefined}
                     rel="noopener noreferrer"
-                    className="font-black text-xl md:text-2xl md:col-span-2 transition-colors hover:text-red-600"
+                    className="font-black text-base md:text-lg md:col-span-2 transition-colors hover:text-red-600"
                     style={{ letterSpacing: "-0.02em", color: "#0a0a0a" }}
                   >
                     {c.value} →
                   </a>
                 ) : (
-                  <p className="font-black text-xl md:text-2xl md:col-span-2" style={{ letterSpacing: "-0.02em" }}>
+                  <p className="font-black text-base md:text-lg md:col-span-2" style={{ letterSpacing: "-0.02em" }}>
                     {c.value}
                   </p>
                 )}
