@@ -28,7 +28,7 @@ function EventsContent() {
           {/* Left — portrait video */}
           <div style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", background: "#0a0a0a", position: "relative" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
             <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #F06000" }}>
-              Video
+              Dracula Cup 2026
             </p>
             <video
               src="/videos/petanque2026-01.mp4"
