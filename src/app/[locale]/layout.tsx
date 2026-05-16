@@ -11,8 +11,9 @@ import Footer from "@/components/Footer";
 const geist = Geist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Club de Pétanque Corbeanca",
+  title: "Pétanque Corbeanca",
   description: "Clubul de Pétanque Corbeanca — pasiune, prietenie și bile de metal.",
+  icons: { icon: "/logo-transparent.png", apple: "/logo-transparent.png" },
 };
 
 export function generateStaticParams() {
