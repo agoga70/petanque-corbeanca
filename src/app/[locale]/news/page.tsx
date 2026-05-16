@@ -82,7 +82,15 @@ function NewsContent() {
         }}>
         {/* faded white overlay so text stays readable */}
         <div style={{ background: "rgba(255,255,255,0.88)", borderBottom: "2px solid #0a0a0a" }}>
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[220px_1fr_220px] items-start">
+
+          {/* Left image — hidden on mobile */}
+          <div className="hidden md:block" style={{ position: "sticky", top: "3.5rem", height: "calc(100vh - 3.5rem)", overflow: "hidden", borderRight: "2px solid #0a0a0a" }}>
+            <img src="/petanque-corbeanca-vert.jpg" alt="Pétanque Corbeanca" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
+          </div>
+
+          {/* Articles */}
+          <div>
           {articles.map((article, i) => {
             const inner = (
               <div
@@ -90,7 +98,7 @@ function NewsContent() {
                 style={{ borderBottom: i < articles.length - 1 ? "2px solid #f2f2f2" : "none" }}
               >
                 <div>
-                  <p className="font-black text-4xl select-none" style={{ color: "#f2f2f2", WebkitTextStroke: "1.5px #ddd", letterSpacing: "-0.04em", lineHeight: 1 }}>
+                  <p className="font-black text-4xl select-none" style={{ color: "#bbb", WebkitTextStroke: "1.5px #999", letterSpacing: "-0.04em", lineHeight: 1 }}>
                     {article.num}
                   </p>
                 </div>
@@ -144,6 +152,13 @@ function NewsContent() {
               <div key={article.id}>{inner}</div>
             );
           })}
+          </div>
+
+          {/* Right image — hidden on mobile */}
+          <div className="hidden md:block" style={{ position: "sticky", top: "3.5rem", height: "calc(100vh - 3.5rem)", overflow: "hidden", borderLeft: "2px solid #0a0a0a" }}>
+            <img src="/petanque-boules-vert.jpg" alt="Boules de pétanque" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }} />
+          </div>
+
         </div>
         </div>
       </section>
