@@ -116,6 +116,14 @@ function ContactContent() {
               <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 4.974 0 11.111c0 3.498 1.744 6.614 4.469 8.654V24l4.088-2.242c1.092.301 2.246.464 3.443.464 6.627 0 12-4.974 12-11.111S18.627 0 12 0zm1.191 14.963l-3.055-3.26-5.963 3.26L10.732 8l3.131 3.26L19.752 8l-6.561 6.963z"/></svg>
               Messenger
             </a>
+            <a
+              href="mailto:petanquecorbeanca@gmail.com"
+              className="flex items-center gap-3 px-6 py-3 font-black text-xs uppercase tracking-widest transition-opacity hover:opacity-80"
+              style={{ background: "#fff", color: "#F06000" }}
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/></svg>
+              Email
+            </a>
           </div>
         </div>
       </section>
