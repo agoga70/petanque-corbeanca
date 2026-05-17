@@ -21,8 +21,7 @@ function AboutContent() {
             style={{ fontSize: "clamp(2rem, 6vw, 4.5rem)", letterSpacing: "-0.04em", lineHeight: 0.9 }}
           >
             <span style={{ color: "#fff" }}>{t("title_prefix")}</span><br />
-            <span style={{ color: "#F06000" }}>Club Sportiv<br />Pétanque</span><br />
-            <span style={{ color: "#F06000" }}>Corbeanca</span>
+            <span style={{ color: "#F06000" }}>Club Sportiv<br />Pétanque Corbeanca</span>
           </h1>
         </div>
       </section>
