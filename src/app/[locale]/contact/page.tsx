@@ -19,8 +19,8 @@ function ContactContent() {
     <>
       {/* Header */}
       <section style={{ background: "#0a0a0a", color: "#fff", borderBottom: "2px solid #F06000" }}>
-        <div className="max-w-7xl mx-auto px-6 py-12">
-          <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#F06000" }}>
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <p className="text-xs font-black uppercase tracking-widest mb-3" style={{ color: "#F06000" }}>
             05 — Club Sportiv Pétanque Corbeanca
           </p>
           <h1
@@ -45,7 +45,7 @@ function ContactContent() {
             {contacts.map((c, i) => (
               <div
                 key={c.label}
-                className="px-6 py-8 grid md:grid-cols-3 items-center"
+                className="px-6 py-5 grid md:grid-cols-3 items-center"
                 style={{ borderBottom: i < contacts.length - 1 ? "2px solid #f2f2f2" : "none" }}
               >
                 <p className="text-xs font-black uppercase tracking-widest mb-2 md:mb-0" style={{ color: "#888" }}>
@@ -72,7 +72,7 @@ function ContactContent() {
 
           {/* Right image — hidden on mobile */}
           <div className="hidden md:block" style={{ overflow: "hidden", borderLeft: "2px solid #0a0a0a" }}>
-            <img src="/petanque-corbeanca-vert.jpg" alt="Club Sportiv Pétanque Corbeanca" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }} />
+            <img src="/petanque-corbeanca-vert.jpg" alt="Club Sportiv Pétanque Corbeanca" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 65%" }} />
           </div>
 
         </div>
@@ -81,7 +81,7 @@ function ContactContent() {
 
       {/* Note */}
       <section style={{ background: "#F06000", color: "#fff" }}>
-        <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="max-w-7xl mx-auto px-6 py-6">
           <p className="font-black uppercase text-2xl md:text-3xl mb-2" style={{ letterSpacing: "-0.03em" }}>
             {t("message_title")}
           </p>

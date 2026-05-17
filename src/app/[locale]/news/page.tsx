@@ -78,7 +78,7 @@ function NewsContent() {
   return (
     <>
       <section style={{ background: "#0a0a0a", color: "#fff", borderBottom: "2px solid #F06000" }}>
-        <div className="max-w-7xl mx-auto px-6 py-14">
+        <div className="max-w-7xl mx-auto px-6 py-8">
           <p className="text-xs font-black uppercase tracking-widest mb-3" style={{ color: "#F06000" }}>
             04 — Știri
           </p>
@@ -103,11 +103,11 @@ function NewsContent() {
         <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_400px]">
 
           {/* Articles */}
-          <div>
+          <div style={{ overflowY: "auto", maxHeight: "580px" }}>
           {articles.map((article, i) => {
             const inner = (
               <div
-                className="px-6 py-7 grid md:grid-cols-4 gap-4 items-start group"
+                className="px-6 py-4 grid md:grid-cols-4 gap-4 items-start group"
                 style={{ borderBottom: i < articles.length - 1 ? "2px solid #f2f2f2" : "none" }}
               >
                 <div>

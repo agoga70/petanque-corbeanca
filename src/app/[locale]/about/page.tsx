@@ -33,7 +33,7 @@ function AboutContent() {
           <div className="grid md:grid-cols-2 gap-16 pb-10">
             <div>
               <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#F06000" }}>
-                Istoria clubului
+                {t("history_label")}
               </p>
               <h2 className="font-black uppercase text-2xl md:text-3xl mb-6" style={{ letterSpacing: "-0.03em" }}>
                 {t("history_title")}
@@ -42,7 +42,7 @@ function AboutContent() {
             </div>
             <div style={{ paddingLeft: "3rem" }}>
               <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#F06000" }}>
-                Sportul
+                {t("sport_label")}
               </p>
               <h2 className="font-black uppercase text-2xl md:text-3xl mb-6" style={{ letterSpacing: "-0.03em" }}>
                 {t("petanque_title")}
@@ -76,7 +76,6 @@ function AboutContent() {
               <div
                 key={item.n}
                 className="p-8 md:p-10"
-                style={{ borderRight: i < 2 ? "2px solid #0a0a0a" : "none" }}
               >
                 <p className="font-black text-5xl mb-6" style={{ color: "#f2f2f2", WebkitTextStroke: "2px #0a0a0a" }}>
                   {item.emoji}
@@ -169,7 +168,7 @@ function AboutContent() {
             </p>
             <h2
               className="font-black uppercase leading-none mb-6"
-              style={{ fontSize: "clamp(3rem, 10vw, 7rem)", letterSpacing: "-0.04em", lineHeight: 0.88 }}
+              style={{ fontSize: "clamp(2rem, 6vw, 4.5rem)", letterSpacing: "-0.04em", lineHeight: 0.9 }}
             >
               {t("motto_line1")}<br />
               <span style={{ color: "rgba(255,255,255,0.3)" }}>{t("motto_line2")}</span><br />
