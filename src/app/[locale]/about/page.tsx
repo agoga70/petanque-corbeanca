@@ -28,32 +28,36 @@ function AboutContent() {
       </section>
 
       {/* History + Petanque */}
-      <section style={{ borderBottom: "2px solid #0a0a0a", position: "relative" }}>
-        <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-16">
-          <div>
-            <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#F06000" }}>
-              Istoria clubului
-            </p>
-            <h2 className="font-black uppercase text-2xl md:text-3xl mb-6" style={{ letterSpacing: "-0.03em" }}>
-              {t("history_title")}
-            </h2>
-            <p style={{ color: "#555", lineHeight: 1.8 }}>{t("history_text")}</p>
+      <section style={{ borderBottom: "2px solid #0a0a0a" }}>
+        <div className="max-w-7xl mx-auto px-6 pt-12">
+          <div className="grid md:grid-cols-2 gap-16 pb-10">
+            <div>
+              <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#F06000" }}>
+                Istoria clubului
+              </p>
+              <h2 className="font-black uppercase text-2xl md:text-3xl mb-6" style={{ letterSpacing: "-0.03em" }}>
+                {t("history_title")}
+              </h2>
+              <p style={{ color: "#555", lineHeight: 1.8 }}>{t("history_text")}</p>
+            </div>
+            <div style={{ borderLeft: "2px solid #f2f2f2", paddingLeft: "3rem" }}>
+              <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#F06000" }}>
+                Sportul
+              </p>
+              <h2 className="font-black uppercase text-2xl md:text-3xl mb-6" style={{ letterSpacing: "-0.03em" }}>
+                {t("petanque_title")}
+              </h2>
+              <p style={{ color: "#555", lineHeight: 1.8 }}>{t("petanque_text")}</p>
+            </div>
           </div>
-          <div style={{ borderLeft: "2px solid #f2f2f2", paddingLeft: "3rem" }}>
-            <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#F06000" }}>
-              Sportul
-            </p>
-            <h2 className="font-black uppercase text-2xl md:text-3xl mb-6" style={{ letterSpacing: "-0.03em" }}>
-              {t("petanque_title")}
-            </h2>
-            <p style={{ color: "#555", lineHeight: 1.8 }}>{t("petanque_text")}</p>
+          {/* Bill Chamly — author, centered, inside the section above the border */}
+          <div className="hidden md:flex flex-col items-center pb-10">
+            <div style={{ width: 88, height: 88, borderRadius: "50%", overflow: "hidden", border: "2.5px solid #0a0a0a", flexShrink: 0 }}>
+              <img src="/Bill-00.png" alt="Bill Chamly" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%" }} />
+            </div>
+            <p className="font-black uppercase text-xs mt-3 text-center" style={{ letterSpacing: "-0.01em" }}>Bill Chamly</p>
+            <p className="text-xs text-center" style={{ color: "#888" }}>President &amp; Founding Member CSPC</p>
           </div>
-        </div>
-        {/* Bill Chamly — centered on column divider, overlapping bottom border */}
-        <div className="hidden md:flex flex-col items-center" style={{ position: "absolute", bottom: 0, left: "50%", transform: "translate(-50%, 50%)", zIndex: 10, background: "#fff", padding: "0 12px" }}>
-          <img src="/Bill-00.png" alt="Bill Chamly" style={{ width: 104, height: 104, borderRadius: "50%", objectFit: "cover", objectPosition: "center 15%", border: "3px solid #0a0a0a" }} />
-          <p className="font-black uppercase text-xs mt-2 text-center" style={{ letterSpacing: "-0.01em" }}>Bill Chamly</p>
-          <p className="text-xs text-center" style={{ color: "#888" }}>President &amp; Founding Member CSPC</p>
         </div>
       </section>
 
@@ -71,10 +75,8 @@ function AboutContent() {
             ] as const).map((item, i) => (
               <div
                 key={item.n}
-                className="p-8 md:p-10"
-                style={{
-                  borderBottom: i < 2 ? "2px solid #0a0a0a" : "none",
-                }}
+                className="p-8 md:p-10 flex flex-col"
+                style={{ borderBottom: i < 2 ? "2px solid #0a0a0a" : "none" }}
               >
                 <p className="font-black text-5xl mb-6" style={{ color: "#f2f2f2", WebkitTextStroke: "2px #0a0a0a" }}>
                   {item.emoji}
@@ -85,25 +87,27 @@ function AboutContent() {
                 <p style={{ color: "#555", lineHeight: 1.7, fontSize: "0.9rem" }}>
                   {t(`value${item.n}_text`)}
                 </p>
+                {/* Author avatar inside box */}
+                {item.n === "1" && (
+                  <div className="hidden md:flex flex-col items-center mt-8">
+                    <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "2px solid #0a0a0a", flexShrink: 0 }}>
+                      <img src="/Alesa-00.png" alt="Alesa Goga" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 10%" }} />
+                    </div>
+                    <p className="font-black uppercase text-xs mt-2 text-center" style={{ letterSpacing: "-0.01em" }}>Alesa Goga</p>
+                    <p className="text-xs text-center" style={{ color: "#888" }}>Founding Member CSPC</p>
+                  </div>
+                )}
+                {item.n === "2" && (
+                  <div className="hidden md:flex flex-col items-center mt-8">
+                    <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "2px solid #0a0a0a", flexShrink: 0 }}>
+                      <img src="/CristinaC-00.jpg" alt="Cristina Chamly" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 10%" }} />
+                    </div>
+                    <p className="font-black uppercase text-xs mt-2 text-center" style={{ letterSpacing: "-0.01em" }}>Cristina Chamly</p>
+                    <p className="text-xs text-center" style={{ color: "#888" }}>Secretary General CSPC</p>
+                  </div>
+                )}
               </div>
             ))}
-          </div>
-
-          {/* Alesa + Cristina — at column intersections */}
-          <div className="hidden md:flex items-start pt-8 pb-4">
-            <div style={{ flex: 1 }} />
-            <div className="flex flex-col items-center" style={{ flex: 0 }}>
-              <img src="/Alesa-00.png" alt="Alesa Goga" style={{ width: 96, height: 96, borderRadius: "50%", objectFit: "cover", objectPosition: "center 10%", border: "3px solid #0a0a0a" }} />
-              <p className="font-black uppercase text-xs mt-2 text-center" style={{ letterSpacing: "-0.01em" }}>Alesa Goga</p>
-              <p className="text-xs text-center" style={{ color: "#888" }}>Founding Member CSPC</p>
-            </div>
-            <div style={{ flex: 1 }} />
-            <div className="flex flex-col items-center" style={{ flex: 0 }}>
-              <img src="/CristinaC-00.jpg" alt="Cristina Chamly" style={{ width: 96, height: 96, borderRadius: "50%", objectFit: "cover", objectPosition: "center 10%", border: "3px solid #0a0a0a" }} />
-              <p className="font-black uppercase text-xs mt-2 text-center" style={{ letterSpacing: "-0.01em" }}>Cristina Chamly</p>
-              <p className="text-xs text-center" style={{ color: "#888" }}>Secretary General CSPC</p>
-            </div>
-            <div style={{ flex: 1 }} />
           </div>
 
         </div>
