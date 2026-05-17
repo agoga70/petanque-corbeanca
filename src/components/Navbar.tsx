@@ -44,7 +44,7 @@ export default function Navbar() {
         <Link href={`/${locale}/`} className="flex items-center gap-2 flex-shrink-0">
           <Image src="/logo-transparent.png" alt="Pétanque Corbeanca" width={40} height={40} />
           <span
-            className="font-black uppercase tracking-tighter text-sm hidden lg:block"
+            className="font-black uppercase tracking-tighter text-base hidden lg:block"
             style={{ color: "#0a0a0a", letterSpacing: "-0.03em" }}
           >
             Pétanque<span style={{ color: "#F06000", fontSize: "1.4em", verticalAlign: "middle", lineHeight: 0 }}>●</span>Corbeanca
