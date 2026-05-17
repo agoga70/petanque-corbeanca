@@ -19,7 +19,7 @@ export default function Footer() {
             Club Sportiv Pétanque Corbeanca
           </p>
           <p className="text-xs mt-2" style={{ color: "#888" }}>
-            © {new Date().getFullYear()} — {t("rights")}
+            © 2020–{new Date().getFullYear()} — {t("rights")}
           </p>
         </div>
 
