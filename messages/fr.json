@@ -77,7 +77,21 @@
     "title": "Actualités Pétanque",
     "subtitle": "Les nouvelles du monde de la pétanque",
     "read_more": "Lire la suite",
-    "published": "Publié le"
+    "published": "Publié le",
+    "tag_international": "International",
+    "tag_championship": "Championnat",
+    "tag_competition": "Compétition",
+    "tag_community": "Communauté",
+    "a1_title": "Pétanque Fest Varna 2026",
+    "a1_excerpt": "Une semaine exceptionnelle sur les rives de la Mer Noire, entre tournois internationaux de pétanque, convivialité, et ambiance festive. Joueurs : venez affronter des équipes venues du monde entier ! Accompagnants : profitez-en pour découvrir la Bulgarie, sa culture, ses paysages et sa douceur de vivre. Une expérience unique à ne pas manquer !",
+    "a2_title": "Balkan Pétanque Tour 2026",
+    "a2_excerpt": "Le Balkan Pétanque Tour est un circuit à plusieurs étapes à travers l'Europe du Sud-Est. Étapes clés 2026 : Black Sea Pétanque Fest à Varna, Bulgarie (15–18 mai) ; Dracula Cup à Bucarest (18–19 avril, terminé) ; 5e Open Pétanque Festival à Preveza, Grèce (4–7 juin) avec près de 300 athlètes de 19 pays.",
+    "a3_title": "1er Championnat Roumain 2026 — Casa Vlasia",
+    "a3_excerpt": "Le premier Championnat Roumain de Pétanque 2026, organisé à Casa Vlasia. Une compétition phare pour la communauté pétanque roumaine.",
+    "a4_title": "Tournoi Roumain Dracula Cup Pétanque 2026",
+    "a4_excerpt": "La Dracula Cup s'est tenue au cœur de Bucarest, Roumanie, avec des doublettes et triplettes formées et une dotation de plus de 2 000 €. Dates : 18–19 avril 2026.",
+    "a5_title": "Pétanque — le sport qui unit les générations",
+    "a5_excerpt": "Des jeunes aux seniors, la pétanque est l'un des rares sports qui rassemble toutes les tranches d'âge."
   },
   "contact": {
     "title": "Contact",

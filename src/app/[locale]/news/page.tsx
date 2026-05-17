@@ -1,24 +1,24 @@
 import { useTranslations } from "next-intl";
 
-type Article = {
+type ArticleBase = {
   id: number;
   num: string;
-  title: string;
+  titleKey: string;
+  excerptKey: string;
+  tagKey: string;
   date: string;
-  excerpt: string;
-  tag: string;
   href: string | null;
   links: { label: string; url: string }[] | null;
 };
 
-const articles: Article[] = [
+const articles: ArticleBase[] = [
   {
     id: 5,
     num: "01",
-    title: "Pétanque Fest Varna 2026",
+    titleKey: "a1_title",
+    excerptKey: "a1_excerpt",
+    tagKey: "tag_international",
     date: "2026-06-04",
-    excerpt: "Une semaine exceptionnelle sur les rives de la Mer Noire, entre tournois internationaux de pétanque, convivialité, et ambiance festive. Joueurs : venez affronter des équipes venues du monde entier ! Accompagnants : profitez-en pour découvrir la Bulgarie, sa culture, ses paysages et sa douceur de vivre. Une expérience unique à ne pas manquer !",
-    tag: "Internațional",
     href: null,
     links: [
       { label: "Annonce officielle →", url: "https://www.facebook.com/photo?fbid=678151808699728&set=a.532071159974461" },
@@ -29,40 +29,40 @@ const articles: Article[] = [
   {
     id: 3,
     num: "02",
-    title: "Balkan Pétanque Tour 2026",
+    titleKey: "a2_title",
+    excerptKey: "a2_excerpt",
+    tagKey: "tag_international",
     date: "2026-05-15",
-    excerpt: "The Balkan Pétanque Tour is a multi-stage circuit across Southeastern Europe. Key 2026 stops: Black Sea Pétanque Fest in Varna, Bulgaria (May 15–18); Dracula Cup in Bucharest (April 18–19, completed); 5th Open Pétanque Festival in Preveza, Greece (June 4–7) drawing nearly 300 athletes from 19 countries.",
-    tag: "Internațional",
     href: "https://www.facebook.com/share/p/1Zq8th3XiP/",
     links: null,
   },
   {
     id: 2,
     num: "03",
-    title: "1st Romanian Championship 2026 — Casa Vlasia",
+    titleKey: "a3_title",
+    excerptKey: "a3_excerpt",
+    tagKey: "tag_championship",
     date: "2026-05-01",
-    excerpt: "The first Romanian Pétanque Championship of 2026, held at Casa Vlasia. A landmark competition for the Romanian pétanque community.",
-    tag: "Campionat",
     href: "https://www.facebook.com/PetanqueCorbeanca/posts/pfbid02DKTNUk5EGRWTycmpxfyDLwkSepdwz3CvBmcJMBvPf9TZsFvHvtew7oLJc841tRRVl",
     links: null,
   },
   {
     id: 1,
     num: "04",
-    title: "Romanian Dracula Cup Pétanque Tournament 2026",
+    titleKey: "a4_title",
+    excerptKey: "a4_excerpt",
+    tagKey: "tag_competition",
     date: "2026-04-19",
-    excerpt: "The Dracula Cup was hosted in the heart of Bucharest, Romania, featuring formed doublettes and triplettes with a €2,000+ prize pool. Dates: April 18–19, 2026.",
-    tag: "Competiție",
     href: "https://www.facebook.com/PetanqueCorbeanca/posts/pfbid02mHJBb2hXLdXNw8eQhPwbRurc4S3sssjhYXeyHd2smbJxw9eZgjUCs9D7mxMNqBoSl",
     links: null,
   },
   {
     id: 4,
     num: "05",
-    title: "Pétanque — sportul care unește generațiile",
+    titleKey: "a5_title",
+    excerptKey: "a5_excerpt",
+    tagKey: "tag_community",
     date: "2024-07-20",
-    excerpt: "De la tineri la vârstnici, pétanque este unul dintre puținele sporturi care aduc laolaltă toate categoriile de vârstă.",
-    tag: "Comunitate",
     href: "https://tctrail.ca/stories/petanque-parc-la-fontaine/",
     links: null,
   },
@@ -118,16 +118,16 @@ function NewsContent() {
                 <div className="md:col-span-3">
                   <div className="flex items-center gap-3 mb-2">
                     <span className="text-xs font-black uppercase tracking-widest px-2 py-0.5" style={{ background: "#F06000", color: "#fff" }}>
-                      {article.tag}
+                      {t(article.tagKey)}
                     </span>
                     <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#888" }}>
                       {new Date(article.date).toLocaleDateString("ro-RO", { day: "numeric", month: "long", year: "numeric" })}
                     </span>
                   </div>
                   <h2 className="font-black uppercase text-lg md:text-xl mb-2 transition-colors" style={{ letterSpacing: "-0.02em" }}>
-                    {article.title}
+                    {t(article.titleKey)}
                   </h2>
-                  <p style={{ color: "#555", lineHeight: 1.6, fontSize: "0.875rem" }}>{article.excerpt}</p>
+                  <p style={{ color: "#555", lineHeight: 1.6, fontSize: "0.875rem" }}>{t(article.excerptKey)}</p>
 
                   {/* Multiple links */}
                   {article.links && (
