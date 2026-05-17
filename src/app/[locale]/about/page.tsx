@@ -67,7 +67,7 @@ function AboutContent() {
           <p className="text-xs font-black uppercase tracking-widest mb-12" style={{ color: "#F06000" }}>
             {t("values_title")}
           </p>
-          <div className="grid md:grid-cols-3" style={{ border: "2px solid #0a0a0a", position: "relative" }}>
+          <div className="grid md:grid-cols-3" style={{ border: "2px solid #0a0a0a", position: "relative", paddingBottom: "5rem" }}>
             {([
               { n: "1", emoji: "01" },
               { n: "2", emoji: "02" },
