@@ -127,18 +127,19 @@ export default function Navbar() {
             →
           </button>
 
-          {/* Language switcher */}
+          {/* Language switcher — single cycling button */}
           <div className="flex ml-1" style={{ borderLeft: "2px solid #f2f2f2" }}>
-            {(["ro", "en", "fr"] as const).map((l) => (
-              <button
-                key={l}
-                onClick={() => switchLocale(l)}
-                className="text-xs font-black uppercase px-2 py-4"
-                style={{ color: locale === l ? "#F06000" : "#bbb" }}
-              >
-                {l}
-              </button>
-            ))}
+            <button
+              onClick={() => {
+                const order = ["ro", "en", "fr"] as const;
+                const next = order[(order.indexOf(locale as "ro" | "en" | "fr") + 1) % order.length];
+                switchLocale(next);
+              }}
+              className="text-xs font-black uppercase px-3 py-4"
+              style={{ color: "#F06000" }}
+            >
+              {locale}
+            </button>
           </div>
         </div>
 
