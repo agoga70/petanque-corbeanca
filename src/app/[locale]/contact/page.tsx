@@ -95,7 +95,7 @@ function ContactContent() {
           <p className="mb-8" style={{ color: "rgba(255,255,255,0.7)", fontSize: "0.9rem" }}>
             {t("message_text")}
           </p>
-          <div className="flex flex-wrap gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4" style={{ maxWidth: "640px" }}>
             <a
               href="https://wa.me/40730444666"
               target="_blank"
