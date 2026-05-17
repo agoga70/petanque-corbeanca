@@ -40,7 +40,7 @@ function AboutContent() {
               </h2>
               <p style={{ color: "#555", lineHeight: 1.8 }}>{t("history_text")}</p>
             </div>
-            <div style={{ borderLeft: "2px solid #f2f2f2", paddingLeft: "3rem" }}>
+            <div style={{ paddingLeft: "3rem" }}>
               <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#F06000" }}>
                 Sportul
               </p>
@@ -51,7 +51,7 @@ function AboutContent() {
             </div>
           </div>
           {/* Bill Chamly — author, centered, inside the section above the border */}
-          <div className="hidden md:flex flex-col items-center pb-10" style={{ marginTop: "-2.8rem" }}>
+          <div className="hidden md:flex flex-col items-center pb-10" style={{ marginTop: "-4.2rem" }}>
             <div style={{ width: 88, height: 88, borderRadius: "50%", overflow: "hidden", border: "2.5px solid #0a0a0a", flexShrink: 0 }}>
               <img src="/Bill-00.png" alt="Bill Chamly" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%" }} />
             </div>
@@ -90,8 +90,8 @@ function AboutContent() {
               </div>
             ))}
 
-            {/* Alesa — centered on border between col 1 and col 2 */}
-            <div className="hidden md:flex flex-col items-center" style={{ position: "absolute", left: "33.33%", bottom: "3rem", transform: "translateX(-50%)" }}>
+            {/* Alesa — on border between col 1 and col 2, shifted left 20px */}
+            <div className="hidden md:flex flex-col items-center" style={{ position: "absolute", left: "33.33%", bottom: "2rem", transform: "translateX(calc(-50% - 20px))" }}>
               <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "2px solid #0a0a0a", flexShrink: 0, background: "#f2f2f2" }}>
                 <img src="/Alesa-00.png" alt="Alesa Goga" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 10%" }} />
               </div>
@@ -99,8 +99,8 @@ function AboutContent() {
               <p className="text-xs text-center" style={{ color: "#888" }}>Founding Member CSPC</p>
             </div>
 
-            {/* Cristina — centered on border between col 2 and col 3 */}
-            <div className="hidden md:flex flex-col items-center" style={{ position: "absolute", left: "66.66%", bottom: "3rem", transform: "translateX(-50%)" }}>
+            {/* Cristina — on border between col 2 and col 3, shifted left 20px */}
+            <div className="hidden md:flex flex-col items-center" style={{ position: "absolute", left: "66.66%", bottom: "2rem", transform: "translateX(calc(-50% - 20px))" }}>
               <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "2px solid #0a0a0a", flexShrink: 0, background: "#f2f2f2" }}>
                 <img src="/CristinaC-00.jpg" alt="Cristina Chamly" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 10%" }} />
               </div>
