@@ -7,6 +7,7 @@ import { routing } from "@/i18n/routing";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import SwipeNavigator from "@/components/SwipeNavigator";
 
 const geist = Geist({ subsets: ["latin"] });
 
@@ -36,9 +37,11 @@ export default async function LocaleLayout({
     <html lang={locale} className={geist.className}>
       <body className="min-h-screen flex flex-col bg-white text-gray-900">
         <NextIntlClientProvider messages={messages}>
-          <Navbar />
-          <main className="flex-1 flex flex-col">{children}</main>
-          <Footer />
+          <SwipeNavigator>
+            <Navbar />
+            <main className="flex-1 flex flex-col">{children}</main>
+            <Footer />
+          </SwipeNavigator>
         </NextIntlClientProvider>
       </body>
     </html>
