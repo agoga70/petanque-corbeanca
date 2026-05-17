@@ -72,7 +72,7 @@ function ContactContent() {
 
           {/* Right image — hidden on mobile */}
           <div className="hidden md:block" style={{ overflow: "hidden", borderLeft: "2px solid #0a0a0a" }}>
-            <img src="/petanque-corbeanca-vert.jpg" alt="Club Sportiv Pétanque Corbeanca" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 60%" }} />
+            <img src="/petanque-corbeanca-vert-000.jpg" alt="Club Sportiv Pétanque Corbeanca" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 60%" }} />
           </div>
 
         </div>
