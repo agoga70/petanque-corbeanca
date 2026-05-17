@@ -11,14 +11,14 @@ export default function FacebookEmbed() {
     const width = containerRef.current.offsetWidth;
 
     const iframe = document.createElement("iframe");
-    iframe.src = `https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FPetanqueCorbeanca&tabs=timeline&width=${width}&height=650&small_header=false&adapt_container_width=true&hide_cover=true&show_facepile=false`;
+    const height = window.innerWidth < 768 ? "600" : "900";
+    iframe.src = `https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2FPetanqueCorbeanca&tabs=timeline&width=${width}&height=${height}&small_header=false&adapt_container_width=true&hide_cover=true&show_facepile=false`;
     iframe.width = String(width);
-    const height = window.innerWidth < 768 ? "480" : "650";
     iframe.height = height;
     iframe.style.border = "none";
     iframe.style.display = "block";
     iframe.style.width = "100%";
-    iframe.scrolling = "no";
+    iframe.scrolling = "yes";
     iframe.allowFullscreen = true;
     iframe.allow = "autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share";
     containerRef.current.appendChild(iframe);
@@ -28,7 +28,7 @@ export default function FacebookEmbed() {
     <div style={{ position: "relative" }}>
       <div
         ref={containerRef}
-        style={{ border: "2px solid #0a0a0a", overflow: "hidden", minHeight: "clamp(480px, 60vh, 650px)", background: "#f9f9f9" }}
+        style={{ border: "2px solid #0a0a0a", overflow: "auto", minHeight: "clamp(600px, 60vh, 900px)", background: "#f9f9f9" }}
       />
       {/* Shown only while iframe hasn't painted — Facebook blocks on localhost */}
       <div
