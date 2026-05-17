@@ -63,14 +63,14 @@ function EventsContent() {
 
       {/* Four vertical columns */}
       <section className="flex-1 flex flex-col" style={{ borderBottom: "2px solid #0a0a0a" }}>
-        <div className="flex-1 max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-4" style={{ width: "100%" }}>
+        <div className="flex-1 max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-[1.5fr_1fr_1fr_1fr]" style={{ width: "100%" }}>
 
           {/* Col 1 — Facebook embed */}
           <div style={{ borderBottom: "2px solid #0a0a0a" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
             <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #0a0a0a" }}>
               Facebook — Timeline & Evenimente
             </p>
-            <div style={{ padding: "1rem" }}>
+            <div>
               <FacebookEmbed />
             </div>
           </div>
