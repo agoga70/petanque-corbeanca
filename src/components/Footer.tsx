@@ -13,7 +13,7 @@ export default function Footer() {
         {/* Brand */}
         <div>
           <p className="font-black uppercase text-xl tracking-tighter" style={{ letterSpacing: "-0.03em" }}>
-            Pétanque<span style={{ color: "#F06000" }}>.</span>Corbeanca
+            Pétanque<span style={{ color: "#F06000", fontSize: "1.4em", verticalAlign: "middle", lineHeight: 0 }}>●</span>Corbeanca
           </p>
           <p className="text-xs mt-1" style={{ color: "#555" }}>
             Club Sportiv Pétanque Corbeanca

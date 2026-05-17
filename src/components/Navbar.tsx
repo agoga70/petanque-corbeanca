@@ -47,7 +47,7 @@ export default function Navbar() {
             className="font-black uppercase tracking-tighter text-sm hidden lg:block"
             style={{ color: "#0a0a0a", letterSpacing: "-0.03em" }}
           >
-            Pétanque<span style={{ color: "#F06000" }}>.</span>Corbeanca
+            Pétanque<span style={{ color: "#F06000", fontSize: "1.4em", verticalAlign: "middle", lineHeight: 0 }}>●</span>Corbeanca
           </span>
         </Link>
 
