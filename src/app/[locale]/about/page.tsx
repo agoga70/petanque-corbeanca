@@ -91,7 +91,7 @@ function AboutContent() {
             ))}
 
             {/* Alesa — on border between col 1 and col 2, shifted left 20px */}
-            <div className="hidden md:flex flex-col items-center" style={{ position: "absolute", left: "33.33%", bottom: "calc(2rem - 40px)", transform: "translateX(calc(-50% - 20px))" }}>
+            <div className="hidden md:flex flex-col items-center" style={{ position: "absolute", left: "33.33%", bottom: "calc(2rem - 80px)", transform: "translateX(calc(-50% - 20px))" }}>
               <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "2px solid #0a0a0a", flexShrink: 0, background: "#f2f2f2" }}>
                 <img src="/Alesa-00.png" alt="Alesa Goga" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 10%" }} />
               </div>
@@ -100,7 +100,7 @@ function AboutContent() {
             </div>
 
             {/* Cristina — on border between col 2 and col 3, shifted left 20px */}
-            <div className="hidden md:flex flex-col items-center" style={{ position: "absolute", left: "66.66%", bottom: "calc(2rem - 40px)", transform: "translateX(calc(-50% - 20px))" }}>
+            <div className="hidden md:flex flex-col items-center" style={{ position: "absolute", left: "66.66%", bottom: "calc(2rem - 80px)", transform: "translateX(calc(-50% - 20px))" }}>
               <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "2px solid #0a0a0a", flexShrink: 0, background: "#f2f2f2" }}>
                 <img src="/CristinaC-00.jpg" alt="Cristina Chamly" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 10%" }} />
               </div>
