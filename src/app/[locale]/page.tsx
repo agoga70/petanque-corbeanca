@@ -30,10 +30,10 @@ function HomeContent({ locale }: { locale: string }) {
             {t("hero_subtitle")}
           </p>
           <div className="flex flex-wrap gap-3">
-            <Link href={`/${locale}/about`} className="text-xs font-black uppercase tracking-widest px-6 py-3" style={{ background: "#F06000", color: "#fff" }}>
+            <Link href={`/${locale}/about`} className="text-xs font-black uppercase tracking-widest px-6 py-3 text-center" style={{ background: "#F06000", color: "#fff", minWidth: "220px" }}>
               {t("hero_cta")} →
             </Link>
-            <Link href={`/${locale}/events`} className="text-xs font-black uppercase tracking-widest px-6 py-3" style={{ border: "2px solid #fff", color: "#fff" }}>
+            <Link href={`/${locale}/events`} className="text-xs font-black uppercase tracking-widest px-6 py-3 text-center" style={{ border: "2px solid #fff", color: "#fff", minWidth: "220px" }}>
               {t("hero_cta2")} →
             </Link>
           </div>
@@ -102,7 +102,7 @@ function HomeContent({ locale }: { locale: string }) {
               </div>
               <span className="font-black text-2xl group-hover:translate-x-1 transition-transform" style={{ color: "#F06000" }}>→</span>
             </a>
-            <Link href={`/${locale}/events`} className="text-xs font-black uppercase tracking-widest px-6 py-3 inline-block" style={{ background: "#0a0a0a", color: "#fff" }}>
+            <Link href={`/${locale}/events`} className="text-xs font-black uppercase tracking-widest px-6 py-3 inline-block text-center" style={{ background: "#0a0a0a", color: "#fff", minWidth: "220px" }}>
               {t("events_cta")} →
             </Link>
           </div>
