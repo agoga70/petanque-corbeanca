@@ -18,9 +18,11 @@ function AboutContent() {
           </p>
           <h1
             className="font-black uppercase"
-            style={{ fontSize: "clamp(2.5rem, 8vw, 6rem)", letterSpacing: "-0.04em", lineHeight: 0.9 }}
+            style={{ fontSize: "clamp(2rem, 6vw, 4.5rem)", letterSpacing: "-0.04em", lineHeight: 0.9 }}
           >
-            {t("title")}
+            <span style={{ color: "#fff" }}>{t("title_prefix")}</span><br />
+            <span style={{ color: "#F06000" }}>Club Sportiv<br />Pétanque</span><br />
+            <span style={{ color: "#fff" }}>Corbeanca</span>
           </h1>
         </div>
       </section>

@@ -25,7 +25,7 @@ function ContactContent() {
           </p>
           <h1
             className="font-black uppercase"
-            style={{ fontSize: "clamp(2.5rem, 8vw, 6rem)", letterSpacing: "-0.04em", lineHeight: 0.9 }}
+            style={{ fontSize: "clamp(2rem, 6vw, 4.5rem)", letterSpacing: "-0.04em", lineHeight: 0.9 }}
           >
             {t("title")}
           </h1>
@@ -72,7 +72,7 @@ function ContactContent() {
 
           {/* Right image — hidden on mobile */}
           <div className="hidden md:block" style={{ overflow: "hidden", borderLeft: "2px solid #0a0a0a" }}>
-            <img src="/petanque-corbeanca-vert.jpg" alt="Club Sportiv Pétanque Corbeanca" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top" }} />
+            <img src="/petanque-corbeanca-vert.jpg" alt="Club Sportiv Pétanque Corbeanca" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }} />
           </div>
 
         </div>

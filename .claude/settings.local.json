@@ -11,7 +11,10 @@
       "PowerShell(Get-ChildItem C:\\\\Projects\\\\Proj1\\\\public\\\\videos\\\\ | Select-Object Name, @{Name=\"MB\";Expression={[math]::Round\\($_.Length/1MB,1\\)}})",
       "Bash(ffmpeg -version)",
       "Bash(C:\\\\LiveApps\\\\ffmpeg-8.1.1-essentials\\\\bin\\\\ffmpeg.exe -version)",
-      "PowerShell(& \"C:\\\\LiveApps\\\\ffmpeg-8.1.1-essentials\\\\bin\\\\ffmpeg.exe\" -version 2>&1)"
+      "PowerShell(& \"C:\\\\LiveApps\\\\ffmpeg-8.1.1-essentials\\\\bin\\\\ffmpeg.exe\" -version 2>&1)",
+      "Bash(npx tsc *)",
+      "Bash(git commit *)",
+      "Bash(cd /mnt/c/Projects/Proj1 && npx tsc --noEmit 2>&1 | head -30)"
     ]
   }
 }

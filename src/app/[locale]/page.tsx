@@ -17,14 +17,14 @@ function HomeContent({ locale }: { locale: string }) {
       <section style={{ background: "#0a0a0a", color: "#ffffff", borderBottom: "2px solid #F06000" }}>
         <div className="max-w-7xl mx-auto px-6 py-14 md:py-20">
           <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#F06000" }}>
-            Corbeanca, România — Est. 2021
+            Corbeanca, România — Est. 2020
           </p>
           <h1
             className="font-black uppercase leading-none mb-5"
             style={{ fontSize: "clamp(2.5rem, 8vw, 6rem)", letterSpacing: "-0.04em", lineHeight: 0.9 }}
           >
-            Pétanque<br />
-            <span style={{ color: "#F06000" }}>Corbeanca</span>
+            <span style={{ color: "#F06000" }}>Pétanque</span><br />
+            Corbeanca
           </h1>
           <p className="text-base max-w-xl mb-8" style={{ color: "#aaa" }}>
             {t("hero_subtitle")}
@@ -44,13 +44,18 @@ function HomeContent({ locale }: { locale: string }) {
       <section style={{ background: "#F06000", color: "#fff" }}>
         <div className="max-w-7xl mx-auto px-6 py-4 grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { num: "2021", label: "Fondare" },
+            { num: "2020", label: "Fondare" },
             { num: "3", label: "Limbi" },
             { num: "∞", label: "Pasiune" },
             { num: "Corbeanca", label: "Ilfov, RO" },
           ].map((s) => (
             <div key={s.label}>
-              <p className="font-black text-xl md:text-2xl" style={{ letterSpacing: "-0.04em" }}>{s.num}</p>
+              <p
+                className={`font-black ${s.num === "∞" ? "text-4xl md:text-5xl" : "text-xl md:text-2xl"}`}
+                style={{ letterSpacing: "-0.04em", lineHeight: s.num === "∞" ? 0.85 : undefined }}
+              >
+                {s.num}
+              </p>
               <p className="text-xs font-bold uppercase tracking-widest opacity-70">{s.label}</p>
             </div>
           ))}
