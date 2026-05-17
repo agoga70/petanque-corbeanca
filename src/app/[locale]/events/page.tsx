@@ -1,5 +1,8 @@
+"use client";
+
 import { useTranslations } from "next-intl";
 import FacebookEmbed from "@/components/FacebookEmbed";
+import { useRef } from "react";
 
 export default function EventsPage() {
   return <EventsContent />;
@@ -7,6 +10,19 @@ export default function EventsPage() {
 
 function EventsContent() {
   const t = useTranslations("events");
+
+  const videoRefs = useRef<(HTMLVideoElement | null)[]>([null, null, null]);
+
+  function playOnly(index: number) {
+    videoRefs.current.forEach((v, i) => {
+      if (!v) return;
+      if (i === index) {
+        v.play();
+      } else {
+        v.pause();
+      }
+    });
+  }
 
   const copyright = (
     <div style={{
@@ -23,8 +39,17 @@ function EventsContent() {
     </div>
   );
 
+  const videoStyle: React.CSSProperties = {
+    width: "100%",
+    height: "clamp(320px, 60vw, 600px)",
+    objectFit: "cover",
+    objectPosition: "center center",
+    display: "block",
+    cursor: "pointer",
+  };
+
   return (
-    <>
+    <div className="flex flex-col flex-1">
       <section style={{ background: "#0a0a0a", color: "#fff", borderBottom: "2px solid #F06000" }}>
         <div className="max-w-7xl mx-auto px-6 py-8">
           <p className="text-xs font-black uppercase tracking-widest mb-3" style={{ color: "#F06000" }}>
@@ -37,8 +62,8 @@ function EventsContent() {
       </section>
 
       {/* Four vertical columns */}
-      <section style={{ borderBottom: "2px solid #0a0a0a" }}>
-        <div className="max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-4" style={{ minHeight: "650px" }}>
+      <section className="flex-1 flex flex-col" style={{ borderBottom: "2px solid #0a0a0a" }}>
+        <div className="flex-1 max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-4" style={{ width: "100%" }}>
 
           {/* Col 1 — Facebook embed */}
           <div style={{ borderBottom: "2px solid #0a0a0a" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
@@ -50,19 +75,21 @@ function EventsContent() {
             </div>
           </div>
 
-          {/* Col 2 — Landscape video (cropped to frame) */}
+          {/* Col 2 — Landscape video (auto-plays) */}
           <div style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", background: "#0a0a0a", position: "relative" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
             <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #F06000" }}>
               Dracula Cup 2026
             </p>
             <video
+              ref={(el) => { videoRefs.current[0] = el; }}
               src="/videos/draculacup-2026-horiz.mp4"
               autoPlay
               muted
               loop
               playsInline
-              style={{ width: "100%", height: "clamp(320px, 60vw, 600px)", objectFit: "cover", objectPosition: "center center", display: "block" }}
+              style={videoStyle}
               className="md:h-[calc(100%-45px)]"
+              onMouseEnter={() => playOnly(0)}
             />
             {copyright}
           </div>
@@ -73,13 +100,14 @@ function EventsContent() {
               Dracula Cup 2026
             </p>
             <video
+              ref={(el) => { videoRefs.current[1] = el; }}
               src="/videos/draculacup-2026-vert.mp4"
-              autoPlay
               muted
               loop
               playsInline
-              style={{ width: "100%", height: "clamp(320px, 60vw, 600px)", objectFit: "cover", display: "block" }}
+              style={videoStyle}
               className="md:h-[calc(100%-45px)]"
+              onMouseEnter={() => playOnly(1)}
             />
             {copyright}
           </div>
@@ -90,13 +118,14 @@ function EventsContent() {
               Dracula Cup 2026
             </p>
             <video
+              ref={(el) => { videoRefs.current[2] = el; }}
               src="/videos/petanque2026-01.mp4"
-              autoPlay
               muted
               loop
               playsInline
-              style={{ width: "100%", height: "clamp(320px, 60vw, 600px)", objectFit: "cover", display: "block" }}
+              style={videoStyle}
               className="md:h-[calc(100%-45px)]"
+              onMouseEnter={() => playOnly(2)}
             />
             {copyright}
           </div>
@@ -156,6 +185,6 @@ function EventsContent() {
           </p>
         </div>
       </section>
-    </>
+    </div>
   );
 }

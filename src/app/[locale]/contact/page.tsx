@@ -16,7 +16,7 @@ function ContactContent() {
   ];
 
   return (
-    <>
+    <div className="flex flex-col flex-1">
       {/* Header */}
       <section style={{ background: "#0a0a0a", color: "#fff", borderBottom: "2px solid #F06000" }}>
         <div className="max-w-7xl mx-auto px-6 py-8">
@@ -33,14 +33,14 @@ function ContactContent() {
       </section>
 
       {/* Contact grid */}
-      <section style={{
+      <section className="flex-1 flex flex-col" style={{
           backgroundImage: "url('/petanque-horiz-2.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
         }}>
-        <div style={{ background: "rgba(255,255,255,0.88)", borderBottom: "2px solid #0a0a0a" }}>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_400px]">
+        <div className="flex-1 flex flex-col" style={{ background: "rgba(255,255,255,0.88)", borderBottom: "2px solid #0a0a0a" }}>
+        <div className="flex-1 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_400px]">
           <div>
             {contacts.map((c, i) => (
               <div
@@ -72,7 +72,7 @@ function ContactContent() {
 
           {/* Right image — hidden on mobile */}
           <div className="hidden md:block" style={{ overflow: "hidden", borderLeft: "2px solid #0a0a0a" }}>
-            <img src="/petanque-corbeanca-vert.jpg" alt="Club Sportiv Pétanque Corbeanca" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 65%" }} />
+            <img src="/petanque-corbeanca-vert.jpg" alt="Club Sportiv Pétanque Corbeanca" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 60%" }} />
           </div>
 
         </div>
@@ -112,6 +112,6 @@ function ContactContent() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }

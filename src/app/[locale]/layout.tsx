@@ -13,7 +13,7 @@ const geist = Geist({ subsets: ["latin"] });
 export const metadata: Metadata = {
   title: "Pétanque Corbeanca",
   description: "Clubul de Pétanque Corbeanca — pasiune, prietenie și bile de metal.",
-  icons: { icon: "/favicon.svg", apple: "/logo-transparent.png" },
+  icons: { icon: "/favicon.svg", apple: "/logo.png" },
 };
 
 export function generateStaticParams() {
@@ -37,7 +37,7 @@ export default async function LocaleLayout({
       <body className="min-h-screen flex flex-col bg-white text-gray-900">
         <NextIntlClientProvider messages={messages}>
           <Navbar />
-          <main className="flex-1">{children}</main>
+          <main className="flex-1 flex flex-col">{children}</main>
           <Footer />
         </NextIntlClientProvider>
       </body>

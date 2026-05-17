@@ -76,7 +76,7 @@ function NewsContent() {
   const t = useTranslations("news");
 
   return (
-    <>
+    <div className="flex flex-col flex-1">
       <section style={{ background: "#0a0a0a", color: "#fff", borderBottom: "2px solid #F06000" }}>
         <div className="max-w-7xl mx-auto px-6 py-8">
           <p className="text-xs font-black uppercase tracking-widest mb-3" style={{ color: "#F06000" }}>
@@ -93,17 +93,17 @@ function NewsContent() {
         </div>
       </section>
 
-      <section style={{
+      <section className="flex-1 flex flex-col" style={{
           backgroundImage: "url('/petanque-horiz-1.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
         }}>
-        <div style={{ background: "rgba(255,255,255,0.88)", borderBottom: "2px solid #0a0a0a" }}>
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_400px]">
+        <div className="flex-1 flex flex-col" style={{ background: "rgba(255,255,255,0.88)", borderBottom: "2px solid #0a0a0a" }}>
+        <div className="flex-1 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_400px]">
 
           {/* Articles */}
-          <div style={{ overflowY: "auto", maxHeight: "580px" }}>
+          <div style={{ overflowY: "auto" }}>
           {articles.map((article, i) => {
             const inner = (
               <div
@@ -131,7 +131,7 @@ function NewsContent() {
 
                   {/* Multiple links */}
                   {article.links && (
-                    <div className="mt-4 flex flex-col gap-2">
+                    <div className="mt-4 flex flex-row flex-wrap gap-4">
                       {article.links.map((l) => (
                         <a
                           key={l.url}
@@ -175,6 +175,6 @@ function NewsContent() {
         </div>
         </div>
       </section>
-    </>
+    </div>
   );
 }
