@@ -28,7 +28,7 @@ function AboutContent() {
       </section>
 
       {/* History + Petanque */}
-      <section style={{ borderBottom: "2px solid #0a0a0a" }}>
+      <section style={{ borderBottom: "2px solid #0a0a0a", position: "relative" }}>
         <div className="max-w-7xl mx-auto px-6 py-12 grid md:grid-cols-2 gap-16">
           <div>
             <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#F06000" }}>
@@ -48,6 +48,12 @@ function AboutContent() {
             </h2>
             <p style={{ color: "#555", lineHeight: 1.8 }}>{t("petanque_text")}</p>
           </div>
+        </div>
+        {/* Bill Chamly — centered on column divider, overlapping bottom border */}
+        <div className="hidden md:flex flex-col items-center" style={{ position: "absolute", bottom: 0, left: "50%", transform: "translate(-50%, 50%)", zIndex: 10, background: "#fff", padding: "0 12px" }}>
+          <img src="/Bill-00.png" alt="Bill Chamly" style={{ width: 104, height: 104, borderRadius: "50%", objectFit: "cover", objectPosition: "center 15%", border: "3px solid #0a0a0a" }} />
+          <p className="font-black uppercase text-xs mt-2 text-center" style={{ letterSpacing: "-0.01em" }}>Bill Chamly</p>
+          <p className="text-xs text-center" style={{ color: "#888" }}>President &amp; Founding Member CSPC</p>
         </div>
       </section>
 
@@ -82,6 +88,24 @@ function AboutContent() {
               </div>
             ))}
           </div>
+
+          {/* Alesa + Cristina — at column intersections */}
+          <div className="hidden md:flex items-start pt-8 pb-4">
+            <div style={{ flex: 1 }} />
+            <div className="flex flex-col items-center" style={{ flex: 0 }}>
+              <img src="/Alesa-00.png" alt="Alesa Goga" style={{ width: 96, height: 96, borderRadius: "50%", objectFit: "cover", objectPosition: "center 10%", border: "3px solid #0a0a0a" }} />
+              <p className="font-black uppercase text-xs mt-2 text-center" style={{ letterSpacing: "-0.01em" }}>Alesa Goga</p>
+              <p className="text-xs text-center" style={{ color: "#888" }}>Founding Member CSPC</p>
+            </div>
+            <div style={{ flex: 1 }} />
+            <div className="flex flex-col items-center" style={{ flex: 0 }}>
+              <img src="/CristinaC-00.jpg" alt="Cristina Chamly" style={{ width: 96, height: 96, borderRadius: "50%", objectFit: "cover", objectPosition: "center 10%", border: "3px solid #0a0a0a" }} />
+              <p className="font-black uppercase text-xs mt-2 text-center" style={{ letterSpacing: "-0.01em" }}>Cristina Chamly</p>
+              <p className="text-xs text-center" style={{ color: "#888" }}>Secretary General CSPC</p>
+            </div>
+            <div style={{ flex: 1 }} />
+          </div>
+
         </div>
       </section>
 
