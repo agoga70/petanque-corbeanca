@@ -22,7 +22,7 @@ function AboutContent() {
           >
             <span style={{ color: "#fff" }}>{t("title_prefix")}</span><br />
             <span style={{ color: "#F06000" }}>Club Sportiv<br />Pétanque</span><br />
-            <span style={{ color: "#fff" }}>Corbeanca</span>
+            <span style={{ color: "#F06000" }}>Corbeanca</span>
           </h1>
         </div>
       </section>
@@ -51,7 +51,7 @@ function AboutContent() {
             </div>
           </div>
           {/* Bill Chamly — author, centered, inside the section above the border */}
-          <div className="hidden md:flex flex-col items-center pb-10">
+          <div className="hidden md:flex flex-col items-center pb-10" style={{ marginTop: "-2.8rem" }}>
             <div style={{ width: 88, height: 88, borderRadius: "50%", overflow: "hidden", border: "2.5px solid #0a0a0a", flexShrink: 0 }}>
               <img src="/Bill-00.png" alt="Bill Chamly" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%" }} />
             </div>
@@ -67,7 +67,7 @@ function AboutContent() {
           <p className="text-xs font-black uppercase tracking-widest mb-12" style={{ color: "#F06000" }}>
             {t("values_title")}
           </p>
-          <div className="grid md:grid-cols-3" style={{ border: "2px solid #0a0a0a" }}>
+          <div className="grid md:grid-cols-3" style={{ border: "2px solid #0a0a0a", position: "relative" }}>
             {([
               { n: "1", emoji: "01" },
               { n: "2", emoji: "02" },
@@ -75,7 +75,7 @@ function AboutContent() {
             ] as const).map((item, i) => (
               <div
                 key={item.n}
-                className="p-8 md:p-10 flex flex-col"
+                className="p-8 md:p-10"
                 style={{ borderBottom: i < 2 ? "2px solid #0a0a0a" : "none" }}
               >
                 <p className="font-black text-5xl mb-6" style={{ color: "#f2f2f2", WebkitTextStroke: "2px #0a0a0a" }}>
@@ -87,27 +87,26 @@ function AboutContent() {
                 <p style={{ color: "#555", lineHeight: 1.7, fontSize: "0.9rem" }}>
                   {t(`value${item.n}_text`)}
                 </p>
-                {/* Author avatar inside box */}
-                {item.n === "1" && (
-                  <div className="hidden md:flex flex-col items-center mt-8">
-                    <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "2px solid #0a0a0a", flexShrink: 0 }}>
-                      <img src="/Alesa-00.png" alt="Alesa Goga" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 10%" }} />
-                    </div>
-                    <p className="font-black uppercase text-xs mt-2 text-center" style={{ letterSpacing: "-0.01em" }}>Alesa Goga</p>
-                    <p className="text-xs text-center" style={{ color: "#888" }}>Founding Member CSPC</p>
-                  </div>
-                )}
-                {item.n === "2" && (
-                  <div className="hidden md:flex flex-col items-center mt-8">
-                    <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "2px solid #0a0a0a", flexShrink: 0 }}>
-                      <img src="/CristinaC-00.jpg" alt="Cristina Chamly" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 10%" }} />
-                    </div>
-                    <p className="font-black uppercase text-xs mt-2 text-center" style={{ letterSpacing: "-0.01em" }}>Cristina Chamly</p>
-                    <p className="text-xs text-center" style={{ color: "#888" }}>Secretary General CSPC</p>
-                  </div>
-                )}
               </div>
             ))}
+
+            {/* Alesa — centered on border between col 1 and col 2 */}
+            <div className="hidden md:flex flex-col items-center" style={{ position: "absolute", left: "33.33%", bottom: "3rem", transform: "translateX(-50%)" }}>
+              <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "2px solid #0a0a0a", flexShrink: 0, background: "#f2f2f2" }}>
+                <img src="/Alesa-00.png" alt="Alesa Goga" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 10%" }} />
+              </div>
+              <p className="font-black uppercase text-xs mt-2 text-center" style={{ letterSpacing: "-0.01em" }}>Alesa Goga</p>
+              <p className="text-xs text-center" style={{ color: "#888" }}>Founding Member CSPC</p>
+            </div>
+
+            {/* Cristina — centered on border between col 2 and col 3 */}
+            <div className="hidden md:flex flex-col items-center" style={{ position: "absolute", left: "66.66%", bottom: "3rem", transform: "translateX(-50%)" }}>
+              <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "2px solid #0a0a0a", flexShrink: 0, background: "#f2f2f2" }}>
+                <img src="/CristinaC-00.jpg" alt="Cristina Chamly" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 10%" }} />
+              </div>
+              <p className="font-black uppercase text-xs mt-2 text-center" style={{ letterSpacing: "-0.01em" }}>Cristina Chamly</p>
+              <p className="text-xs text-center" style={{ color: "#888" }}>Secretary General CSPC</p>
+            </div>
           </div>
 
         </div>
