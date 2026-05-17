@@ -40,10 +40,10 @@ function ContactContent() {
           backgroundAttachment: "fixed",
         }}>
         <div className="flex-1 flex flex-col" style={{ background: "rgba(255,255,255,0.88)", borderBottom: "2px solid #0a0a0a" }}>
-        <div className="flex-1 max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[400px_1fr_400px]">
+        <div className="flex-1 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[400px_1fr] lg:grid-cols-[400px_1fr_400px]">
 
-          {/* Left image — hidden below lg (landscape phones stay single-col) */}
-          <div className="hidden lg:block" style={{ overflow: "hidden", borderRight: "2px solid #0a0a0a" }}>
+          {/* Left image — visible from md (landscape phone) upward */}
+          <div className="hidden md:block" style={{ overflow: "hidden", borderRight: "2px solid #0a0a0a" }}>
             <img src="/petanque-corbeanca-vert-000.jpg" alt="Club Sportiv Pétanque Corbeanca" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 60%" }} />
           </div>
 
