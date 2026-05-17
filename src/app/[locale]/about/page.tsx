@@ -117,9 +117,9 @@ function AboutContent() {
       {/* Social sport section */}
       <section style={{ borderBottom: "2px solid #0a0a0a" }}>
         <div className="max-w-7xl mx-auto px-6 py-12">
-          <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#F06000" }}>
+          <h2 className="font-black uppercase text-lg mb-4" style={{ letterSpacing: "-0.02em", color: "#F06000" }}>
             {t("society_label")}
-          </p>
+          </h2>
           <p className="text-base max-w-3xl mb-12" style={{ color: "#555", lineHeight: 1.8 }}>
             {t("society_intro")}{" "}
             <a href="https://www.bbc.com/sport/get-inspired/27911295" target="_blank" rel="noopener noreferrer" className="font-bold hover:underline" style={{ color: "#F06000" }}>BBC Sport ↗</a>
