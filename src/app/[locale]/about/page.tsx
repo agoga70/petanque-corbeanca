@@ -247,8 +247,15 @@ function AboutContent() {
             ] as const).map((item, i) => (
               <div
                 key={item.num}
-                className="p-8"
-                style={{ borderBottom: i < 3 ? "2px solid #0a0a0a" : "none" }}
+                className={[
+                  "p-8",
+                  // Mobile (1-col): bottom border between every row except the last
+                  i < 3 ? "border-b-2 border-b-[#0a0a0a]" : "",
+                  // Desktop (2-col): bottom border only on row 1 (items 0 & 1)
+                  i >= 2 ? "md:border-b-0" : "",
+                  // Desktop: right border on left-column items (0 & 2)
+                  i % 2 === 0 ? "md:border-r-2 md:border-r-[#0a0a0a]" : "",
+                ].filter(Boolean).join(" ")}
               >
                 <p className="font-black text-4xl mb-4 select-none" style={{ color: "#f2f2f2", WebkitTextStroke: "1.5px #ddd", letterSpacing: "-0.04em", lineHeight: 1 }}>
                   {item.num}
