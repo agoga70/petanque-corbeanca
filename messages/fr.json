@@ -20,7 +20,10 @@
     "join_title": "Envie de jouer avec nous ?",
     "join_text": "Le club est ouvert à tous. Venez vous entraîner ou écrivez-nous !",
     "read_more": "En savoir plus",
-    "join_cta": "Nous contacter"
+    "join_cta": "Nous contacter",
+    "stats_founded": "Fondation",
+    "stats_languages": "Langues",
+    "stats_passion": "Passion"
   },
   "about": {
     "title": "À propos du Club Sportiv Pétanque Corbeanca",
@@ -66,12 +69,44 @@
     "triplette_desc": "Trois contre trois, deux boules chacun. Stratégie collective et chaos contrôlé.",
     "measure_distance": "Distance max. cochonnet",
     "measure_weight": "Poids max. boule",
-    "measure_points": "Points pour gagner"
+    "measure_points": "Points pour gagner",
+    "founding_members_label": "Membres Fondateurs",
+    "milestone_label": "Premier Tournoi",
+    "milestone_date": "6 Juin 2021",
+    "milestone_players": "36 Joueurs",
+    "milestone_title": "Tout a commencé ainsi",
+    "milestone_text": "Un an seulement après sa fondation, le CSPC a organisé son premier tournoi officiel — 36 joueurs se sont affrontés sur les terrains de Corbeanca, marquant le début d'une tradition de compétition qui ne cesse de grandir.",
+    "photo_banner_caption": "Club Sportiv Pétanque Corbeanca — en action",
+    "faq_label": "FAQ",
+    "faq_title": "Questions fréquentes",
+    "faq1_q": "Comment rejoindre le club ?",
+    "faq1_a": "Venez simplement nous rendre visite sur les terrains, lors d'une de nos journées de jeu, ou contactez-nous sur WhatsApp ou Facebook (voir la page Contact). Aucune expérience requise — venez avec votre enthousiasme !",
+    "faq2_q": "Dois-je avoir mes propres boules ?",
+    "faq2_a": "Pas du tout. Les débutants peuvent emprunter des jeux du club. Si vous décidez de jouer régulièrement, nous vous aiderons à choisir les boules adaptées à votre style.",
+    "faq3_q": "Quel est le coût de l'adhésion ?",
+    "faq3_a": "L'adhésion est basée sur des dons — une contribution suggérée d'au moins 50 Lei par an. Tout le monde est le bienvenu, quelle que soit la capacité à payer.",
+    "faq4_q": "Où jouez-vous ?",
+    "faq4_a": "Nos terrains sont à Corbeanca, Ilfov (15 min d'Otopeni). Consultez notre page Facebook ou contactez-nous directement pour l'adresse et le programme (voir la page Contact pour nous joindre).",
+    "faq5_q": "Les enfants peuvent-ils jouer ?",
+    "faq5_a": "Absolument ! La pétanque est un sport familial. Les enfants sont les bienvenus et il existe des formats adaptés à tous les âges.",
+    "faq6_q": "Organisez-vous des compétitions ?",
+    "faq6_a": "Oui — nous organisons des tournois locaux depuis 2021 et participons également à des événements nationaux et internationaux.",
+    "timeline_label": "Chronologie du Club",
+    "timeline_coming_soon": "Chronologie en direct depuis Facebook bientôt — suivez-nous à",
+    "timeline_hashtag": "#CSPCTimeline",
+    "docs_label": "Documents du Club",
+    "docs_membership": "Formulaire d'Adhésion",
+    "docs_statute": "Statut du Club",
+    "docs_rules_internal": "Règlement Intérieur",
+    "docs_rules_en": "FIPJP Règles de Jeu (EN)",
+    "docs_rules_ro": "Règles de Jeu (RO)"
   },
   "events": {
     "title": "Événements",
     "subtitle": "Suivez l'activité de notre club",
-    "facebook_note": "Tous les événements sont également publiés sur notre page Facebook."
+    "facebook_note": "Tous les événements sont également publiés sur notre page Facebook.",
+    "follow_us_label": "Suivez-nous",
+    "photo_gallery": "Galerie photos"
   },
   "news": {
     "title": "Actualités Pétanque",

@@ -20,7 +20,10 @@
     "join_title": "Vrei să joci cu noi?",
     "join_text": "Clubul este deschis tuturor. Vino la antrenament sau scrie-ne!",
     "read_more": "Citește mai mult",
-    "join_cta": "Contactează-ne"
+    "join_cta": "Contactează-ne",
+    "stats_founded": "Fondare",
+    "stats_languages": "Limbi",
+    "stats_passion": "Pasiune"
   },
   "about": {
     "title": "Despre Club Sportiv Pétanque Corbeanca",
@@ -66,12 +69,44 @@
     "triplette_desc": "Trei contra trei, două bile fiecare. Strategie colectivă și haos controlat.",
     "measure_distance": "Distanță max. cochonnet",
     "measure_weight": "Greutate max. bilă",
-    "measure_points": "Puncte pentru victorie"
+    "measure_points": "Puncte pentru victorie",
+    "founding_members_label": "Membri Fondatori",
+    "milestone_label": "Primul Turneu",
+    "milestone_date": "6 Iunie 2021",
+    "milestone_players": "36 Jucători",
+    "milestone_title": "Cum a început totul",
+    "milestone_text": "La un an de la fondare, CSPC a organizat primul turneu oficial — 36 de jucători s-au întrecut pe terenurile din Corbeanca, marcând începutul unei tradiții de competiție care continuă să crească în fiecare an.",
+    "photo_banner_caption": "Club Sportiv Pétanque Corbeanca — în acțiune",
+    "faq_label": "Întrebări frecvente",
+    "faq_title": "Întrebări frecvente",
+    "faq1_q": "Cum mă alătur clubului?",
+    "faq1_a": "Vino pur și simplu să ne vizitezi pe terenuri, într-una din zilele noastre de joc, sau contactează-ne pe WhatsApp sau Facebook (vezi pagina Contact). Nu ai nevoie de experiență — adu doar entuziasmul!",
+    "faq2_q": "Am nevoie de propriile bile?",
+    "faq2_a": "Deloc. Începătorii pot împrumuta seturi de la club. Dacă decizi să joci regulat, te ajutăm să alegi bilele potrivite stilului tău.",
+    "faq3_q": "Cât costă apartenența la club?",
+    "faq3_a": "Apartenența este bazată pe donații — o contribuție sugerată de min 50 Lei pe an. Toată lumea este binevenită, indiferent de posibilități.",
+    "faq4_q": "Unde jucați?",
+    "faq4_a": "Terenurile noastre sunt în Corbeanca, Ilfov (15 min de Otopeni). Verifică pagina noastră de Facebook sau contactează-ne direct pentru adresa exactă și program (vezi pagina Contact pentru modalități de contact).",
+    "faq5_q": "Pot juca și copiii?",
+    "faq5_a": "Absolut! Pétanque este un sport de familie. Copiii sunt binevenți și există formate potrivite pentru toate vârstele.",
+    "faq6_q": "Organizați competiții?",
+    "faq6_a": "Da — organizăm turnee locale din 2021 și participăm și la evenimente naționale și internaționale.",
+    "timeline_label": "Cronologia Clubului",
+    "timeline_coming_soon": "Cronologie live de pe Facebook în curând — urmărește-ne la",
+    "timeline_hashtag": "#CSPCTimeline",
+    "docs_label": "Documente Club",
+    "docs_membership": "Formular de Membru",
+    "docs_statute": "Statut Club",
+    "docs_rules_internal": "Regulament Intern",
+    "docs_rules_en": "FIPJP Reguli Joc (EN)",
+    "docs_rules_ro": "Reguli Joc (RO)"
   },
   "events": {
     "title": "Evenimente",
     "subtitle": "Urmărește activitatea clubului nostru",
-    "facebook_note": "Toate evenimentele sunt publicate și pe pagina noastră de Facebook."
+    "facebook_note": "Toate evenimentele sunt publicate și pe pagina noastră de Facebook.",
+    "follow_us_label": "Urmărește-ne",
+    "photo_gallery": "Galerie foto"
   },
   "news": {
     "title": "Știri despre Pétanque",

@@ -8,6 +8,7 @@ import { notFound } from "next/navigation";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SwipeNavigator from "@/components/SwipeNavigator";
+import ScrollRestorer from "@/components/ScrollRestorer";
 
 const geist = Geist({ subsets: ["latin"] });
 
@@ -38,6 +39,7 @@ export default async function LocaleLayout({
       <body className="min-h-screen flex flex-col bg-white text-gray-900">
         <NextIntlClientProvider messages={messages}>
           <SwipeNavigator>
+            <ScrollRestorer />
             <Navbar />
             <main className="flex-1 flex flex-col">{children}</main>
             <Footer />

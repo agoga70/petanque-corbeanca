@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import Link from "next/link";
 import ParallaxVideo from "@/components/ParallaxVideo";
 
 export default function AboutPage() {
@@ -49,7 +50,7 @@ function AboutContent() {
               <p style={{ color: "#555", lineHeight: 1.8 }}>{t("petanque_text")}</p>
             </div>
           </div>
-          {/* Bill Chamly — author, centered, inside the section above the border */}
+          {/* Bill Chamly */}
           <div className="hidden md:flex flex-col items-center pb-10" style={{ marginTop: "-5.3rem" }}>
             <div style={{ width: 88, height: 88, borderRadius: "50%", overflow: "hidden", border: "2.5px solid #0a0a0a", flexShrink: 0 }}>
               <img src="/Bill-00.png" alt="Bill Chamly" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%" }} />
@@ -58,6 +59,79 @@ function AboutContent() {
             <p className="text-xs text-center" style={{ color: "#888" }}>President &amp; Founding Member CSPC</p>
           </div>
         </div>
+      </section>
+
+      {/* Milestone — full-width compact orange bar */}
+      <section style={{ background: "#F06000", color: "#fff", borderBottom: "2px solid #0a0a0a" }}>
+        <div className="max-w-7xl mx-auto px-6 py-8">
+          <div className="grid md:grid-cols-3 gap-8 items-center">
+            <div>
+              <p className="text-xs font-black uppercase tracking-widest mb-2" style={{ color: "rgba(255,255,255,0.7)" }}>
+                {t("milestone_label")}
+              </p>
+              <p className="text-xs font-black uppercase tracking-widest" style={{ color: "rgba(255,255,255,0.5)" }}>
+                {t("milestone_date")}
+              </p>
+            </div>
+            <div className="text-center">
+              <p className="font-black" style={{ fontSize: "clamp(3rem, 6vw, 5rem)", letterSpacing: "-0.05em", lineHeight: 1 }}>
+                {t("milestone_players")}
+              </p>
+            </div>
+            <div>
+              <h3 className="font-black uppercase text-lg mb-2" style={{ letterSpacing: "-0.02em" }}>
+                {t("milestone_title")}
+              </h3>
+              <p style={{ color: "rgba(255,255,255,0.85)", lineHeight: 1.7, fontSize: "0.875rem" }}>
+                {t("milestone_text")}
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Founding Members strip */}
+      <section style={{ background: "#0a0a0a", borderBottom: "2px solid #F06000" }}>
+        <div className="max-w-7xl mx-auto px-6 py-10">
+          <p className="text-xs font-black uppercase tracking-widest mb-8" style={{ color: "#F06000" }}>
+            {t("founding_members_label")}
+          </p>
+          <div className="grid grid-cols-3 gap-8 max-w-2xl mx-auto">
+            {/* Bill Chamly */}
+            <div className="flex flex-col items-center">
+              <div style={{ width: 88, height: 88, borderRadius: "50%", overflow: "hidden", border: "2.5px solid #F06000", flexShrink: 0 }}>
+                <img src="/Bill-00.png" alt="Bill Chamly" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 15%" }} />
+              </div>
+              <p className="font-black uppercase text-xs mt-3 text-center" style={{ letterSpacing: "-0.01em", color: "#fff" }}>Bill Chamly</p>
+              <p className="text-xs text-center" style={{ color: "#F06000" }}>President &amp; Founder</p>
+            </div>
+            {/* Alesa Goga */}
+            <div className="flex flex-col items-center">
+              <div style={{ width: 88, height: 88, borderRadius: "50%", overflow: "hidden", border: "2.5px solid #F06000", flexShrink: 0 }}>
+                <img src="/Alesa-00.png" alt="Alesa Goga" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 10%" }} />
+              </div>
+              <p className="font-black uppercase text-xs mt-3 text-center" style={{ letterSpacing: "-0.01em", color: "#fff" }}>Alesa Goga</p>
+              <p className="text-xs text-center" style={{ color: "#F06000" }}>Founding Member</p>
+            </div>
+            {/* Jan Cardon */}
+            <div className="flex flex-col items-center">
+              <div style={{ width: 88, height: 88, borderRadius: "50%", overflow: "hidden", border: "2.5px solid #F06000", flexShrink: 0 }}>
+                <img src="/JanCardon-00.jpg" alt="Jan Cardon" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 10%", filter: "grayscale(100%)" }} />
+              </div>
+              <p className="font-black uppercase text-xs mt-3 text-center" style={{ letterSpacing: "-0.01em", color: "#fff" }}>Jan Cardon</p>
+              <p className="text-xs text-center" style={{ color: "#F06000" }}>Founding Member</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Full-width photo banner */}
+      <section style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", position: "relative", height: "500px" }}>
+        <img
+          src="/AllTheLadiesInTheHouse.jpg"
+          alt={t("photo_banner_caption")}
+          style={{ position: "absolute", left: 0, top: 0, width: "200%", maxWidth: "none", height: "100%", objectFit: "cover", objectPosition: "left top", display: "block" }}
+        />
       </section>
 
       {/* Values */}
@@ -71,11 +145,8 @@ function AboutContent() {
               { n: "1", emoji: "01" },
               { n: "2", emoji: "02" },
               { n: "3", emoji: "03" },
-            ] as const).map((item, i) => (
-              <div
-                key={item.n}
-                className="p-8 md:p-10"
-              >
+            ] as const).map((item) => (
+              <div key={item.n} className="p-8 md:p-10">
                 <p className="font-black text-5xl mb-6" style={{ color: "#f2f2f2", WebkitTextStroke: "2px #0a0a0a" }}>
                   {item.emoji}
                 </p>
@@ -88,7 +159,7 @@ function AboutContent() {
               </div>
             ))}
 
-            {/* Alesa — on border between col 1 and col 2, shifted left 20px */}
+            {/* Alesa — on border between col 1 and col 2 */}
             <div className="hidden md:flex flex-col items-center" style={{ position: "absolute", left: "33.33%", bottom: "calc(7rem - 80px)", transform: "translateX(calc(-50% - 20px))" }}>
               <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "2px solid #0a0a0a", flexShrink: 0, background: "#f2f2f2" }}>
                 <img src="/Alesa-00.png" alt="Alesa Goga" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 10%" }} />
@@ -97,7 +168,7 @@ function AboutContent() {
               <p className="text-xs text-center" style={{ color: "#888" }}>Founding Member CSPC</p>
             </div>
 
-            {/* Cristina — on border between col 2 and col 3, shifted left 20px */}
+            {/* Cristina — on border between col 2 and col 3 */}
             <div className="hidden md:flex flex-col items-center" style={{ position: "absolute", left: "66.66%", bottom: "calc(7rem - 80px)", transform: "translateX(calc(-50% - 20px))" }}>
               <div style={{ width: 80, height: 80, borderRadius: "50%", overflow: "hidden", border: "2px solid #0a0a0a", flexShrink: 0, background: "#f2f2f2" }}>
                 <img src="/CristinaC-00.jpg" alt="Cristina Chamly" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 10%" }} />
@@ -106,12 +177,55 @@ function AboutContent() {
               <p className="text-xs text-center" style={{ color: "#888" }}>Secretary General CSPC</p>
             </div>
           </div>
+        </div>
+      </section>
 
+      {/* FAQ section */}
+      <section style={{ background: "#fff", borderBottom: "2px solid #0a0a0a" }}>
+        <div className="max-w-7xl mx-auto px-6 py-12">
+          <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#F06000" }}>
+            {t("faq_label")}
+          </p>
+          <h2 className="font-black uppercase text-2xl md:text-3xl mb-10" style={{ letterSpacing: "-0.03em" }}>
+            {t("faq_title")}
+          </h2>
+          <div className="grid md:grid-cols-2 gap-0" style={{ border: "2px solid #0a0a0a" }}>
+            {/* FAQ 1 — join */}
+            <div className="p-8" style={{ borderBottom: "2px solid #0a0a0a", borderRight: "2px solid #0a0a0a" }}>
+              <h3 className="font-black uppercase text-base mb-3" style={{ letterSpacing: "-0.02em" }}>{t("faq1_q")}</h3>
+              <p style={{ color: "#555", lineHeight: 1.7, fontSize: "0.875rem" }}>{t("faq1_a")}</p>
+            </div>
+            {/* FAQ 2 — boules */}
+            <div className="p-8" style={{ borderBottom: "2px solid #0a0a0a" }}>
+              <h3 className="font-black uppercase text-base mb-3" style={{ letterSpacing: "-0.02em" }}>{t("faq2_q")}</h3>
+              <p style={{ color: "#555", lineHeight: 1.7, fontSize: "0.875rem" }}>{t("faq2_a")}</p>
+            </div>
+            {/* FAQ 3 — cost */}
+            <div className="p-8" style={{ borderBottom: "2px solid #0a0a0a", borderRight: "2px solid #0a0a0a" }}>
+              <h3 className="font-black uppercase text-base mb-3" style={{ letterSpacing: "-0.02em" }}>{t("faq3_q")}</h3>
+              <p style={{ color: "#555", lineHeight: 1.7, fontSize: "0.875rem" }}>{t("faq3_a")}</p>
+            </div>
+            {/* FAQ 4 — where */}
+            <div className="p-8" style={{ borderBottom: "2px solid #0a0a0a" }}>
+              <h3 className="font-black uppercase text-base mb-3" style={{ letterSpacing: "-0.02em" }}>{t("faq4_q")}</h3>
+              <p style={{ color: "#555", lineHeight: 1.7, fontSize: "0.875rem" }}>{t("faq4_a")}</p>
+            </div>
+            {/* FAQ 5 — children */}
+            <div className="p-8" style={{ borderRight: "2px solid #0a0a0a" }}>
+              <h3 className="font-black uppercase text-base mb-3" style={{ letterSpacing: "-0.02em" }}>{t("faq5_q")}</h3>
+              <p style={{ color: "#555", lineHeight: 1.7, fontSize: "0.875rem" }}>{t("faq5_a")}</p>
+            </div>
+            {/* FAQ 6 — competitions */}
+            <div className="p-8">
+              <h3 className="font-black uppercase text-base mb-3" style={{ letterSpacing: "-0.02em" }}>{t("faq6_q")}</h3>
+              <p style={{ color: "#555", lineHeight: 1.7, fontSize: "0.875rem" }}>{t("faq6_a")}</p>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Parallax video */}
-      <ParallaxVideo src="/videos/10071090.mp4" height={750} />
+      <ParallaxVideo src="/videos/10071090.mp4" height={950} />
 
       {/* Social sport section */}
       <section style={{ borderBottom: "2px solid #0a0a0a" }}>
@@ -134,9 +248,7 @@ function AboutContent() {
               <div
                 key={item.num}
                 className="p-8"
-                style={{
-                  borderBottom: i < 3 ? "2px solid #0a0a0a" : "none",
-                }}
+                style={{ borderBottom: i < 3 ? "2px solid #0a0a0a" : "none" }}
               >
                 <p className="font-black text-4xl mb-4 select-none" style={{ color: "#f2f2f2", WebkitTextStroke: "1.5px #ddd", letterSpacing: "-0.04em", lineHeight: 1 }}>
                   {item.num}
@@ -182,8 +294,6 @@ function AboutContent() {
         {/* Band 2 — White: format cards + measurements */}
         <div style={{ background: "#fff", borderBottom: "2px solid #0a0a0a" }}>
           <div className="max-w-7xl mx-auto">
-
-            {/* Format cards */}
             <div className="grid md:grid-cols-3 gap-0" style={{ borderBottom: "2px solid #0a0a0a" }}>
               {([
                 { num: "№ 01", key: "tete", descKey: "tete_desc" },
@@ -207,8 +317,6 @@ function AboutContent() {
                 </div>
               ))}
             </div>
-
-            {/* FIPJP measurements */}
             <div className="grid grid-cols-3 gap-0">
               {[
                 { value: "12m", label: t("measure_distance") },
@@ -228,36 +336,71 @@ function AboutContent() {
           </div>
         </div>
 
-        {/* Band 3 — Orange: source links */}
-        <div style={{ background: "#F06000", color: "#fff" }}>
+        {/* Band 3 — Orange: online source links */}
+        <div style={{ background: "#F06000", color: "#fff", borderBottom: "2px solid #0a0a0a" }}>
           <div className="max-w-7xl mx-auto px-6 py-10">
-          <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "rgba(255,255,255,0.6)" }}>
-            {t("rules_label")}
-          </p>
-          <div className="flex flex-col sm:flex-row flex-wrap gap-3">
-            <a href="https://www.obut.com/en/content/92-petanque-rules" target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-between px-5 py-3 group"
-              style={{ background: "rgba(0,0,0,0.2)", border: "2px solid rgba(255,255,255,0.3)", minWidth: "240px" }}>
-              <span className="text-xs font-black uppercase tracking-widest">Obut — {t("rules_official")}</span>
-              <span className="font-black text-lg group-hover:translate-x-1 transition-transform ml-4">→</span>
-            </a>
-            <a href="https://fipjp.org/images/2021/reglements/Official_Rules_Petanque-En.pdf" target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-between px-5 py-3 group"
-              style={{ background: "rgba(0,0,0,0.2)", border: "2px solid rgba(255,255,255,0.3)", minWidth: "240px" }}>
-              <span className="text-xs font-black uppercase tracking-widest">FIPJP — {t("rules_official")} (PDF)</span>
-              <span className="font-black text-lg group-hover:translate-x-1 transition-transform ml-4">→</span>
-            </a>
-            <a href="https://www.thesimplethings.com/blog/rules-petanque" target="_blank" rel="noopener noreferrer"
-              className="flex items-center justify-between px-5 py-3 group"
-              style={{ background: "rgba(0,0,0,0.2)", border: "2px solid rgba(255,255,255,0.3)", minWidth: "240px" }}>
-              <span className="text-xs font-black uppercase tracking-widest">The Simple Things — {t("rules_guide")}</span>
-              <span className="font-black text-lg group-hover:translate-x-1 transition-transform ml-4">→</span>
-            </a>
-          </div>
+            <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "rgba(255,255,255,0.6)" }}>
+              {t("rules_label")}
+            </p>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+              <a href="https://www.obut.com/en/content/92-petanque-rules" target="_blank" rel="noopener noreferrer"
+                className="flex items-center justify-between px-5 py-3 group"
+                style={{ background: "rgba(0,0,0,0.2)", border: "2px solid rgba(255,255,255,0.3)", minWidth: "240px" }}>
+                <span className="text-xs font-black uppercase tracking-widest">Obut — {t("rules_official")}</span>
+                <span className="font-black text-lg group-hover:translate-x-1 transition-transform ml-4">→</span>
+              </a>
+              <a href="https://fipjp.org/images/2021/reglements/Official_Rules_Petanque-En.pdf" target="_blank" rel="noopener noreferrer"
+                className="flex items-center justify-between px-5 py-3 group"
+                style={{ background: "rgba(0,0,0,0.2)", border: "2px solid rgba(255,255,255,0.3)", minWidth: "240px" }}>
+                <span className="text-xs font-black uppercase tracking-widest">FIPJP — {t("rules_official")} (PDF)</span>
+                <span className="font-black text-lg group-hover:translate-x-1 transition-transform ml-4">→</span>
+              </a>
+              <a href="https://www.thesimplethings.com/blog/rules-petanque" target="_blank" rel="noopener noreferrer"
+                className="flex items-center justify-between px-5 py-3 group"
+                style={{ background: "rgba(0,0,0,0.2)", border: "2px solid rgba(255,255,255,0.3)", minWidth: "240px" }}>
+                <span className="text-xs font-black uppercase tracking-widest">The Simple Things — {t("rules_guide")}</span>
+                <span className="font-black text-lg group-hover:translate-x-1 transition-transform ml-4">→</span>
+              </a>
+            </div>
           </div>
         </div>
+
+        {/* Band 4 — White: Club PDF documents */}
+        <div style={{ background: "#fff" }}>
+          <div className="max-w-7xl mx-auto px-6 py-10">
+            <p className="text-xs font-black uppercase tracking-widest mb-6" style={{ color: "#F06000" }}>
+              {t("docs_label")}
+            </p>
+            <div className="flex flex-col sm:flex-row flex-wrap gap-3">
+              {[
+                { label: t("docs_membership"), href: "/MembershipForm.pdf" },
+                { label: t("docs_statute"), href: "/StatutulCSPC10Mai2026.pdf" },
+                { label: t("docs_rules_internal"), href: "/ClubInternalRules.pdf" },
+                { label: t("docs_rules_en"), href: "/GameRules_EN.pdf" },
+                { label: t("docs_rules_ro"), href: "/ReguliDeJoc_RO.pdf" },
+              ].map((doc) => (
+                <a key={doc.label} href={doc.href} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-3 px-5 py-3 group"
+                  style={{ background: "#f2f2f2", border: "2px solid #0a0a0a", minWidth: "200px" }}>
+                  <svg className="shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="#F06000"><path d="M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zm-1 7V3.5L18.5 9H13zm-1 5h-2v-1h2v1zm0-3H8v-1h4v1zm4 6H8v-1h8v1z"/></svg>
+                  <span className="text-xs font-black uppercase tracking-widest group-hover:underline">{doc.label}</span>
+                  <span className="font-black text-sm group-hover:translate-x-1 transition-transform ml-auto">↓</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </div>
+
       </section>
 
+      {/* Bottom photo banner — AllTheGentsInTheHouse */}
+      <section style={{ overflow: "hidden", width: "100%" }}>
+        <img
+          src="/AllTheGentsInTheHouse.jpg"
+          alt="Club Sportiv Pétanque Corbeanca"
+          style={{ width: "100%", height: "420px", objectFit: "cover", objectPosition: "center top", display: "block" }}
+        />
+      </section>
     </>
   );
 }

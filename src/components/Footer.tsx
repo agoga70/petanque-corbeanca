@@ -5,6 +5,7 @@ import Link from "next/link";
 
 export default function Footer() {
   const t = useTranslations("footer");
+  const nav = useTranslations("nav");
   const locale = useLocale();
 
   return (
@@ -26,10 +27,10 @@ export default function Footer() {
         {/* Links */}
         <div className="flex flex-col gap-2">
           {[
-            { href: `/${locale}/about`, label: "Club" },
-            { href: `/${locale}/events`, label: "Evenimente" },
-            { href: `/${locale}/news`, label: "Știri" },
-            { href: `/${locale}/contact`, label: "Contact" },
+            { href: `/${locale}/about`, label: nav("about") },
+            { href: `/${locale}/events`, label: nav("events") },
+            { href: `/${locale}/news`, label: nav("news") },
+            { href: `/${locale}/contact`, label: nav("contact") },
           ].map((l) => (
             <Link
               key={l.href}
@@ -56,7 +57,7 @@ export default function Footer() {
             className="text-xs font-bold uppercase tracking-widest hover:text-red-500 transition-colors" style={{ color: "#888" }}>
             WhatsApp →
           </a>
-          <a href="mailto:petanquecorbeanca@gmail.com"
+          <a href="mailto:petanque.corbeanca@gmail.com"
             className="text-xs font-bold uppercase tracking-widest hover:text-red-500 transition-colors" style={{ color: "#888" }}>
             Email →
           </a>

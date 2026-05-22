@@ -44,9 +44,9 @@ function HomeContent({ locale }: { locale: string }) {
       <section style={{ background: "#F06000", color: "#fff" }}>
         <div className="max-w-7xl mx-auto px-6 py-4 grid grid-cols-2 md:grid-cols-4 gap-4">
           {[
-            { num: "2020", label: "Fondare" },
-            { num: "3", label: "Limbi" },
-            { num: "∞", label: "Pasiune" },
+            { num: "2020", label: t("stats_founded") },
+            { num: "3", label: t("stats_languages") },
+            { num: "∞", label: t("stats_passion") },
             { num: "Corbeanca", label: "Ilfov, RO" },
           ].map((s) => (
             <div key={s.label}>
@@ -107,6 +107,15 @@ function HomeContent({ locale }: { locale: string }) {
             </Link>
           </div>
         </div>
+      </section>
+
+      {/* Club photo strip */}
+      <section style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden" }}>
+        <img
+          src="/cspc-group-2024.jpg"
+          alt="Club Sportiv Pétanque Corbeanca"
+          style={{ width: "100%", height: "520px", objectFit: "cover", objectPosition: "center top", display: "block" }}
+        />
       </section>
 
       {/* Parallax video */}

@@ -41,7 +41,7 @@ function EventsContent() {
 
   const videoStyle: React.CSSProperties = {
     width: "100%",
-    height: "clamp(320px, 60vw, 600px)",
+    height: "clamp(380px, 65vw, 680px)",
     objectFit: "cover",
     objectPosition: "center center",
     display: "block",
@@ -53,7 +53,7 @@ function EventsContent() {
       <section style={{ background: "#0a0a0a", color: "#fff", borderBottom: "2px solid #F06000" }}>
         <div className="max-w-7xl mx-auto px-6 py-8">
           <p className="text-xs font-black uppercase tracking-widest mb-3" style={{ color: "#F06000" }}>
-            02 — Evenimente
+            02 — Club Sportiv Pétanque Corbeanca
           </p>
           <h1 className="font-black uppercase" style={{ fontSize: "clamp(2rem, 6vw, 4.5rem)", letterSpacing: "-0.04em", lineHeight: 0.9 }}>
             {t("title")}
@@ -61,83 +61,109 @@ function EventsContent() {
         </div>
       </section>
 
+      {/* Top photo — cspc-at-mosia */}
+      <section style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden" }}>
+        <img
+          src="/cspc-at-mosia.jpg"
+          alt="Club Sportiv Pétanque Corbeanca"
+          style={{ width: "100%", height: "420px", objectFit: "cover", objectPosition: "center top", display: "block" }}
+        />
+      </section>
+
       {/* Four vertical columns */}
-      <section className="flex-1 flex flex-col" style={{ borderBottom: "2px solid #0a0a0a" }}>
-        <div className="flex-1 max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-[1.5fr_1fr_1fr_1fr]" style={{ width: "100%" }}>
+      <section className="flex-1 flex flex-col" style={{
+        borderBottom: "2px solid #0a0a0a",
+        backgroundImage: "url('/always-measure.jpg')",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundAttachment: "fixed",
+      }}>
+        <div style={{ background: "rgba(255,255,255,0.92)", flex: 1, display: "flex", flexDirection: "column" }}>
+          <div className="flex-1 max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-[1.5fr_1fr_1fr_1fr]" style={{ width: "100%" }}>
 
-          {/* Col 1 — Facebook embed */}
-          <div style={{ borderBottom: "2px solid #0a0a0a" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
-            <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #0a0a0a" }}>
-              Facebook — Timeline & Evenimente
-            </p>
-            <div>
-              <FacebookEmbed />
+            {/* Col 1 — Facebook embed */}
+            <div style={{ borderBottom: "2px solid #0a0a0a" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
+              <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #0a0a0a" }}>
+                Facebook — Timeline & {t("title")}
+              </p>
+              <div>
+                <FacebookEmbed />
+              </div>
             </div>
-          </div>
 
-          {/* Col 2 — Landscape video (auto-plays) */}
-          <div style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", background: "#0a0a0a", position: "relative" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
-            <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #F06000" }}>
-              Dracula Cup 2026
-            </p>
-            <video
-              ref={(el) => { videoRefs.current[0] = el; }}
-              src="/videos/draculacup-2026-horiz.mp4"
-              autoPlay
-              muted
-              loop
-              playsInline
-              style={videoStyle}
-              className="md:h-[calc(100%-45px)]"
-              onMouseEnter={() => playOnly(0)}
-            />
-            {copyright}
-          </div>
+            {/* Col 2 — Landscape video */}
+            <div style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", background: "#0a0a0a", position: "relative" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
+              <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #F06000" }}>
+                Dracula Cup 2026
+              </p>
+              <video
+                ref={(el) => { videoRefs.current[0] = el; }}
+                src="/videos/draculacup-2026-horiz.mp4"
+                autoPlay
+                muted
+                loop
+                playsInline
+                style={videoStyle}
+                className="md:h-[calc(100%-45px)]"
+                onMouseEnter={() => playOnly(0)}
+              />
+              {copyright}
+            </div>
 
-          {/* Col 3 — Portrait video (draculacup vert) */}
-          <div style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", background: "#0a0a0a", position: "relative" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
-            <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #F06000" }}>
-              Dracula Cup 2026
-            </p>
-            <video
-              ref={(el) => { videoRefs.current[1] = el; }}
-              src="/videos/draculacup-2026-vert.mp4"
-              muted
-              loop
-              playsInline
-              style={videoStyle}
-              className="md:h-[calc(100%-45px)]"
-              onMouseEnter={() => playOnly(1)}
-            />
-            {copyright}
-          </div>
+            {/* Col 3 — Portrait video */}
+            <div style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", background: "#0a0a0a", position: "relative" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
+              <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #F06000" }}>
+                Dracula Cup 2026
+              </p>
+              <video
+                ref={(el) => { videoRefs.current[1] = el; }}
+                src="/videos/draculacup-2026-vert.mp4"
+                muted
+                loop
+                playsInline
+                style={videoStyle}
+                className="md:h-[calc(100%-45px)]"
+                onMouseEnter={() => playOnly(1)}
+              />
+              {copyright}
+            </div>
 
-          {/* Col 4 — Portrait video (petanque2026) */}
-          <div style={{ overflow: "hidden", background: "#0a0a0a", position: "relative" }}>
-            <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #F06000" }}>
-              Dracula Cup 2026
-            </p>
-            <video
-              ref={(el) => { videoRefs.current[2] = el; }}
-              src="/videos/petanque2026-01.mp4"
-              muted
-              loop
-              playsInline
-              style={videoStyle}
-              className="md:h-[calc(100%-45px)]"
-              onMouseEnter={() => playOnly(2)}
-            />
-            {copyright}
-          </div>
+            {/* Col 4 — Portrait video */}
+            <div style={{ overflow: "hidden", background: "#0a0a0a", position: "relative" }}>
+              <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #F06000" }}>
+                Dracula Cup 2026
+              </p>
+              <video
+                ref={(el) => { videoRefs.current[2] = el; }}
+                src="/videos/petanque2026-01.mp4"
+                muted
+                loop
+                playsInline
+                style={videoStyle}
+                className="md:h-[calc(100%-45px)]"
+                onMouseEnter={() => playOnly(2)}
+              />
+              {copyright}
+            </div>
 
+          </div>
         </div>
+      </section>
+
+      {/* Bottom photo — Dracula Cup */}
+      <section style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden" }}>
+        <img
+          src="/dracula-cup.jpg"
+          alt="Dracula Cup Pétanque"
+          style={{ width: "100%", height: "420px", objectFit: "cover", objectPosition: "center top", display: "block" }}
+        />
       </section>
 
       {/* Follow us — orange horizontal bar */}
       <section style={{ background: "#F06000", color: "#fff", borderBottom: "2px solid #0a0a0a" }}>
         <div className="max-w-7xl mx-auto px-6 py-8">
           <p className="text-xs font-black uppercase tracking-widest mb-5" style={{ color: "rgba(255,255,255,0.6)" }}>
-            Urmărește-ne
+            {t("follow_us_label")}
           </p>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <a
@@ -175,7 +201,7 @@ function EventsContent() {
             >
               <div>
                 <p className="text-xs font-black uppercase tracking-widest mb-1" style={{ color: "rgba(255,255,255,0.6)" }}>Facebook Photos</p>
-                <p className="font-black uppercase text-sm text-white" style={{ letterSpacing: "-0.02em" }}>Galerie foto</p>
+                <p className="font-black uppercase text-sm text-white" style={{ letterSpacing: "-0.02em" }}>{t("photo_gallery")}</p>
               </div>
               <span className="font-black text-xl text-white group-hover:translate-x-1 transition-transform">→</span>
             </a>

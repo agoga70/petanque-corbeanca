@@ -20,7 +20,10 @@
     "join_title": "Want to play with us?",
     "join_text": "The club is open to everyone. Come to practice or write to us!",
     "read_more": "Read more",
-    "join_cta": "Contact us"
+    "join_cta": "Contact us",
+    "stats_founded": "Founded",
+    "stats_languages": "Languages",
+    "stats_passion": "Passion"
   },
   "about": {
     "title": "About Club Sportiv Pétanque Corbeanca",
@@ -66,12 +69,44 @@
     "triplette_desc": "Three against three, two balls each. Collective strategy and controlled chaos.",
     "measure_distance": "Max. cochonnet distance",
     "measure_weight": "Max. ball weight",
-    "measure_points": "Points to win"
+    "measure_points": "Points to win",
+    "founding_members_label": "Founding Members",
+    "milestone_label": "First Tournament",
+    "milestone_date": "6 June 2021",
+    "milestone_players": "36 Players",
+    "milestone_title": "How it all started",
+    "milestone_text": "Just one year after founding, CSPC hosted its first official tournament — 36 players competed on the Corbeanca courts, marking the start of a proud competition tradition that continues to grow each year.",
+    "photo_banner_caption": "Club Sportiv Pétanque Corbeanca — in action",
+    "faq_label": "FAQ",
+    "faq_title": "Frequently Asked Questions",
+    "faq1_q": "How do I join the club?",
+    "faq1_a": "Simply visit us on the tracks, on one of our game days, or contact us on WhatsApp or Facebook (see Contact page). No experience needed — just bring your enthusiasm!",
+    "faq2_q": "Do I need my own boules?",
+    "faq2_a": "Not at all. Beginners can borrow club sets. If you decide to play regularly, we'll help you choose the right boules for your style.",
+    "faq3_q": "What is the cost of membership?",
+    "faq3_a": "Membership is donation-based — a suggested contribution of min 50 Lei per year. Everyone is welcome regardless of ability to pay.",
+    "faq4_q": "Where do you play?",
+    "faq4_a": "Our courts are in Corbeanca, Ilfov (15 min from Otopeni). Check our Facebook page or just contact us directly for the exact address and session schedule (see the Contact page for ways to reach us).",
+    "faq5_q": "Can children play?",
+    "faq5_a": "Absolutely! Pétanque is a family sport. Children are welcome and there are formats suitable for all ages.",
+    "faq6_q": "Do you organize competitions?",
+    "faq6_a": "Yes — we have been organizing local tournaments since 2021 and participate in national and international events too.",
+    "timeline_label": "Club Timeline",
+    "timeline_coming_soon": "Live timeline from Facebook coming soon — follow us at",
+    "timeline_hashtag": "#CSPCTimeline",
+    "docs_label": "Club Documents",
+    "docs_membership": "Membership Form",
+    "docs_statute": "Club Statute",
+    "docs_rules_internal": "Internal Rules",
+    "docs_rules_en": "FIPJP Game Rules (EN)",
+    "docs_rules_ro": "Game Rules (RO)"
   },
   "events": {
     "title": "Events",
     "subtitle": "Follow our club's activity",
-    "facebook_note": "All events are also published on our Facebook page."
+    "facebook_note": "All events are also published on our Facebook page.",
+    "follow_us_label": "Follow us",
+    "photo_gallery": "Photo Gallery"
   },
   "news": {
     "title": "Pétanque News",

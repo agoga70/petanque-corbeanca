@@ -24,7 +24,7 @@ function ContactContent() {
   const t = useTranslations("contact");
 
   const contacts = [
-    { label: t("email_label"), value: "petanquecorbeanca@gmail.com", href: "mailto:petanquecorbeanca@gmail.com", icon: <IconEmail /> },
+    { label: t("email_label"), value: "petanque.corbeanca@gmail.com", href: "mailto:petanque.corbeanca@gmail.com", icon: <IconEmail /> },
     { label: t("phone_label"), value: "+40 730 444 666", href: "https://wa.me/40730444666", icon: <IconWhatsApp /> },
     { label: "Instagram", value: "@petanque_corbeanca", href: "https://www.instagram.com/petanque_corbeanca/", icon: <IconInstagram /> },
     { label: "Facebook", value: "Pétanque Corbeanca", href: "https://www.facebook.com/PetanqueCorbeanca", icon: <IconFacebook /> },
@@ -50,7 +50,7 @@ function ContactContent() {
 
       {/* Contact grid */}
       <section className="flex-1 flex flex-col" style={{
-          backgroundImage: "url('/petanque-horiz-2.jpg')",
+          backgroundImage: "url('/always-measure.jpg')",
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundAttachment: "fixed",
@@ -66,34 +66,44 @@ function ContactContent() {
           {/* Contact rows */}
           <div>
             {contacts.map((c, i) => (
-              <div
-                key={c.label}
-                className="px-6 py-5 grid grid-cols-[2rem_1fr] md:grid-cols-[2rem_auto_1fr] gap-x-3 items-center"
-                style={{ borderBottom: i < contacts.length - 1 ? "2px solid #f2f2f2" : "none" }}
-              >
-                {/* Icon */}
-                <span style={{ color: "#aaa" }}>{c.icon}</span>
-
-                {/* Label */}
-                <p className="text-xs font-black uppercase tracking-widest hidden md:block" style={{ color: "#888" }}>
-                  {c.label}
-                </p>
-
-                {/* Value */}
-                {c.href ? (
-                  <a
-                    href={c.href}
-                    target={c.href.startsWith("http") ? "_blank" : undefined}
-                    rel="noopener noreferrer"
-                    className="font-black text-base md:text-lg transition-colors hover:text-red-600 col-start-2 md:col-start-3"
-                    style={{ letterSpacing: "-0.02em", color: "#0a0a0a" }}
-                  >
-                    {c.value} →
-                  </a>
-                ) : (
-                  <p className="font-black text-base md:text-lg col-start-2 md:col-start-3" style={{ letterSpacing: "-0.02em" }}>
-                    {c.value}
+              <div key={c.label}>
+                <div
+                  className="px-6 py-5 grid grid-cols-[2rem_1fr] md:grid-cols-[2rem_auto_1fr] gap-x-3 items-center"
+                  style={{ borderBottom: "2px solid #f2f2f2" }}
+                >
+                  <span style={{ color: "#aaa" }}>{c.icon}</span>
+                  <p className="text-xs font-black uppercase tracking-widest hidden md:block" style={{ color: "#888" }}>
+                    {c.label}
                   </p>
+                  {c.href ? (
+                    <a
+                      href={c.href}
+                      target={c.href.startsWith("http") ? "_blank" : undefined}
+                      rel="noopener noreferrer"
+                      className="font-black text-base md:text-lg transition-colors hover:text-red-600 col-start-2 md:col-start-3"
+                      style={{ letterSpacing: "-0.02em", color: "#0a0a0a" }}
+                    >
+                      {c.value} →
+                    </a>
+                  ) : (
+                    <p className="font-black text-base md:text-lg col-start-2 md:col-start-3" style={{ letterSpacing: "-0.02em" }}>
+                      {c.value}
+                    </p>
+                  )}
+                </div>
+                {/* Google Maps embed below location row */}
+                {i === contacts.length - 1 && (
+                  <div style={{ borderBottom: "2px solid #f2f2f2" }}>
+                    <iframe
+                      src="https://maps.google.com/maps?q=Str+Hipodromului+nr+29,+Corbeanca,+Ilfov,+Romania&output=embed&z=18"
+                      width="100%"
+                      height="220"
+                      style={{ display: "block", border: "none" }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                    />
+                  </div>
                 )}
               </div>
             ))}
@@ -101,10 +111,25 @@ function ContactContent() {
 
           {/* Right image — hidden below lg */}
           <div className="hidden lg:block" style={{ overflow: "hidden", borderLeft: "2px solid #0a0a0a" }}>
-            <img src="/jasw-bule-4353764_1920 - vert.jpg" alt="Pétanque boules" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }} />
+            <img src="/petanque-vert-00.jpg" alt="Pétanque Corbeanca" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }} />
           </div>
 
         </div>
+        </div>
+      </section>
+
+      {/* Legal info */}
+      <section style={{ background: "#0a0a0a", color: "#fff", borderTop: "2px solid #F06000" }}>
+        <div className="max-w-7xl mx-auto px-6 py-5 flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-8">
+          <p className="text-xs font-black uppercase tracking-widest" style={{ color: "#F06000" }}>
+            Club Sportiv Pétanque Corbeanca
+          </p>
+          <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>
+            HQ / Sediu: Str. Ficusului nr. 10, Corbeanca, Ilfov 077065
+          </p>
+          <p className="text-xs" style={{ color: "rgba(255,255,255,0.5)" }}>
+            C.I.F.: 43524017
+          </p>
         </div>
       </section>
 
@@ -139,7 +164,7 @@ function ContactContent() {
               Messenger
             </a>
             <a
-              href="mailto:petanquecorbeanca@gmail.com"
+              href="mailto:petanque.corbeanca@gmail.com"
               className="flex items-center gap-3 px-6 py-3 font-black text-xs uppercase tracking-widest transition-opacity hover:opacity-80"
               style={{ background: "#fff", color: "#F06000" }}
             >

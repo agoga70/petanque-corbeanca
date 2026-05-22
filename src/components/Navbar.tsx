@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
+import { saveScrollPosition } from "@/components/ScrollRestorer";
 
 export default function Navbar() {
   const t = useTranslations("nav");
@@ -14,6 +15,7 @@ export default function Navbar() {
   const pathWithoutLocale = pathname.replace(/^\/(ro|en|fr)/, "") || "/";
 
   function switchLocale(l: string) {
+    saveScrollPosition();
     router.push(`/${l}${pathWithoutLocale}`);
   }
 
