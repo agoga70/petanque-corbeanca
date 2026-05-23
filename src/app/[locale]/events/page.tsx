@@ -66,7 +66,7 @@ function EventsContent() {
         <img
           src="/cspc-at-mosia.jpg"
           alt="Club Sportiv Pétanque Corbeanca"
-          style={{ width: "100%", height: "420px", objectFit: "cover", objectPosition: "center top", display: "block" }}
+          style={{ width: "100%", height: "500px", objectFit: "cover", objectPosition: "center top", display: "block" }}
         />
       </section>
 
@@ -155,7 +155,7 @@ function EventsContent() {
         <img
           src="/dracula-cup.jpg"
           alt="Dracula Cup Pétanque"
-          style={{ width: "100%", height: "420px", objectFit: "cover", objectPosition: "center top", display: "block" }}
+          style={{ width: "100%", height: "500px", objectFit: "cover", objectPosition: "center top", display: "block" }}
         />
       </section>
 

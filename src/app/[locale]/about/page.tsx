@@ -126,7 +126,7 @@ function AboutContent() {
       </section>
 
       {/* Full-width photo banner */}
-      <section style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", height: "500px" }}>
+      <section style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", height: "600px" }}>
         <img
           src="/AllTheLadiesInTheHouse.jpg"
           alt={t("photo_banner_caption")}
@@ -405,7 +405,7 @@ function AboutContent() {
         <img
           src="/mosia6.jpg"
           alt="Club Sportiv Pétanque Corbeanca"
-          style={{ width: "100%", height: "420px", objectFit: "cover", objectPosition: "center top", display: "block" }}
+          style={{ width: "100%", height: "500px", objectFit: "cover", objectPosition: "center top", display: "block" }}
         />
       </section>
     </>
