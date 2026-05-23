@@ -1,6 +1,7 @@
 import { useTranslations } from "next-intl";
 import Link from "next/link";
 import ParallaxVideo from "@/components/ParallaxVideo";
+import FBTimelineFeed from "@/components/FBTimelineFeed";
 
 export default function AboutPage() {
   return <AboutContent />;
@@ -180,9 +181,14 @@ function AboutContent() {
         </div>
       </section>
 
-      {/* FAQ section */}
+      {/* FAQ + Timeline section */}
       <section style={{ background: "#fff", borderBottom: "2px solid #0a0a0a" }}>
-        <div className="max-w-7xl mx-auto px-6 py-12">
+        <div className="grid md:grid-cols-2" style={{ borderBottom: "2px solid #0a0a0a" }}>
+          {/* Left: Timeline feed */}
+          <FBTimelineFeed label={t("timeline_label")} />
+
+          {/* Right: FAQ */}
+          <div className="px-6 py-12">
           <p className="text-xs font-black uppercase tracking-widest mb-4" style={{ color: "#F06000" }}>
             {t("faq_label")}
           </p>
@@ -221,7 +227,8 @@ function AboutContent() {
               <p style={{ color: "#555", lineHeight: 1.7, fontSize: "0.875rem" }}>{t("faq6_a")}</p>
             </div>
           </div>
-        </div>
+          </div>{/* end FAQ right col */}
+        </div>{/* end grid */}
       </section>
 
       {/* Parallax video */}

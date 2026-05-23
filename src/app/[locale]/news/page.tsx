@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import FBNewsFeed from "@/components/FBNewsFeed";
 
 type ArticleBase = {
   id: number;
@@ -113,6 +114,7 @@ function NewsContent() {
 
           {/* Articles */}
           <div style={{ overflowY: "auto" }}>
+          <FBNewsFeed publishedLabel={t("published")} />
           {articles.map((article, i) => {
             const inner = (
               <div

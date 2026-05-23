@@ -2,6 +2,7 @@
 
 import { useTranslations } from "next-intl";
 import FacebookEmbed from "@/components/FacebookEmbed";
+import FBEventsFeed from "@/components/FBEventsFeed";
 import { useRef } from "react";
 
 export default function EventsPage() {
@@ -79,16 +80,11 @@ function EventsContent() {
         backgroundAttachment: "fixed",
       }}>
         <div style={{ background: "rgba(255,255,255,0.92)", flex: 1, display: "flex", flexDirection: "column" }}>
-          <div className="flex-1 max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-[1.5fr_1fr_1fr_1fr]" style={{ width: "100%" }}>
+          <div className="flex-1 max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-[2fr_1fr_1fr]" style={{ width: "100%" }}>
 
-            {/* Col 1 — Facebook embed */}
+            {/* Col 1 — FB Events feed */}
             <div style={{ borderBottom: "2px solid #0a0a0a" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
-              <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #0a0a0a" }}>
-                Facebook — Timeline & {t("title")}
-              </p>
-              <div>
-                <FacebookEmbed />
-              </div>
+              <FBEventsFeed label={`Facebook — Timeline & ${t("title")}`} />
             </div>
 
             {/* Col 2 — Landscape video */}
@@ -111,7 +107,7 @@ function EventsContent() {
             </div>
 
             {/* Col 3 — Portrait video */}
-            <div style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", background: "#0a0a0a", position: "relative" }} className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]">
+            <div style={{ overflow: "hidden", background: "#0a0a0a", position: "relative" }}>
               <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #F06000" }}>
                 Dracula Cup 2026
               </p>
@@ -124,24 +120,6 @@ function EventsContent() {
                 style={videoStyle}
                 className="md:h-[calc(100%-45px)]"
                 onMouseEnter={() => playOnly(1)}
-              />
-              {copyright}
-            </div>
-
-            {/* Col 4 — Portrait video */}
-            <div style={{ overflow: "hidden", background: "#0a0a0a", position: "relative" }}>
-              <p className="text-xs font-black uppercase tracking-widest px-5 py-4" style={{ color: "#F06000", borderBottom: "2px solid #F06000" }}>
-                Dracula Cup 2026
-              </p>
-              <video
-                ref={(el) => { videoRefs.current[2] = el; }}
-                src="/videos/petanque2026-01.mp4"
-                muted
-                loop
-                playsInline
-                style={videoStyle}
-                className="md:h-[calc(100%-45px)]"
-                onMouseEnter={() => playOnly(2)}
               />
               {copyright}
             </div>
