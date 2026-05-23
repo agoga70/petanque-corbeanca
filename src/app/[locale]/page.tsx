@@ -114,7 +114,7 @@ function HomeContent({ locale }: { locale: string }) {
         <img
           src="/cspc-group-2024.jpg"
           alt="Club Sportiv Pétanque Corbeanca"
-          style={{ width: "100%", height: "520px", objectFit: "cover", objectPosition: "center top", display: "block" }}
+          style={{ width: "100%", height: "700px", objectFit: "cover", objectPosition: "center top", display: "block" }}
         />
       </section>
 
