@@ -93,6 +93,15 @@ function NewsContent() {
         </div>
       </section>
 
+      {/* Top photo banner */}
+      <section style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden" }}>
+        <img
+          src="/mosia9.jpg"
+          alt="Club Sportiv Pétanque Corbeanca"
+          style={{ width: "100%", height: "500px", objectFit: "cover", objectPosition: "center top", display: "block" }}
+        />
+      </section>
+
       <section className="flex-1 flex flex-col" style={{
           backgroundImage: "url('/petanque-horiz-1.jpg')",
           backgroundSize: "cover",
@@ -174,6 +183,15 @@ function NewsContent() {
 
         </div>
         </div>
+      </section>
+
+      {/* Bottom photo banner */}
+      <section style={{ overflow: "hidden" }}>
+        <img
+          src="/mosia5-jump3.jpg"
+          alt="Club Sportiv Pétanque Corbeanca"
+          style={{ width: "100%", height: "700px", objectFit: "cover", objectPosition: "center center", display: "block" }}
+        />
       </section>
     </div>
   );
