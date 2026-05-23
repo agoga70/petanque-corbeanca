@@ -126,11 +126,11 @@ function AboutContent() {
       </section>
 
       {/* Full-width photo banner */}
-      <section style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", position: "relative", height: "500px" }}>
+      <section style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", height: "500px" }}>
         <img
           src="/AllTheLadiesInTheHouse.jpg"
           alt={t("photo_banner_caption")}
-          style={{ position: "absolute", left: 0, top: 0, width: "200%", maxWidth: "none", height: "100%", objectFit: "cover", objectPosition: "left top", display: "block" }}
+          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
         />
       </section>
 
@@ -400,10 +400,10 @@ function AboutContent() {
 
       </section>
 
-      {/* Bottom photo banner — AllTheGentsInTheHouse */}
+      {/* Bottom photo banner — mosia6 */}
       <section style={{ overflow: "hidden", width: "100%" }}>
         <img
-          src="/AllTheGentsInTheHouse.jpg"
+          src="/mosia6.jpg"
           alt="Club Sportiv Pétanque Corbeanca"
           style={{ width: "100%", height: "420px", objectFit: "cover", objectPosition: "center top", display: "block" }}
         />
