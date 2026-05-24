@@ -72,7 +72,7 @@ export default function FBEventsFeed({ label }: { label: string }) {
             rel="noopener noreferrer"
             className="block group"
             style={{
-              borderBottom: i < posts.length - 1 ? "2px solid #f2f2f2" : "none",
+              borderBottom: "1px solid #e0e0e0",
               padding: "1rem 1.25rem",
               textDecoration: "none",
             }}
@@ -83,22 +83,24 @@ export default function FBEventsFeed({ label }: { label: string }) {
                 alt=""
                 style={{
                   width: "100%",
-                  height: "160px",
+                  height: "220px",
                   objectFit: "cover",
-                  objectPosition: "center top",
+                  objectPosition: "center center",
                   display: "block",
                   marginBottom: "0.75rem",
-                  border: "1px solid #f2f2f2",
+                  border: "1px solid #e0e0e0",
                 }}
               />
             )}
-            <p
-              className="text-xs font-black uppercase tracking-widest mb-1"
-              style={{ color: "#F06000" }}
-            >
-              {formatDate(post.created_time)}
-            </p>
-            <p className="text-sm mb-2" style={{ color: "#333", lineHeight: 1.6 }}>
+            <div className="flex items-center gap-2 mb-2">
+              <span
+                className="text-xs font-black uppercase tracking-widest px-2 py-0.5"
+                style={{ background: "#F06000", color: "#fff" }}
+              >
+                {formatDate(post.created_time)}
+              </span>
+            </div>
+            <p className="mb-2" style={{ color: "#333", lineHeight: 1.6, fontSize: "0.95rem" }}>
               {stripHashtags(post.message || post.story || "").slice(0, 180)}
               {(post.message || post.story || "").length > 180 ? "…" : ""}
             </p>
