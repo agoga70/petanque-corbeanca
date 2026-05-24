@@ -20,7 +20,6 @@ function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
       >
         ✕
       </button>
-      {/* Clicking the image itself also closes */}
       <img
         src={src}
         alt=""
@@ -32,11 +31,11 @@ function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
 }
 
 type Props = {
-  images: string[];        // 1 = lightbox only; 2+ = cycling + lightbox
+  images: string[];
   height: string | number;
   objectPosition?: string;
   alt?: string;
-  interval?: number;       // fallback timer in ms (default 5 min)
+  interval?: number;       // fallback timer ms (default 5 min)
   style?: React.CSSProperties;
 };
 
@@ -45,45 +44,34 @@ export default function PhotoBanner({
   height,
   objectPosition = "center top",
   alt = "",
-  interval = 300_000,    // 5 minutes
+  interval = 300_000,
   style,
 }: Props) {
-  const [cur, setCur] = useState(0);
-  const [prev, setPrev] = useState<number | null>(null);
-  const [transitioning, setTransitioning] = useState(false);
+  const [idx, setIdx] = useState(0);
+  const [visible, setVisible] = useState(true); // false = fading out
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
-
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
 
-  // Stable ref so timer/visibility callbacks never go stale
-  const curRef = useRef(cur);
-  curRef.current = cur;
-
-  const advance = useCallback(() => {
+  // Fade out → swap → fade in
+  const advanceRef = useRef<() => void>(() => {});
+  advanceRef.current = () => {
     if (images.length <= 1) return;
-    const next = (curRef.current + 1) % images.length;
-    setPrev(curRef.current);
-    setCur(next);
-    setTransitioning(true);
+    setVisible(false);
     setTimeout(() => {
-      setPrev(null);
-      setTransitioning(false);
-    }, 1000);
-  }, [images.length]);
+      setIdx((i) => (i + 1) % images.length);
+      setVisible(true);
+    }, 600);
+  };
 
-  // Stable ref to advance so effects set up once don't go stale
-  const advanceRef = useRef(advance);
-  useEffect(() => { advanceRef.current = advance; }, [advance]);
-
-  // Fallback timer — fires every `interval` ms, set up once
+  // Fallback timer — set up once
   useEffect(() => {
     if (images.length <= 1) return;
     const t = setInterval(() => advanceRef.current(), interval);
     return () => clearInterval(t);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // intentionally empty — interval is stable, advanceRef handles freshness
+  }, []);
 
-  // Tab visibility — advance immediately when user returns to this tab
+  // Tab return — advance immediately on visibility restored
   useEffect(() => {
     if (images.length <= 1) return;
     function onVisibility() {
@@ -92,36 +80,27 @@ export default function PhotoBanner({
     document.addEventListener("visibilitychange", onVisibility);
     return () => document.removeEventListener("visibilitychange", onVisibility);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []); // intentionally empty — advanceRef handles freshness
-
-  const imgStyle: React.CSSProperties = {
-    position: "absolute",
-    inset: 0,
-    width: "100%",
-    height: "100%",
-    objectFit: "cover",
-    objectPosition,
-    display: "block",
-  };
+  }, []);
 
   return (
     <>
       <div
-        onClick={() => setLightboxSrc(images[cur])}
+        onClick={() => setLightboxSrc(images[idx])}
         style={{ position: "relative", width: "100%", height, overflow: "hidden", cursor: "zoom-in", ...style }}
       >
-        <img src={images[cur]} alt={alt} style={imgStyle} />
-        {prev !== null && (
-          <img
-            src={images[prev]}
-            alt=""
-            style={{
-              ...imgStyle,
-              opacity: transitioning ? 0 : 1,
-              transition: transitioning ? "opacity 1000ms ease" : "none",
-            }}
-          />
-        )}
+        <img
+          src={images[idx]}
+          alt={alt}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition,
+            display: "block",
+            opacity: visible ? 1 : 0,
+            transition: "opacity 600ms ease",
+          }}
+        />
       </div>
       {lightboxSrc && <Lightbox src={lightboxSrc} onClose={closeLightbox} />}
     </>
