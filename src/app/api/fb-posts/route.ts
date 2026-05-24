@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-const PAGE_ID = "PetanqueCorbeanca";
+const PAGE_ID = "102148914986845";
 const TOKEN = process.env.FACEBOOK_PAGE_ACCESS_TOKEN;
 
 export const revalidate = 600; // 10 min cache
