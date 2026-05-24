@@ -1,4 +1,5 @@
 import { useTranslations } from "next-intl";
+import PhotoBanner from "@/components/PhotoBanner";
 
 export default function ContactPage() {
   return <ContactContent />;
@@ -60,7 +61,7 @@ function ContactContent() {
 
           {/* Left image — visible from sm (landscape phone) upward */}
           <div className="hidden sm:block" style={{ overflow: "hidden", borderRight: "2px solid #0a0a0a" }}>
-            <img src="/petanque-corbeanca-vert-000.jpg" alt="Club Sportiv Pétanque Corbeanca" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center 60%" }} />
+            <PhotoBanner images={["/petanque-corbeanca-vert-000.jpg"]} height="100%" objectPosition="center 60%" alt="Club Sportiv Pétanque Corbeanca" />
           </div>
 
           {/* Contact rows */}
@@ -111,7 +112,7 @@ function ContactContent() {
 
           {/* Right image — hidden below lg */}
           <div className="hidden lg:block" style={{ overflow: "hidden", borderLeft: "2px solid #0a0a0a" }}>
-            <img src="/petanque-vert-00.jpg" alt="Pétanque Corbeanca" style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center center" }} />
+            <PhotoBanner images={["/petanque-vert-00.jpg"]} height="100%" objectPosition="center center" alt="Pétanque Corbeanca" />
           </div>
 
         </div>

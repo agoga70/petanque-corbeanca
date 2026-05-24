@@ -3,7 +3,20 @@
 import { useTranslations } from "next-intl";
 import FacebookEmbed from "@/components/FacebookEmbed";
 import FBEventsFeed from "@/components/FBEventsFeed";
+import PhotoBanner from "@/components/PhotoBanner";
 import { useRef } from "react";
+
+const CYCLING_IMGS = [
+  "/imgs/mosia1.jpg","/imgs/mosia2.jpg","/imgs/mosia3.jpg","/imgs/mosia4.jpg",
+  "/imgs/mosia5-jump1.jpg","/imgs/mosia5-jump2.jpg","/imgs/mosia5-jump3.jpg",
+  "/imgs/mosia6b.jpg","/imgs/mosia7.jpg","/imgs/mosia8.jpg","/imgs/mosia9.jpg",
+  "/imgs/mosia10.jpg","/imgs/mosia11.jpg","/imgs/mosia12.jpg","/imgs/mosia13.jpg",
+  "/imgs/mosia14.jpg","/imgs/mosia15.jpg","/imgs/mosia16.jpg","/imgs/mosia17.jpg",
+  "/imgs/mosia18.jpg","/imgs/mosia19.jpg",
+  "/imgs/blacksea1.jpg","/imgs/blacksea2.jpg","/imgs/blacksea3-backs.jpg","/imgs/blacksea4.jpg",
+  "/imgs/varna1.jpeg","/imgs/varna2.jpg","/imgs/vlasia1.jpg",
+  "/imgs/draculacup2.jpg","/imgs/competition1.jpg",
+];
 
 export default function EventsPage() {
   return <EventsContent />;
@@ -62,13 +75,9 @@ function EventsContent() {
         </div>
       </section>
 
-      {/* Top photo — cspc-at-mosia */}
-      <section style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden" }}>
-        <img
-          src="/cspc-at-mosia.jpg"
-          alt="Club Sportiv Pétanque Corbeanca"
-          style={{ width: "100%", height: "500px", objectFit: "cover", objectPosition: "center top", display: "block" }}
-        />
+      {/* Top photo — cycling */}
+      <section style={{ borderBottom: "2px solid #0a0a0a" }}>
+        <PhotoBanner images={CYCLING_IMGS} height={500} objectPosition="center top" alt="Club Sportiv Pétanque Corbeanca" />
       </section>
 
       {/* Four vertical columns */}
@@ -131,13 +140,9 @@ function EventsContent() {
         </div>
       </section>
 
-      {/* Bottom photo — Dracula Cup */}
-      <section style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden" }}>
-        <img
-          src="/dracula-cup.jpg"
-          alt="Dracula Cup Pétanque"
-          style={{ width: "100%", height: "500px", objectFit: "cover", objectPosition: "center top", display: "block" }}
-        />
+      {/* Bottom photo — cycling */}
+      <section style={{ borderBottom: "2px solid #0a0a0a" }}>
+        <PhotoBanner images={CYCLING_IMGS} height={500} objectPosition="center top" alt="Dracula Cup Pétanque" />
       </section>
 
       {/* Follow us — orange horizontal bar */}

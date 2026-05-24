@@ -2,6 +2,19 @@ import { useTranslations } from "next-intl";
 import Link from "next/link";
 import ParallaxVideo from "@/components/ParallaxVideo";
 import FBTimelineFeed from "@/components/FBTimelineFeed";
+import PhotoBanner from "@/components/PhotoBanner";
+
+const CYCLING_IMGS = [
+  "/imgs/mosia1.jpg","/imgs/mosia2.jpg","/imgs/mosia3.jpg","/imgs/mosia4.jpg",
+  "/imgs/mosia5-jump1.jpg","/imgs/mosia5-jump2.jpg","/imgs/mosia5-jump3.jpg",
+  "/imgs/mosia6b.jpg","/imgs/mosia7.jpg","/imgs/mosia8.jpg","/imgs/mosia9.jpg",
+  "/imgs/mosia10.jpg","/imgs/mosia11.jpg","/imgs/mosia12.jpg","/imgs/mosia13.jpg",
+  "/imgs/mosia14.jpg","/imgs/mosia15.jpg","/imgs/mosia16.jpg","/imgs/mosia17.jpg",
+  "/imgs/mosia18.jpg","/imgs/mosia19.jpg",
+  "/imgs/blacksea1.jpg","/imgs/blacksea2.jpg","/imgs/blacksea3-backs.jpg","/imgs/blacksea4.jpg",
+  "/imgs/varna1.jpeg","/imgs/varna2.jpg","/imgs/vlasia1.jpg",
+  "/imgs/draculacup2.jpg","/imgs/competition1.jpg",
+];
 
 export default function AboutPage() {
   return <AboutContent />;
@@ -126,12 +139,9 @@ function AboutContent() {
         </div>
       </section>
 
-      {/* Full-width photo banner */}
-      <section style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", height: "600px" }}>
-        <img
-          src="/AllTheLadiesInTheHouse.jpg"
-          alt={t("photo_banner_caption")}
-          style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center top", display: "block" }}
+      {/* Full-width photo banner — cycling */}
+      <section style={{ borderBottom: "2px solid #0a0a0a" }}>
+        <PhotoBanner images={CYCLING_IMGS} height={600} objectPosition="center top" alt={t("photo_banner_caption")} style={{ borderBottom: "none" }}
         />
       </section>
 
@@ -409,11 +419,7 @@ function AboutContent() {
 
       {/* Bottom photo banner — mosia6 */}
       <section style={{ overflow: "hidden", width: "100%" }}>
-        <img
-          src="/mosia6.jpg"
-          alt="Club Sportiv Pétanque Corbeanca"
-          style={{ width: "100%", height: "500px", objectFit: "cover", objectPosition: "center top", display: "block" }}
-        />
+        <PhotoBanner images={CYCLING_IMGS} height={500} objectPosition="center top" alt="Club Sportiv Pétanque Corbeanca" />
       </section>
     </>
   );
