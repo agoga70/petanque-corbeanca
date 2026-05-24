@@ -139,7 +139,7 @@ function Lightbox({ post, onClose }: { post: FBPost; onClose: () => void }) {
   );
 }
 
-export default function FBEventsFeed({ label }: { label: string }) {
+export default function FBEventsFeed({ label, scrollClassName }: { label: string; scrollClassName?: string }) {
   const [posts, setPosts] = useState<FBPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [lightboxPost, setLightboxPost] = useState<FBPost | null>(null);
@@ -171,7 +171,7 @@ export default function FBEventsFeed({ label }: { label: string }) {
         {label}
       </p>
 
-      <div style={{ overflowY: "auto", flex: 1, WebkitOverflowScrolling: "touch" as never, touchAction: "pan-y" }}>
+      <div className={scrollClassName} style={{ overflowY: "scroll", WebkitOverflowScrolling: "touch" as never, touchAction: "pan-y" }}>
         {loading && (
           <div className="px-5 py-8 space-y-3">
             {[80, 60, 70].map((w, i) => (

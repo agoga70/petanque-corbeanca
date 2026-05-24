@@ -85,9 +85,9 @@ function EventsContent() {
             {/* Col 1 — FB Events feed */}
             <div
               style={{ borderBottom: "2px solid #0a0a0a" }}
-              className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a] overflow-hidden max-h-[500px] md:max-h-[725px]"
+              className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]"
             >
-              <FBEventsFeed label={`Facebook — Timeline & ${t("title")}`} />
+              <FBEventsFeed label={`Facebook — Timeline & ${t("title")}`} scrollClassName="max-h-[500px] md:max-h-[680px]" />
             </div>
 
             {/* Col 2 — Landscape video */}
