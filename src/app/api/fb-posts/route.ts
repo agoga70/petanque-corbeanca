@@ -17,7 +17,7 @@ export type FBPost = {
 
 function categorize(message: string): FBPost["category"] {
   const text = message.toLowerCase();
-  if (text.includes("#cspctimeline")) return "timeline";
+  if (text.includes("#timeline")) return "timeline";
   if (text.includes("#news")) return "news";
   return "events";
 }

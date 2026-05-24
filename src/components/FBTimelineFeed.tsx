@@ -59,7 +59,7 @@ export default function FBTimelineFeed({ label }: { label: string }) {
               — Coming soon
             </p>
             <p className="text-xs mt-2" style={{ color: "#999", lineHeight: 1.7 }}>
-              Tag Facebook posts with <span style={{ color: "#F06000" }}>#CSPCTimeline</span> to have them appear here.
+              Tag Facebook posts with <span style={{ color: "#F06000" }}>#timeline</span> to have them appear here.
             </p>
           </div>
         )}

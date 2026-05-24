@@ -59,7 +59,7 @@ export default function FBEventsFeed({ label }: { label: string }) {
               — Coming soon
             </p>
             <p className="text-xs mt-2" style={{ color: "#999", lineHeight: 1.7 }}>
-              All Facebook posts without <span style={{ color: "#F06000" }}>#CSPCTimeline</span> or <span style={{ color: "#F06000" }}>#news</span> will appear here automatically.
+              All Facebook posts without <span style={{ color: "#F06000" }}>#timeline</span> or <span style={{ color: "#F06000" }}>#news</span> will appear here automatically.
             </p>
           </div>
         )}
