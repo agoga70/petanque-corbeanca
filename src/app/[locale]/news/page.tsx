@@ -109,7 +109,10 @@ function NewsContent() {
         <div className="flex-1 max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-[1fr_400px]">
 
           {/* Articles */}
-          <div style={{ overflowY: "auto" }}>
+          <div
+            className="max-h-[600px] md:max-h-[750px]"
+            style={{ overflowY: "scroll", touchAction: "pan-y" }}
+          >
             <FBNewsFeed startNum={1} onPostsLoaded={onPostsLoaded} />
             {articles.map((article, i) => {
               const num = String(fbCount + i + 1).padStart(2, "0");
