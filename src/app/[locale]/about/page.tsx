@@ -3,24 +3,15 @@ import Link from "next/link";
 import ParallaxVideo from "@/components/ParallaxVideo";
 import FBTimelineFeed from "@/components/FBTimelineFeed";
 import PhotoBanner from "@/components/PhotoBanner";
-
-const CYCLING_IMGS = [
-  "/imgs/mosia1.jpg","/imgs/mosia2.jpg","/imgs/mosia3.jpg","/imgs/mosia4.jpg",
-  "/imgs/mosia5-jump1.jpg","/imgs/mosia5-jump3.jpg",
-  "/imgs/mosia6b.jpg","/imgs/mosia7.jpg","/imgs/mosia8.jpg","/imgs/mosia9.jpg",
-  "/imgs/mosia10.jpg","/imgs/mosia11.jpg","/imgs/mosia12.jpg","/imgs/mosia13.jpg",
-  "/imgs/mosia14.jpg","/imgs/mosia15.jpg","/imgs/mosia16.jpg","/imgs/mosia17.jpg",
-  "/imgs/mosia18.jpg","/imgs/mosia19.jpg",
-  "/imgs/blacksea1.jpg","/imgs/blacksea2.jpg","/imgs/blacksea3-backs.jpg","/imgs/blacksea4.jpg",
-  "/imgs/varna1.jpeg","/imgs/varna2.jpg","/imgs/vlasia1.jpg",
-  "/imgs/draculacup2.jpg","/imgs/competition1.jpg",
-];
+import { getCyclingImages } from "@/lib/getCyclingImages";
 
 export default function AboutPage() {
-  return <AboutContent />;
+  const cyclingImages = getCyclingImages();
+  return <AboutContent cyclingImages={cyclingImages} />;
 }
 
-function AboutContent() {
+function AboutContent({ cyclingImages }: { cyclingImages: string[] }) {
+  const half = Math.floor(cyclingImages.length / 2);
   const t = useTranslations("about");
 
   return (
@@ -141,7 +132,7 @@ function AboutContent() {
 
       {/* Full-width photo banner — cycling */}
       <section style={{ borderBottom: "2px solid #0a0a0a" }}>
-        <PhotoBanner images={CYCLING_IMGS} height={600} objectPosition="center top" alt={t("photo_banner_caption")} style={{ borderBottom: "none" }}
+        <PhotoBanner images={cyclingImages} height={600} objectPosition="center top" alt={t("photo_banner_caption")} style={{ borderBottom: "none" }}
         />
       </section>
 
@@ -419,7 +410,7 @@ function AboutContent() {
 
       {/* Bottom photo banner — mosia6 */}
       <section style={{ overflow: "hidden", width: "100%" }}>
-        <PhotoBanner images={CYCLING_IMGS} height={500} objectPosition="center top" alt="Club Sportiv Pétanque Corbeanca" initialIdx={14} />
+        <PhotoBanner images={cyclingImages} height={500} objectPosition="center top" alt="Club Sportiv Pétanque Corbeanca" initialIdx={half} />
       </section>
     </>
   );
