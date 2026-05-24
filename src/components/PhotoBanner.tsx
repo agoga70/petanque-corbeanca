@@ -38,7 +38,7 @@ function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
         onClick={(e) => e.stopPropagation()}
         style={{ width: "100%", maxWidth: "100%", display: "flex", justifyContent: "flex-end", marginTop: "0.6rem" }}
       >
-        <ShareButton url={shareUrl} color="#F06000" />
+        <ShareButton url={shareUrl} imageSrc={src} color="#F06000" />
       </div>
     </div>
   );
