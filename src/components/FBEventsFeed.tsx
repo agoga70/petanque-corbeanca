@@ -83,7 +83,8 @@ function Lightbox({ post, onClose }: { post: FBPost; onClose: () => void }) {
             <img
               src={images[idx]}
               alt=""
-              style={{ width: "100%", display: "block", objectFit: "contain", maxHeight: "60vh" }}
+              onClick={onClose}
+              style={{ width: "100%", display: "block", objectFit: "contain", maxHeight: "60vh", cursor: "zoom-out" }}
             />
             {images.length > 1 && (
               <>

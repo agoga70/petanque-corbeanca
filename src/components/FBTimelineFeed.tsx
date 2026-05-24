@@ -77,7 +77,7 @@ function Lightbox({ post, onClose }: { post: FBPost; onClose: () => void }) {
 
         {images.length > 0 && (
           <div style={{ position: "relative", background: "#0a0a0a" }}>
-            <img src={images[idx]} alt="" style={{ width: "100%", display: "block", objectFit: "contain", maxHeight: "60vh" }} />
+            <img src={images[idx]} alt="" onClick={onClose} style={{ width: "100%", display: "block", objectFit: "contain", maxHeight: "60vh", cursor: "zoom-out" }} />
             {images.length > 1 && (
               <>
                 <button onClick={() => setIdx((i) => Math.max(i - 1, 0))} disabled={idx === 0}
