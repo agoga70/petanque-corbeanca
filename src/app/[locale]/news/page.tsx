@@ -1,9 +1,11 @@
+"use client";
+
 import { useTranslations } from "next-intl";
+import { useState, useCallback } from "react";
 import FBNewsFeed from "@/components/FBNewsFeed";
 
 type ArticleBase = {
   id: number;
-  num: string;
   titleKey: string;
   excerptKey: string;
   tagKey: string;
@@ -15,7 +17,6 @@ type ArticleBase = {
 const articles: ArticleBase[] = [
   {
     id: 5,
-    num: "01",
     titleKey: "a1_title",
     excerptKey: "a1_excerpt",
     tagKey: "tag_international",
@@ -29,7 +30,6 @@ const articles: ArticleBase[] = [
   },
   {
     id: 3,
-    num: "02",
     titleKey: "a2_title",
     excerptKey: "a2_excerpt",
     tagKey: "tag_international",
@@ -39,7 +39,6 @@ const articles: ArticleBase[] = [
   },
   {
     id: 2,
-    num: "03",
     titleKey: "a3_title",
     excerptKey: "a3_excerpt",
     tagKey: "tag_championship",
@@ -49,7 +48,6 @@ const articles: ArticleBase[] = [
   },
   {
     id: 1,
-    num: "04",
     titleKey: "a4_title",
     excerptKey: "a4_excerpt",
     tagKey: "tag_competition",
@@ -59,7 +57,6 @@ const articles: ArticleBase[] = [
   },
   {
     id: 4,
-    num: "05",
     titleKey: "a5_title",
     excerptKey: "a5_excerpt",
     tagKey: "tag_community",
@@ -75,6 +72,8 @@ export default function NewsPage() {
 
 function NewsContent() {
   const t = useTranslations("news");
+  const [fbCount, setFbCount] = useState(0);
+  const onPostsLoaded = useCallback((count: number) => setFbCount(count), []);
 
   return (
     <div className="flex flex-col flex-1">
@@ -114,68 +113,69 @@ function NewsContent() {
 
           {/* Articles */}
           <div style={{ overflowY: "auto" }}>
-          <FBNewsFeed publishedLabel={t("published")} />
-          {articles.map((article, i) => {
-            const inner = (
-              <div
-                className="px-6 py-4 grid md:grid-cols-4 gap-4 items-start group"
-                style={{ borderBottom: i < articles.length - 1 ? "2px solid #f2f2f2" : "none" }}
-              >
-                <div>
-                  <p className="font-black text-4xl select-none" style={{ color: "#bbb", WebkitTextStroke: "1.5px #999", letterSpacing: "-0.04em", lineHeight: 1 }}>
-                    {article.num}
-                  </p>
-                </div>
-                <div className="md:col-span-3">
-                  <div className="flex items-center gap-3 mb-2">
-                    <span className="text-xs font-black uppercase tracking-widest px-2 py-0.5" style={{ background: "#F06000", color: "#fff" }}>
-                      {t(article.tagKey)}
-                    </span>
-                    <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#888" }}>
-                      {new Date(article.date).toLocaleDateString("ro-RO", { day: "numeric", month: "long", year: "numeric" })}
-                    </span>
-                  </div>
-                  <h2 className="font-black uppercase text-lg md:text-xl mb-2 transition-colors" style={{ letterSpacing: "-0.02em" }}>
-                    {t(article.titleKey)}
-                  </h2>
-                  <p style={{ color: "#555", lineHeight: 1.6, fontSize: "0.875rem" }}>{t(article.excerptKey)}</p>
-
-                  {/* Multiple links */}
-                  {article.links && (
-                    <div className="mt-4 flex flex-row flex-wrap gap-4">
-                      {article.links.map((l) => (
-                        <a
-                          key={l.url}
-                          href={l.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-xs font-black uppercase tracking-widest hover:underline"
-                          style={{ color: "#F06000" }}
-                        >
-                          {l.label}
-                        </a>
-                      ))}
-                    </div>
-                  )}
-
-                  {/* Single link */}
-                  {article.href && !article.links && (
-                    <p className="mt-3 text-xs font-black uppercase tracking-widest" style={{ color: "#F06000" }}>
-                      {t("read_more")} →
+            <FBNewsFeed startNum={1} onPostsLoaded={onPostsLoaded} />
+            {articles.map((article, i) => {
+              const num = String(fbCount + i + 1).padStart(2, "0");
+              const inner = (
+                <div
+                  className="px-6 py-4 grid md:grid-cols-4 gap-4 items-start group"
+                  style={{ borderBottom: i < articles.length - 1 ? "2px solid #f2f2f2" : "none" }}
+                >
+                  <div>
+                    <p className="font-black text-4xl select-none" style={{ color: "#bbb", WebkitTextStroke: "1.5px #999", letterSpacing: "-0.04em", lineHeight: 1 }}>
+                      {num}
                     </p>
-                  )}
-                </div>
-              </div>
-            );
+                  </div>
+                  <div className="md:col-span-3">
+                    <div className="flex items-center gap-3 mb-2">
+                      <span className="text-xs font-black uppercase tracking-widest px-2 py-0.5" style={{ background: "#F06000", color: "#fff" }}>
+                        {t(article.tagKey)}
+                      </span>
+                      <span className="text-xs font-bold uppercase tracking-widest" style={{ color: "#888" }}>
+                        {new Date(article.date).toLocaleDateString("ro-RO", { day: "numeric", month: "long", year: "numeric" })}
+                      </span>
+                    </div>
+                    <h2 className="font-black uppercase text-lg md:text-xl mb-2 transition-colors" style={{ letterSpacing: "-0.02em" }}>
+                      {t(article.titleKey)}
+                    </h2>
+                    <p style={{ color: "#555", lineHeight: 1.6, fontSize: "0.875rem" }}>{t(article.excerptKey)}</p>
 
-            return article.href ? (
-              <a key={article.id} href={article.href} target="_blank" rel="noopener noreferrer" className="block cursor-pointer">
-                {inner}
-              </a>
-            ) : (
-              <div key={article.id}>{inner}</div>
-            );
-          })}
+                    {/* Multiple links */}
+                    {article.links && (
+                      <div className="mt-4 flex flex-row flex-wrap gap-4">
+                        {article.links.map((l) => (
+                          <a
+                            key={l.url}
+                            href={l.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-xs font-black uppercase tracking-widest hover:underline"
+                            style={{ color: "#F06000" }}
+                          >
+                            {l.label}
+                          </a>
+                        ))}
+                      </div>
+                    )}
+
+                    {/* Single link */}
+                    {article.href && !article.links && (
+                      <p className="mt-3 text-xs font-black uppercase tracking-widest" style={{ color: "#F06000" }}>
+                        {t("read_more")} →
+                      </p>
+                    )}
+                  </div>
+                </div>
+              );
+
+              return article.href ? (
+                <a key={article.id} href={article.href} target="_blank" rel="noopener noreferrer" className="block cursor-pointer">
+                  {inner}
+                </a>
+              ) : (
+                <div key={article.id}>{inner}</div>
+              );
+            })}
           </div>
 
           {/* Right image — hidden on mobile */}

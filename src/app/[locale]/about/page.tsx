@@ -185,7 +185,7 @@ function AboutContent() {
       <section style={{ background: "#fff", borderBottom: "2px solid #0a0a0a" }}>
         <div className="grid md:grid-cols-2" style={{ borderBottom: "2px solid #0a0a0a" }}>
           {/* Left: Timeline feed */}
-          <FBTimelineFeed label={t("timeline_label")} />
+          <FBTimelineFeed label={t("timeline_label")} scrollClassName="max-h-[500px] md:max-h-[700px]" />
 
           {/* Right: FAQ */}
           <div className="px-6 py-12">
