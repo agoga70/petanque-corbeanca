@@ -205,25 +205,16 @@ export default function FBEventsFeed({ label, scrollClassName }: { label: string
             }}
           >
             {post.full_picture && (
-              <img
-                src={post.full_picture}
-                alt=""
-                onClick={(e) => {
-                  e.preventDefault();
-                  e.stopPropagation();
-                  setLightboxPost(post);
-                }}
-                style={{
-                  width: "100%",
-                  aspectRatio: "16 / 9",
-                  objectFit: "cover",
-                  objectPosition: "center top",
-                  display: "block",
-                  marginBottom: "0.75rem",
-                  border: "1px solid #e0e0e0",
-                  cursor: "zoom-in",
-                }}
-              />
+              <button
+                onClick={(e) => { e.preventDefault(); e.stopPropagation(); setLightboxPost(post); }}
+                style={{ display: "block", width: "100%", padding: 0, border: "none", background: "none", cursor: "zoom-in", marginBottom: "0.75rem" }}
+              >
+                <img
+                  src={post.full_picture}
+                  alt=""
+                  style={{ width: "100%", aspectRatio: "16 / 9", objectFit: "cover", objectPosition: "center top", display: "block", border: "1px solid #e0e0e0" }}
+                />
+              </button>
             )}
             <div className="flex items-center gap-2 mb-2">
               <span

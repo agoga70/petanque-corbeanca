@@ -190,12 +190,16 @@ export default function FBNewsFeed({
             {/* Pic column — right */}
             <div>
               {post.full_picture && (
-                <img
-                  src={post.full_picture}
-                  alt=""
+                <button
                   onClick={(e) => { e.preventDefault(); e.stopPropagation(); setLightboxPost(post); }}
-                  style={{ width: "100%", aspectRatio: "16 / 9", objectFit: "cover", objectPosition: "center top", border: "1px solid #e0e0e0", display: "block", cursor: "zoom-in" }}
-                />
+                  style={{ display: "block", width: "100%", padding: 0, border: "none", background: "none", cursor: "zoom-in" }}
+                >
+                  <img
+                    src={post.full_picture}
+                    alt=""
+                    style={{ width: "100%", aspectRatio: "16 / 9", objectFit: "cover", objectPosition: "center top", border: "1px solid #e0e0e0", display: "block" }}
+                  />
+                </button>
               )}
             </div>
           </div>
