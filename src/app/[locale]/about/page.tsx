@@ -6,7 +6,7 @@ import PhotoBanner from "@/components/PhotoBanner";
 
 const CYCLING_IMGS = [
   "/imgs/mosia1.jpg","/imgs/mosia2.jpg","/imgs/mosia3.jpg","/imgs/mosia4.jpg",
-  "/imgs/mosia5-jump1.jpg","/imgs/mosia5-jump2.jpg","/imgs/mosia5-jump3.jpg",
+  "/imgs/mosia5-jump1.jpg","/imgs/mosia5-jump3.jpg",
   "/imgs/mosia6b.jpg","/imgs/mosia7.jpg","/imgs/mosia8.jpg","/imgs/mosia9.jpg",
   "/imgs/mosia10.jpg","/imgs/mosia11.jpg","/imgs/mosia12.jpg","/imgs/mosia13.jpg",
   "/imgs/mosia14.jpg","/imgs/mosia15.jpg","/imgs/mosia16.jpg","/imgs/mosia17.jpg",
