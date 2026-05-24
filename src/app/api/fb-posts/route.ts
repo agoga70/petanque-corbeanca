@@ -61,7 +61,7 @@ export async function GET() {
 
   try {
     const fields = "id,message,story,created_time,full_picture,permalink_url,attachments{media,subattachments{media}}";
-    const url = `https://graph.facebook.com/v19.0/${PAGE_ID}/posts?fields=${fields}&limit=25&access_token=${TOKEN}`;
+    const url = `https://graph.facebook.com/v19.0/${PAGE_ID}/posts?fields=${fields}&limit=100&access_token=${TOKEN}`;
     const res = await fetch(url, { next: { revalidate: 600 } });
     const data = await res.json();
 

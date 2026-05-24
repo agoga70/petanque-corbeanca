@@ -419,7 +419,7 @@ function AboutContent() {
 
       {/* Bottom photo banner — mosia6 */}
       <section style={{ overflow: "hidden", width: "100%" }}>
-        <PhotoBanner images={CYCLING_IMGS} height={500} objectPosition="center top" alt="Club Sportiv Pétanque Corbeanca" />
+        <PhotoBanner images={CYCLING_IMGS} height={500} objectPosition="center top" alt="Club Sportiv Pétanque Corbeanca" initialIdx={14} />
       </section>
     </>
   );

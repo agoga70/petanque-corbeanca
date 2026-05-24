@@ -142,7 +142,7 @@ function EventsContent() {
 
       {/* Bottom photo — cycling */}
       <section style={{ borderBottom: "2px solid #0a0a0a" }}>
-        <PhotoBanner images={CYCLING_IMGS} height={500} objectPosition="center top" alt="Dracula Cup Pétanque" />
+        <PhotoBanner images={CYCLING_IMGS} height={500} objectPosition="center top" alt="Dracula Cup Pétanque" initialIdx={14} />
       </section>
 
       {/* Follow us — orange horizontal bar */}

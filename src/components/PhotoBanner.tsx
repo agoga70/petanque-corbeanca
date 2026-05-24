@@ -36,6 +36,7 @@ type Props = {
   objectPosition?: string;
   alt?: string;
   interval?: number;       // fallback timer ms (default 5 min)
+  initialIdx?: number;     // starting index so two banners on the same page show different photos
   style?: React.CSSProperties;
 };
 
@@ -45,9 +46,10 @@ export default function PhotoBanner({
   objectPosition = "center top",
   alt = "",
   interval = 300_000,
+  initialIdx = 0,
   style,
 }: Props) {
-  const [idx, setIdx] = useState(0);
+  const [idx, setIdx] = useState(initialIdx % Math.max(images.length, 1));
   const [visible, setVisible] = useState(true); // false = fading out
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
