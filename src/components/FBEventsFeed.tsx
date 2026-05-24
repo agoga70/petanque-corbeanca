@@ -2,6 +2,7 @@
 
 import { useEffect, useState, useCallback } from "react";
 import type { FBPost } from "@/app/api/fb-posts/route";
+import ShareButton from "@/components/ShareButton";
 
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString("ro-RO", {
@@ -123,7 +124,7 @@ function Lightbox({ post, onClose }: { post: FBPost; onClose: () => void }) {
         )}
 
         {/* Footer */}
-        <div style={{ padding: "0.75rem 1rem", borderTop: "2px solid #f2f2f2" }}>
+        <div style={{ padding: "0.75rem 1rem", borderTop: "2px solid #f2f2f2", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <a
             href={post.permalink_url}
             target="_blank"
@@ -133,6 +134,7 @@ function Lightbox({ post, onClose }: { post: FBPost; onClose: () => void }) {
           >
             View on Facebook ↗
           </a>
+          <ShareButton url={post.permalink_url} />
         </div>
       </div>
     </div>

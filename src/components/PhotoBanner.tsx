@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback, useRef } from "react";
+import ShareButton from "@/components/ShareButton";
 
 function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
   useEffect(() => {
@@ -9,22 +10,31 @@ function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
+  const shareUrl = typeof window !== "undefined" ? window.location.origin + src : src;
+
   return (
     <div
       onClick={onClose}
       style={{ position: "fixed", inset: 0, background: "rgba(0,0,0,0.92)", zIndex: 1000, display: "flex", alignItems: "center", justifyContent: "center", padding: "1.5rem", cursor: "zoom-out" }}
     >
-      <button
-        onClick={onClose}
-        style={{ position: "absolute", top: "1rem", right: "1.25rem", background: "none", border: "none", color: "#fff", fontSize: "1.5rem", fontWeight: 900, cursor: "pointer", lineHeight: 1, zIndex: 1 }}
+      {/* Top bar */}
+      <div
+        onClick={(e) => e.stopPropagation()}
+        style={{ position: "absolute", top: 0, left: 0, right: 0, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0.5rem 1rem", background: "rgba(0,0,0,0.5)" }}
       >
-        ✕
-      </button>
+        <ShareButton url={shareUrl} />
+        <button
+          onClick={onClose}
+          style={{ background: "none", border: "none", color: "#fff", fontSize: "1.5rem", fontWeight: 900, cursor: "pointer", lineHeight: 1 }}
+        >
+          ✕
+        </button>
+      </div>
       <img
         src={src}
         alt=""
         onClick={onClose}
-        style={{ maxWidth: "100%", maxHeight: "90vh", objectFit: "contain", display: "block", cursor: "zoom-out" }}
+        style={{ maxWidth: "100%", maxHeight: "90vh", objectFit: "contain", display: "block", cursor: "zoom-out", marginTop: "2.5rem" }}
       />
     </div>
   );
