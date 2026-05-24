@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 
 function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
   useEffect(() => {
@@ -20,18 +20,19 @@ function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
       >
         ✕
       </button>
+      {/* Clicking the image itself also closes */}
       <img
         src={src}
         alt=""
-        onClick={(e) => e.stopPropagation()}
-        style={{ maxWidth: "100%", maxHeight: "90vh", objectFit: "contain", display: "block", cursor: "default" }}
+        onClick={onClose}
+        style={{ maxWidth: "100%", maxHeight: "90vh", objectFit: "contain", display: "block", cursor: "zoom-out" }}
       />
     </div>
   );
 }
 
 type Props = {
-  images: string[];        // 1 = static (lightbox only); 2+ = cycling + lightbox
+  images: string[];        // 1 = lightbox only; 2+ = cycling + lightbox
   height: string | number;
   objectPosition?: string;
   alt?: string;
@@ -54,37 +55,44 @@ export default function PhotoBanner({
 
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
 
-  // Advance to the next photo with a crossfade
+  // Stable ref so timer/visibility callbacks never go stale
+  const curRef = useRef(cur);
+  curRef.current = cur;
+
   const advance = useCallback(() => {
     if (images.length <= 1) return;
-    setCur((c) => {
-      const next = (c + 1) % images.length;
-      setPrev(c);
-      setTransitioning(true);
-      setTimeout(() => {
-        setPrev(null);
-        setTransitioning(false);
-      }, 1000);
-      return next;
-    });
+    const next = (curRef.current + 1) % images.length;
+    setPrev(curRef.current);
+    setCur(next);
+    setTransitioning(true);
+    setTimeout(() => {
+      setPrev(null);
+      setTransitioning(false);
+    }, 1000);
   }, [images.length]);
 
-  // Fallback timer — fires every `interval` ms
+  // Stable ref to advance so effects set up once don't go stale
+  const advanceRef = useRef(advance);
+  useEffect(() => { advanceRef.current = advance; }, [advance]);
+
+  // Fallback timer — fires every `interval` ms, set up once
   useEffect(() => {
     if (images.length <= 1) return;
-    const t = setInterval(advance, interval);
+    const t = setInterval(() => advanceRef.current(), interval);
     return () => clearInterval(t);
-  }, [advance, images.length, interval]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // intentionally empty — interval is stable, advanceRef handles freshness
 
   // Tab visibility — advance immediately when user returns to this tab
   useEffect(() => {
     if (images.length <= 1) return;
     function onVisibility() {
-      if (document.visibilityState === "visible") advance();
+      if (document.visibilityState === "visible") advanceRef.current();
     }
     document.addEventListener("visibilitychange", onVisibility);
     return () => document.removeEventListener("visibilitychange", onVisibility);
-  }, [advance, images.length]);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []); // intentionally empty — advanceRef handles freshness
 
   const imgStyle: React.CSSProperties = {
     position: "absolute",
@@ -102,10 +110,7 @@ export default function PhotoBanner({
         onClick={() => setLightboxSrc(images[cur])}
         style={{ position: "relative", width: "100%", height, overflow: "hidden", cursor: "zoom-in", ...style }}
       >
-        {/* Current image — always underneath */}
         <img src={images[cur]} alt={alt} style={imgStyle} />
-
-        {/* Previous image — fades out on top */}
         {prev !== null && (
           <img
             src={images[prev]}
@@ -118,7 +123,6 @@ export default function PhotoBanner({
           />
         )}
       </div>
-
       {lightboxSrc && <Lightbox src={lightboxSrc} onClose={closeLightbox} />}
     </>
   );
