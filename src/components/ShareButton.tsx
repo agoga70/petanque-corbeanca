@@ -5,9 +5,10 @@ import { useState } from "react";
 type Props = {
   url: string;
   title?: string;
+  color?: string;
 };
 
-export default function ShareButton({ url, title = "Pétanque Corbeanca" }: Props) {
+export default function ShareButton({ url, title = "Pétanque Corbeanca", color = "#0a0a0a" }: Props) {
   const [copied, setCopied] = useState(false);
 
   async function handleShare() {
@@ -41,7 +42,7 @@ export default function ShareButton({ url, title = "Pétanque Corbeanca" }: Prop
         alignItems: "center",
         gap: "0.35rem",
         padding: "0.25rem 0.5rem",
-        color: copied ? "#22c55e" : "#0a0a0a",
+        color: copied ? "#22c55e" : color,
         transition: "color 200ms",
       }}
     >

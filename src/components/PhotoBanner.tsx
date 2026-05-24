@@ -22,7 +22,7 @@ function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
         onClick={(e) => e.stopPropagation()}
         style={{ position: "absolute", top: 0, left: 0, right: 0, display: "flex", alignItems: "center", justifyContent: "space-between", padding: "0.5rem 1rem", background: "rgba(0,0,0,0.5)" }}
       >
-        <ShareButton url={shareUrl} />
+        <ShareButton url={shareUrl} color="#F06000" />
         <button
           onClick={onClose}
           style={{ background: "none", border: "none", color: "#fff", fontSize: "1.5rem", fontWeight: 900, cursor: "pointer", lineHeight: 1 }}
