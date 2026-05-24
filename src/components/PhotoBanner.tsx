@@ -10,7 +10,7 @@ function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
     return () => document.removeEventListener("keydown", onKey);
   }, [onClose]);
 
-  const shareUrl = typeof window !== "undefined" ? window.location.origin + src : src;
+  const shareUrl = typeof window !== "undefined" ? window.location.href : src;
 
   return (
     <div
