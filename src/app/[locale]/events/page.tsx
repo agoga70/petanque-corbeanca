@@ -80,12 +80,12 @@ function EventsContent() {
         backgroundAttachment: "fixed",
       }}>
         <div style={{ background: "rgba(255,255,255,0.92)", flex: 1, display: "flex", flexDirection: "column" }}>
-          <div className="flex-1 max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-[2fr_1fr_1fr]" style={{ width: "100%" }}>
+          <div className="flex-1 max-w-7xl mx-auto flex flex-col md:grid md:grid-cols-[3fr_1fr_1fr]" style={{ width: "100%" }}>
 
             {/* Col 1 — FB Events feed */}
             <div
-              style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden", maxHeight: "calc(clamp(380px, 65vw, 680px) + 45px)" }}
-              className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a]"
+              style={{ borderBottom: "2px solid #0a0a0a" }}
+              className="md:border-b-0 md:border-r-2 md:border-r-[#0a0a0a] md:overflow-hidden md:max-h-[725px]"
             >
               <FBEventsFeed label={`Facebook — Timeline & ${t("title")}`} />
             </div>

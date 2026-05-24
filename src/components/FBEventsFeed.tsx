@@ -171,7 +171,7 @@ export default function FBEventsFeed({ label }: { label: string }) {
         {label}
       </p>
 
-      <div style={{ overflowY: "auto", flex: 1 }}>
+      <div style={{ overflowY: "auto", flex: 1, WebkitOverflowScrolling: "touch" as never, touchAction: "pan-y" }}>
         {loading && (
           <div className="px-5 py-8 space-y-3">
             {[80, 60, 70].map((w, i) => (
