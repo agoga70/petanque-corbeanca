@@ -3,7 +3,6 @@
 import { useTranslations } from "next-intl";
 import { useState, useCallback } from "react";
 import FBNewsFeed from "@/components/FBNewsFeed";
-import PhotoBanner from "@/components/PhotoBanner";
 
 type ArticleBase = {
   id: number;
@@ -95,8 +94,8 @@ function NewsContent() {
       </section>
 
       {/* Top photo banner */}
-      <section style={{ borderBottom: "2px solid #0a0a0a" }}>
-        <PhotoBanner images={["/mosia9.jpg"]} height={500} objectPosition="center top" alt="Club Sportiv Pétanque Corbeanca" />
+      <section style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden" }}>
+        <img src="/mosia9.jpg" alt="Club Sportiv Pétanque Corbeanca" style={{ width: "100%", height: "500px", objectFit: "cover", objectPosition: "center top", display: "block" }} />
       </section>
 
       <section className="flex-1 flex flex-col" style={{
@@ -185,8 +184,8 @@ function NewsContent() {
       </section>
 
       {/* Bottom photo banner */}
-      <section>
-        <PhotoBanner images={["/mosia5-jump3.jpg"]} height={700} objectPosition="center center" alt="Club Sportiv Pétanque Corbeanca" />
+      <section style={{ overflow: "hidden" }}>
+        <img src="/mosia5-jump3.jpg" alt="Club Sportiv Pétanque Corbeanca" style={{ width: "100%", height: "700px", objectFit: "cover", objectPosition: "center center", display: "block" }} />
       </section>
     </div>
   );

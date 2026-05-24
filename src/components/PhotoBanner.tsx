@@ -31,11 +31,11 @@ function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
 }
 
 type Props = {
-  images: string[];          // 1 image = static; 2+ = cycling
+  images: string[];        // 1 = static (lightbox only); 2+ = cycling + lightbox
   height: string | number;
   objectPosition?: string;
   alt?: string;
-  interval?: number;         // ms between transitions, default 6000
+  interval?: number;       // fallback timer in ms (default 5 min)
   style?: React.CSSProperties;
 };
 
@@ -44,7 +44,7 @@ export default function PhotoBanner({
   height,
   objectPosition = "center top",
   alt = "",
-  interval = 6000,
+  interval = 300_000,    // 5 minutes
   style,
 }: Props) {
   const [cur, setCur] = useState(0);
@@ -54,22 +54,37 @@ export default function PhotoBanner({
 
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
 
+  // Advance to the next photo with a crossfade
+  const advance = useCallback(() => {
+    if (images.length <= 1) return;
+    setCur((c) => {
+      const next = (c + 1) % images.length;
+      setPrev(c);
+      setTransitioning(true);
+      setTimeout(() => {
+        setPrev(null);
+        setTransitioning(false);
+      }, 1000);
+      return next;
+    });
+  }, [images.length]);
+
+  // Fallback timer — fires every `interval` ms
   useEffect(() => {
     if (images.length <= 1) return;
-    const t = setInterval(() => {
-      setCur((c) => {
-        const next = (c + 1) % images.length;
-        setPrev(c);
-        setTransitioning(true);
-        setTimeout(() => {
-          setPrev(null);
-          setTransitioning(false);
-        }, 1000);
-        return next;
-      });
-    }, interval);
+    const t = setInterval(advance, interval);
     return () => clearInterval(t);
-  }, [images.length, interval]);
+  }, [advance, images.length, interval]);
+
+  // Tab visibility — advance immediately when user returns to this tab
+  useEffect(() => {
+    if (images.length <= 1) return;
+    function onVisibility() {
+      if (document.visibilityState === "visible") advance();
+    }
+    document.addEventListener("visibilitychange", onVisibility);
+    return () => document.removeEventListener("visibilitychange", onVisibility);
+  }, [advance, images.length]);
 
   const imgStyle: React.CSSProperties = {
     position: "absolute",

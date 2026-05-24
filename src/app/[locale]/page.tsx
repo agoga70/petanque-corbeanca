@@ -2,7 +2,6 @@ import { useTranslations } from "next-intl";
 import { getLocale } from "next-intl/server";
 import Link from "next/link";
 import ParallaxVideo from "@/components/ParallaxVideo";
-import PhotoBanner from "@/components/PhotoBanner";
 
 export default async function HomePage() {
   const locale = await getLocale();
@@ -111,8 +110,8 @@ function HomeContent({ locale }: { locale: string }) {
       </section>
 
       {/* Club photo strip */}
-      <section style={{ borderBottom: "2px solid #0a0a0a" }}>
-        <PhotoBanner images={["/cspc-group-2024.jpg"]} height={700} objectPosition="center top" alt="Club Sportiv Pétanque Corbeanca" />
+      <section style={{ borderBottom: "2px solid #0a0a0a", overflow: "hidden" }}>
+        <img src="/cspc-group-2024.jpg" alt="Club Sportiv Pétanque Corbeanca" style={{ width: "100%", height: "700px", objectFit: "cover", objectPosition: "center top", display: "block" }} />
       </section>
 
       {/* Parallax video */}
