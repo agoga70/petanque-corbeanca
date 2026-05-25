@@ -1,10 +1,6 @@
 "use client";
 
-import { useState, useEffect, useLayoutEffect, useCallback, useRef } from "react";
-
-// useLayoutEffect fires before the browser paints — safe in "use client" components.
-// Falls back to useEffect on the server so Next.js SSR doesn't warn.
-const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
+import { useState, useEffect, useCallback, useRef } from "react";
 import ShareButton from "@/components/ShareButton";
 
 function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
@@ -67,16 +63,17 @@ export default function PhotoBanner({
   initialIdx = 0,
   style,
 }: Props) {
-  const [mounted, setMounted] = useState(false);
   const [idx, setIdx] = useState(0);
-  const [visible, setVisible] = useState(true);
+  const [visible, setVisible] = useState(false); // invisible until random index is picked
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
+  const mountedAtRef = useRef(0);
 
-  // Set random start index before first paint — img is not in the DOM at all until this runs
-  useIsomorphicLayoutEffect(() => {
+  // Pick random start index then fade in — runs client-side only after hydration
+  useEffect(() => {
+    mountedAtRef.current = Date.now();
     setIdx(Math.floor(Math.random() * Math.max(images.length, 1)));
-    setMounted(true);
+    setVisible(true);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -103,7 +100,9 @@ export default function PhotoBanner({
   useEffect(() => {
     if (images.length <= 1) return;
     function onVisibility() {
-      if (document.visibilityState === "visible") advanceRef.current();
+      if (document.visibilityState === "visible" && Date.now() - mountedAtRef.current > 1000) {
+        advanceRef.current();
+      }
     }
     document.addEventListener("visibilitychange", onVisibility);
     return () => document.removeEventListener("visibilitychange", onVisibility);
@@ -114,23 +113,21 @@ export default function PhotoBanner({
     <>
       <div
         onClick={() => setLightboxSrc(images[idx])}
-        style={{ position: "relative", width: "100%", height, overflow: "hidden", cursor: mounted ? "zoom-in" : "default", ...style }}
+        style={{ position: "relative", width: "100%", height, overflow: "hidden", background: "#0a0a0a", cursor: "zoom-in", ...style }}
       >
-        {mounted && (
-          <img
-            src={images[idx]}
-            alt={alt}
-            style={{
-              width: "100%",
-              height: "100%",
-              objectFit: "cover",
-              objectPosition,
-              display: "block",
-              opacity: visible ? 1 : 0,
-              transition: "opacity 600ms ease",
-            }}
-          />
-        )}
+        <img
+          src={images[idx]}
+          alt={alt}
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            objectPosition,
+            display: "block",
+            opacity: visible ? 1 : 0,
+            transition: "opacity 600ms ease",
+          }}
+        />
       </div>
       {lightboxSrc && <Lightbox src={lightboxSrc} onClose={closeLightbox} />}
     </>
