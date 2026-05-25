@@ -112,7 +112,7 @@ function HomeContent({ locale }: { locale: string }) {
 
       {/* Club photo strip */}
       <section style={{ borderBottom: "2px solid #0a0a0a" }}>
-        <PhotoBanner images={["/cspc-group-2024.jpg"]} height={700} objectPosition="center top" alt="Club Sportiv Pétanque Corbeanca" />
+        <PhotoBanner images={["/cspc-group-2024.jpg"]} height={560} objectPosition="center top" alt="Club Sportiv Pétanque Corbeanca" />
       </section>
 
       {/* Parallax video */}
