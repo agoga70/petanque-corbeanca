@@ -68,6 +68,14 @@ export default function PhotoBanner({
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
 
+  // Randomize starting photo on mount (client-side only, after hydration)
+  useEffect(() => {
+    if (images.length > 1) {
+      setIdx(Math.floor(Math.random() * images.length));
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   // Fade out → swap → fade in
   const advanceRef = useRef<() => void>(() => {});
   advanceRef.current = () => {
