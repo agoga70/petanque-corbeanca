@@ -77,18 +77,23 @@ export default function PhotoBanner({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+  // Pending fade-advance timeout — tracked so it can be cancelled
+  const pendingFadeRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   // Fade out → swap → fade in (used by the interval timer)
   const advanceRef = useRef<() => void>(() => {});
   advanceRef.current = () => {
     if (images.length <= 1) return;
+    if (pendingFadeRef.current !== null) clearTimeout(pendingFadeRef.current);
     setVisible(false);
-    setTimeout(() => {
+    pendingFadeRef.current = setTimeout(() => {
+      pendingFadeRef.current = null;
       setIdx((i) => (i + 1) % images.length);
       setVisible(true);
     }, 600);
   };
 
-  // Stable ref to the interval handle so we can restart it from the visibility handler
+  // Stable ref to the interval handle so it can be restarted from the visibility handler
   const intervalHandleRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const restartIntervalRef = useRef<() => void>(() => {});
   restartIntervalRef.current = () => {
@@ -102,18 +107,23 @@ export default function PhotoBanner({
     restartIntervalRef.current();
     return () => {
       if (intervalHandleRef.current !== null) clearInterval(intervalHandleRef.current);
+      if (pendingFadeRef.current !== null) clearTimeout(pendingFadeRef.current);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Tab return — swap instantly and reset the interval so it doesn't also fire
+  // Tab return — cancel any in-flight fade, swap instantly, restart interval
   useEffect(() => {
     if (images.length <= 1) return;
     function onVisibility() {
       if (document.visibilityState === "visible" && Date.now() - mountedAtRef.current > 1000) {
-        // Advance the photo without a fade
+        // If a fade-out is in progress, cancel it and restore visibility first
+        if (pendingFadeRef.current !== null) {
+          clearTimeout(pendingFadeRef.current);
+          pendingFadeRef.current = null;
+          setVisible(true);
+        }
         setIdx((i) => (i + 1) % images.length);
-        // Restart the interval so the held-back timer doesn't fire immediately after
         restartIntervalRef.current();
       }
     }
