@@ -1,6 +1,10 @@
 "use client";
 
-import { useState, useEffect, useCallback, useRef } from "react";
+import { useState, useEffect, useLayoutEffect, useCallback, useRef } from "react";
+
+// useLayoutEffect fires before the browser paints — safe in "use client" components.
+// Falls back to useEffect on the server so Next.js SSR doesn't warn.
+const useIsomorphicLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
 import ShareButton from "@/components/ShareButton";
 
 function Lightbox({ src, onClose }: { src: string; onClose: () => void }) {
@@ -68,8 +72,8 @@ export default function PhotoBanner({
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
 
-  // Pick a random starting photo on mount, then fade in — avoids flash of index 0
-  useEffect(() => {
+  // Pick a random starting photo before the first paint — avoids any flash of index 0
+  useIsomorphicLayoutEffect(() => {
     if (images.length > 1) {
       setIdx(Math.floor(Math.random() * images.length));
     }
