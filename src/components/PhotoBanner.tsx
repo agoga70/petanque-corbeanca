@@ -64,7 +64,7 @@ export default function PhotoBanner({
   style,
 }: Props) {
   // Each banner instance gets a stable storage key based on its position in the images list
-  const storageKey = `cspc-banner-${images[0] ?? "x"}`;
+  const storageKey = `cspc-banner-${images[0] ?? "x"}-${initialIdx}`;
 
   const [idx, setIdx] = useState<number | null>(null);
   const [ready, setReady] = useState(false);
