@@ -63,19 +63,18 @@ export default function PhotoBanner({
   initialIdx = 0,
   style,
 }: Props) {
-  const [idx, setIdx] = useState(0);
-  const [initialized, setInitialized] = useState(false); // false = invisible until first random idx is set
+  const [idx, setIdx] = useState<number | null>(null); // null = not yet initialised, prevents idx-0 flash
+  const [initialized, setInitialized] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
   const mountedAtRef = useRef(0);
-  const idxRef = useRef(0);
-  idxRef.current = idx;
 
-  // Pick random start index then fade in — runs client-side only after hydration
+  // Pick random start index, render one frame at opacity-0, then fade in
   useEffect(() => {
     mountedAtRef.current = Date.now();
     setIdx(Math.floor(Math.random() * Math.max(images.length, 1)));
-    setInitialized(true);
+    // One rAF so the img renders at opacity:0 before we start the transition
+    requestAnimationFrame(() => setInitialized(true));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -83,7 +82,7 @@ export default function PhotoBanner({
   const advanceRef = useRef<() => void>(() => {});
   advanceRef.current = () => {
     if (images.length <= 1) return;
-    setIdx((i) => (i + 1) % images.length);
+    setIdx((i) => ((i ?? 0) + 1) % images.length);
   };
 
   // Interval timer
@@ -108,7 +107,7 @@ export default function PhotoBanner({
     if (images.length <= 1) return;
     function onVisibility() {
       if (document.visibilityState === "visible" && Date.now() - mountedAtRef.current > 1000) {
-        setIdx((i) => (i + 1) % images.length);
+        setIdx((i) => ((i ?? 0) + 1) % images.length);
         restartIntervalRef.current();
       }
     }
@@ -120,10 +119,10 @@ export default function PhotoBanner({
   return (
     <>
       <div
-        onClick={() => setLightboxSrc(images[idx])}
+        onClick={() => idx !== null && setLightboxSrc(images[idx])}
         style={{ position: "relative", width: "100%", height, overflow: "hidden", background: "#0a0a0a", cursor: "zoom-in", ...style }}
       >
-        <img
+        {idx !== null && <img
           src={images[idx]}
           alt={alt}
           style={{
@@ -135,7 +134,7 @@ export default function PhotoBanner({
             opacity: initialized ? 1 : 0,
             transition: "opacity 600ms ease",
           }}
-        />
+        />}
       </div>
       {lightboxSrc && <Lightbox src={lightboxSrc} onClose={closeLightbox} />}
     </>
