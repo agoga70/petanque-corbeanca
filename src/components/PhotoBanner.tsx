@@ -77,7 +77,7 @@ export default function PhotoBanner({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Fade out → swap → fade in
+  // Fade out → swap → fade in (used by the interval timer)
   const advanceRef = useRef<() => void>(() => {});
   advanceRef.current = () => {
     if (images.length <= 1) return;
@@ -88,6 +88,13 @@ export default function PhotoBanner({
     }, 600);
   };
 
+  // Instant swap with no fade (used on tab return to avoid blank flash)
+  const advanceInstantRef = useRef<() => void>(() => {});
+  advanceInstantRef.current = () => {
+    if (images.length <= 1) return;
+    setIdx((i) => (i + 1) % images.length);
+  };
+
   // Fallback timer — set up once
   useEffect(() => {
     if (images.length <= 1) return;
@@ -96,12 +103,12 @@ export default function PhotoBanner({
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Tab return — advance immediately on visibility restored
+  // Tab return — swap instantly on visibility restored
   useEffect(() => {
     if (images.length <= 1) return;
     function onVisibility() {
       if (document.visibilityState === "visible" && Date.now() - mountedAtRef.current > 1000) {
-        advanceRef.current();
+        advanceInstantRef.current();
       }
     }
     document.addEventListener("visibilitychange", onVisibility);
