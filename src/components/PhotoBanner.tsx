@@ -64,15 +64,16 @@ export default function PhotoBanner({
   style,
 }: Props) {
   const [idx, setIdx] = useState(initialIdx % Math.max(images.length, 1));
-  const [visible, setVisible] = useState(true); // false = fading out
+  const [visible, setVisible] = useState(false); // starts hidden; fades in after random index is set on mount
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
 
-  // Randomize starting photo on mount (client-side only, after hydration)
+  // Pick a random starting photo on mount, then fade in — avoids flash of index 0
   useEffect(() => {
     if (images.length > 1) {
       setIdx(Math.floor(Math.random() * images.length));
     }
+    setVisible(true);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
