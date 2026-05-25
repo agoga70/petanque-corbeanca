@@ -88,27 +88,33 @@ export default function PhotoBanner({
     }, 600);
   };
 
-  // Instant swap with no fade (used on tab return to avoid blank flash)
-  const advanceInstantRef = useRef<() => void>(() => {});
-  advanceInstantRef.current = () => {
-    if (images.length <= 1) return;
-    setIdx((i) => (i + 1) % images.length);
+  // Stable ref to the interval handle so we can restart it from the visibility handler
+  const intervalHandleRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const restartIntervalRef = useRef<() => void>(() => {});
+  restartIntervalRef.current = () => {
+    if (intervalHandleRef.current !== null) clearInterval(intervalHandleRef.current);
+    intervalHandleRef.current = setInterval(() => advanceRef.current(), interval);
   };
 
-  // Fallback timer — set up once
+  // Fallback timer — set up once, handle stored in ref
   useEffect(() => {
     if (images.length <= 1) return;
-    const t = setInterval(() => advanceRef.current(), interval);
-    return () => clearInterval(t);
+    restartIntervalRef.current();
+    return () => {
+      if (intervalHandleRef.current !== null) clearInterval(intervalHandleRef.current);
+    };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Tab return — swap instantly on visibility restored
+  // Tab return — swap instantly and reset the interval so it doesn't also fire
   useEffect(() => {
     if (images.length <= 1) return;
     function onVisibility() {
       if (document.visibilityState === "visible" && Date.now() - mountedAtRef.current > 1000) {
-        advanceInstantRef.current();
+        // Advance the photo without a fade
+        setIdx((i) => (i + 1) % images.length);
+        // Restart the interval so the held-back timer doesn't fire immediately after
+        restartIntervalRef.current();
       }
     }
     document.addEventListener("visibilitychange", onVisibility);
