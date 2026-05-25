@@ -64,36 +64,29 @@ export default function PhotoBanner({
   style,
 }: Props) {
   const [idx, setIdx] = useState(0);
-  const [visible, setVisible] = useState(false); // invisible until random index is picked
+  const [initialized, setInitialized] = useState(false); // false = invisible until first random idx is set
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
   const mountedAtRef = useRef(0);
+  const idxRef = useRef(0);
+  idxRef.current = idx;
 
   // Pick random start index then fade in — runs client-side only after hydration
   useEffect(() => {
     mountedAtRef.current = Date.now();
     setIdx(Math.floor(Math.random() * Math.max(images.length, 1)));
-    setVisible(true);
+    setInitialized(true);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Pending fade-advance timeout — tracked so it can be cancelled
-  const pendingFadeRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-
-  // Fade out → swap → fade in (used by the interval timer)
+  // Plain idx increment — no opacity toggle, no setTimeout, no race conditions
   const advanceRef = useRef<() => void>(() => {});
   advanceRef.current = () => {
     if (images.length <= 1) return;
-    if (pendingFadeRef.current !== null) clearTimeout(pendingFadeRef.current);
-    setVisible(false);
-    pendingFadeRef.current = setTimeout(() => {
-      pendingFadeRef.current = null;
-      setIdx((i) => (i + 1) % images.length);
-      setVisible(true);
-    }, 600);
+    setIdx((i) => (i + 1) % images.length);
   };
 
-  // Stable ref to the interval handle so it can be restarted from the visibility handler
+  // Interval timer
   const intervalHandleRef = useRef<ReturnType<typeof setInterval> | null>(null);
   const restartIntervalRef = useRef<() => void>(() => {});
   restartIntervalRef.current = () => {
@@ -101,28 +94,20 @@ export default function PhotoBanner({
     intervalHandleRef.current = setInterval(() => advanceRef.current(), interval);
   };
 
-  // Fallback timer — set up once, handle stored in ref
   useEffect(() => {
     if (images.length <= 1) return;
     restartIntervalRef.current();
     return () => {
       if (intervalHandleRef.current !== null) clearInterval(intervalHandleRef.current);
-      if (pendingFadeRef.current !== null) clearTimeout(pendingFadeRef.current);
     };
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Tab return — cancel any in-flight fade, swap instantly, restart interval
+  // Tab return — advance and restart interval so held-back ticks are discarded
   useEffect(() => {
     if (images.length <= 1) return;
     function onVisibility() {
       if (document.visibilityState === "visible" && Date.now() - mountedAtRef.current > 1000) {
-        // If a fade-out is in progress, cancel it and restore visibility first
-        if (pendingFadeRef.current !== null) {
-          clearTimeout(pendingFadeRef.current);
-          pendingFadeRef.current = null;
-          setVisible(true);
-        }
         setIdx((i) => (i + 1) % images.length);
         restartIntervalRef.current();
       }
@@ -147,7 +132,7 @@ export default function PhotoBanner({
             objectFit: "cover",
             objectPosition,
             display: "block",
-            opacity: visible ? 1 : 0,
+            opacity: initialized ? 1 : 0,
             transition: "opacity 600ms ease",
           }}
         />
