@@ -67,6 +67,7 @@ export default function PhotoBanner({
   const storageKey = `cspc-banner-${images[0] ?? "x"}`;
 
   const [idx, setIdx] = useState<number | null>(null);
+  const [ready, setReady] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
   const mountedAtRef = useRef(0);
@@ -89,6 +90,7 @@ export default function PhotoBanner({
       start = Math.floor(Math.random() * Math.max(images.length, 1));
     }
     setIdx(start);
+    requestAnimationFrame(() => setReady(true));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -153,6 +155,8 @@ export default function PhotoBanner({
             objectFit: "cover",
             objectPosition,
             display: "block",
+            opacity: ready ? 1 : 0,
+            transition: "opacity 200ms ease",
           }}
         />}
       </div>
