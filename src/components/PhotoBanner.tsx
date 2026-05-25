@@ -67,17 +67,16 @@ export default function PhotoBanner({
   initialIdx = 0,
   style,
 }: Props) {
-  const [idx, setIdx] = useState(initialIdx % Math.max(images.length, 1));
-  const [visible, setVisible] = useState(false); // starts hidden; fades in after random index is set on mount
+  const [mounted, setMounted] = useState(false);
+  const [idx, setIdx] = useState(0);
+  const [visible, setVisible] = useState(true);
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
 
-  // Pick a random starting photo before the first paint — avoids any flash of index 0
+  // Set random start index before first paint — img is not in the DOM at all until this runs
   useIsomorphicLayoutEffect(() => {
-    if (images.length > 1) {
-      setIdx(Math.floor(Math.random() * images.length));
-    }
-    setVisible(true);
+    setIdx(Math.floor(Math.random() * Math.max(images.length, 1)));
+    setMounted(true);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -115,21 +114,23 @@ export default function PhotoBanner({
     <>
       <div
         onClick={() => setLightboxSrc(images[idx])}
-        style={{ position: "relative", width: "100%", height, overflow: "hidden", cursor: "zoom-in", ...style }}
+        style={{ position: "relative", width: "100%", height, overflow: "hidden", cursor: mounted ? "zoom-in" : "default", ...style }}
       >
-        <img
-          src={images[idx]}
-          alt={alt}
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            objectPosition,
-            display: "block",
-            opacity: visible ? 1 : 0,
-            transition: "opacity 600ms ease",
-          }}
-        />
+        {mounted && (
+          <img
+            src={images[idx]}
+            alt={alt}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+              objectPosition,
+              display: "block",
+              opacity: visible ? 1 : 0,
+              transition: "opacity 600ms ease",
+            }}
+          />
+        )}
       </div>
       {lightboxSrc && <Lightbox src={lightboxSrc} onClose={closeLightbox} />}
     </>
