@@ -63,26 +63,46 @@ export default function PhotoBanner({
   initialIdx = 0,
   style,
 }: Props) {
-  const [idx, setIdx] = useState<number | null>(null); // null = not yet initialised, prevents idx-0 flash
+  // Each banner instance gets a stable storage key based on its position in the images list
+  const storageKey = `cspc-banner-${images[0] ?? "x"}`;
+
+  const [idx, setIdx] = useState<number | null>(null);
   const [initialized, setInitialized] = useState(false);
   const [lightboxSrc, setLightboxSrc] = useState<string | null>(null);
   const closeLightbox = useCallback(() => setLightboxSrc(null), []);
   const mountedAtRef = useRef(0);
 
-  // Pick random start index, render one frame at opacity-0, then fade in
+  // Persist current idx so remounts/refreshes/tab-returns resume from the right image
+  const saveIdx = useCallback((i: number) => {
+    try { localStorage.setItem(storageKey, String(i)); } catch { /* private browsing */ }
+  }, [storageKey]);
+
+  // On mount: resume from stored idx, or pick a random start
   useEffect(() => {
     mountedAtRef.current = Date.now();
-    setIdx(Math.floor(Math.random() * Math.max(images.length, 1)));
-    // One rAF so the img renders at opacity:0 before we start the transition
+    let start: number;
+    try {
+      const stored = localStorage.getItem(storageKey);
+      start = stored !== null
+        ? parseInt(stored, 10) % Math.max(images.length, 1)
+        : Math.floor(Math.random() * Math.max(images.length, 1));
+    } catch {
+      start = Math.floor(Math.random() * Math.max(images.length, 1));
+    }
+    setIdx(start);
     requestAnimationFrame(() => setInitialized(true));
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  // Plain idx increment — no opacity toggle, no setTimeout, no race conditions
+  // Advance to next image and persist
   const advanceRef = useRef<() => void>(() => {});
   advanceRef.current = () => {
     if (images.length <= 1) return;
-    setIdx((i) => ((i ?? 0) + 1) % images.length);
+    setIdx((i) => {
+      const next = ((i ?? 0) + 1) % images.length;
+      saveIdx(next);
+      return next;
+    });
   };
 
   // Interval timer
@@ -107,7 +127,11 @@ export default function PhotoBanner({
     if (images.length <= 1) return;
     function onVisibility() {
       if (document.visibilityState === "visible" && Date.now() - mountedAtRef.current > 1000) {
-        setIdx((i) => ((i ?? 0) + 1) % images.length);
+        setIdx((i) => {
+          const next = ((i ?? 0) + 1) % images.length;
+          saveIdx(next);
+          return next;
+        });
         restartIntervalRef.current();
       }
     }
